@@ -68,6 +68,9 @@ struct offsets offsets[] = {
 	// Xperia XZ Premium SO-04J (Docomo Japan)
 	{ "SO-04J_47.1.F.1.105",
 	  (void *)0xffffff800a904460, (void *)0xffffff800a904270, (void *)0xffffff800a900db4, (void *)0xffffff800a614490, (void *)0xffffff800a61deb0 },
+        // Xperia XZ1 701SO  （Softbank Ja）
+	{ "701SO_47.1.D.11.103",  
+	  (void *)0xffffff800a904460, (void *)0xffffff800a904270, (void *)0xffffff800a900db4, (void *)0xffffff800a614490, (void *)0xffffff800a61deb0 },
 };
 
 static int get_targetid(char *id, int idsize)
