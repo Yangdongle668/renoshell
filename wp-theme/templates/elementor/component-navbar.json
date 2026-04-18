@@ -1,0 +1,163 @@
+{
+  "version": "0.4",
+  "title": "RB / Navbar (Sticky Transparent)",
+  "type": "header",
+  "content": [
+    {
+      "id": "nav001",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "gap": "no",
+        "content_position": "middle",
+        "css_classes": "rb-navbar rb-navbar--transparent",
+        "background_background": "classic",
+        "background_color": "rgba(10,10,10,0)",
+        "background_hover_color": "rgba(10,10,10,0.92)",
+        "backdrop_filter": "saturate(180%) blur(14px)",
+        "padding": {
+          "unit": "px",
+          "top": "18", "right": "40", "bottom": "18", "left": "40",
+          "mobile": { "top": "14", "right": "20", "bottom": "14", "left": "20" }
+        },
+        "position": "fixed",
+        "_position_top": { "unit": "px", "size": 0 },
+        "z_index": 900,
+        "css_rules": ".rb-navbar{transition:all 240ms cubic-bezier(0.25,1,0.35,1)} .rb-navbar.is-scrolled{background:rgba(10,10,10,0.92);backdrop-filter:saturate(180%) blur(14px)}"
+      },
+      "elements": [
+        {
+          "id": "navcol-logo",
+          "elType": "column",
+          "settings": {
+            "_column_size": 20,
+            "_column_size_mobile": 50,
+            "content_position": "center",
+            "align": "flex-start"
+          },
+          "elements": [
+            {
+              "id": "navlogo01",
+              "elType": "widget",
+              "widgetType": "theme-site-logo",
+              "settings": {
+                "align": "left",
+                "width": { "unit": "px", "size": 140 },
+                "css_classes": "rb-navbar__logo",
+                "link_to": "home"
+              }
+            }
+          ]
+        },
+        {
+          "id": "navcol-menu",
+          "elType": "column",
+          "settings": {
+            "_column_size": 60,
+            "hide_mobile": "yes",
+            "hide_tablet": "yes",
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "navmenu01",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "menu": "primary",
+                "layout": "horizontal",
+                "submenu_indicator": "classic",
+                "align": "center",
+                "pointer": "underline",
+                "pointer_color_hover": "#E31937",
+                "pointer_color_active": "#FFFFFF",
+                "color_menu_item": "#FFFFFF",
+                "color_menu_item_hover": "#FFFFFF",
+                "color_menu_item_active": "#FFFFFF",
+                "typography_font_size": { "unit": "rem", "size": 0.9375 },
+                "typography_font_weight": "500",
+                "typography_letter_spacing": { "unit": "em", "size": 0.02 },
+                "menu_space_between": { "unit": "px", "size": 32 },
+                "css_classes": "rb-navbar__menu",
+                "animation_line_width": { "unit": "%", "size": 100 },
+                "dropdown_open_on": "mouseenter"
+              }
+            }
+          ]
+        },
+        {
+          "id": "navcol-actions",
+          "elType": "column",
+          "settings": {
+            "_column_size": 20,
+            "_column_size_mobile": 50,
+            "content_position": "center",
+            "align": "flex-end"
+          },
+          "elements": [
+            {
+              "id": "navlang01",
+              "elType": "widget",
+              "widgetType": "shortcode",
+              "settings": {
+                "shortcode": "[polylang-switcher type='links' display_names='yes' hide_current='no']",
+                "css_classes": "rb-navbar__lang",
+                "hide_mobile": "yes"
+              }
+            },
+            {
+              "id": "navcta01",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Get Quote",
+                "link": { "url": "/contact/" },
+                "align": "right",
+                "size": "sm",
+                "css_classes": "rb-btn rb-btn--solid rb-btn--pill rb-navbar__cta",
+                "button_text_color": "#0A0A0A",
+                "background_color": "#FFFFFF",
+                "hover_background_color": "#E31937",
+                "hover_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": 999, "right": 999, "bottom": 999, "left": 999 },
+                "text_padding": { "unit": "px", "top": 10, "right": 20, "bottom": 10, "left": 20 },
+                "typography_font_size": { "unit": "rem", "size": 0.8125 },
+                "typography_font_weight": "600",
+                "typography_letter_spacing": { "unit": "em", "size": 0.04 }
+              }
+            },
+            {
+              "id": "navtoggle01",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "menu": "primary",
+                "layout": "dropdown",
+                "hide_desktop": "yes",
+                "toggle": "burger",
+                "toggle_align": "right",
+                "toggle_size": { "unit": "px", "size": 24 },
+                "toggle_color": "#FFFFFF",
+                "full_width_dropdown": "yes",
+                "dropdown_typography_font_size": { "unit": "rem", "size": 1.25 },
+                "dropdown_color": "#FFFFFF",
+                "dropdown_background_color": "#0A0A0A"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "behavior_notes": {
+    "js_hook": "assets/js/navbar.js",
+    "scroll_threshold_px": 40,
+    "add_class_on_scroll": "is-scrolled",
+    "hide_on_scroll_down": true,
+    "show_on_scroll_up": true,
+    "mobile_menu_breakpoint_px": 1024
+  }
+}
