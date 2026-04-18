@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "renobattery",
+    "theme_slug": "renobattery",
+    "text_domain": "renobattery",
+    "type": "wordpress-theme",
+    "builder": "elementor",
+    "php_min": "8.1",
+    "wp_min": "6.4",
+    "elementor_min": "3.21"
+  },
+
+  "wordpress_structure": {
+    "theme_type": "hybrid (classic + block-template-parts for admin, Elementor for front)",
+    "parent_theme": "hello-elementor",
+    "required_plugins": [
+      "elementor",
+      "elementor-pro",
+      "advanced-custom-fields-pro",
+      "polylang",
+      "rank-math",
+      "wp-rocket"
+    ],
+    "directory_layout": {
+      "/renobattery/": [
+        "style.css",
+        "functions.php",
+        "screenshot.png",
+        "inc/cpt.php",
+        "inc/taxonomies.php",
+        "inc/acf-fields.php",
+        "inc/elementor-widgets.php",
+        "inc/enqueue.php",
+        "inc/polylang.php",
+        "inc/performance.php",
+        "widgets/hero-fullscreen.php",
+        "widgets/product-card.php",
+        "widgets/case-card.php",
+        "widgets/cta-block.php",
+        "widgets/spec-table.php",
+        "assets/css/tokens.css",
+        "assets/css/base.css",
+        "assets/css/components.css",
+        "assets/js/motion.js",
+        "assets/js/navbar.js",
+        "templates/elementor/*.json",
+        "languages/renobattery.pot",
+        "languages/zh_CN.po"
+      ]
+    }
+  },
+
+  "custom_post_types": [
+    {
+      "slug": "product",
+      "labels": { "en": "Products", "zh": "产品" },
+      "rewrite": "products",
+      "supports": ["title", "editor", "thumbnail", "excerpt", "elementor"],
+      "taxonomies": ["product_cat", "application_cat"],
+      "menu_icon": "dashicons-battery",
+      "has_archive": true,
+      "show_in_rest": true
+    },
+    {
+      "slug": "case_study",
+      "labels": { "en": "Case Studies", "zh": "案例" },
+      "rewrite": "cases",
+      "supports": ["title", "editor", "thumbnail", "excerpt", "elementor"],
+      "taxonomies": ["application_cat"],
+      "has_archive": true,
+      "show_in_rest": true
+    },
+    {
+      "slug": "application",
+      "labels": { "en": "Applications", "zh": "应用" },
+      "rewrite": "applications",
+      "supports": ["title", "editor", "thumbnail", "excerpt", "elementor"],
+      "taxonomies": ["application_cat"],
+      "has_archive": true,
+      "show_in_rest": true
+    }
+  ],
+
+  "taxonomies": [
+    {
+      "slug": "product_cat",
+      "object_type": ["product"],
+      "labels": { "en": "Product Categories", "zh": "产品分类" },
+      "hierarchical": true,
+      "rewrite": "product-category",
+      "terms_seed": [
+        "lithium-ion", "lifepo4", "lead-acid", "solid-state",
+        "energy-storage", "ev-battery", "portable-power"
+      ]
+    },
+    {
+      "slug": "application_cat",
+      "object_type": ["product", "case_study", "application"],
+      "labels": { "en": "Application Categories", "zh": "应用领域" },
+      "hierarchical": true,
+      "rewrite": "application-category",
+      "terms_seed": [
+        "residential-ess", "commercial-ess", "utility-scale",
+        "ev", "marine", "telecom", "industrial", "data-center"
+      ]
+    },
+    {
+      "slug": "category",
+      "object_type": ["post"],
+      "labels": { "en": "Blog Categories", "zh": "博客分类" },
+      "hierarchical": true,
+      "terms_seed": ["news", "technology", "industry", "company"]
+    }
+  ],
+
+  "acf_field_groups": [
+    {
+      "key": "group_product_specs",
+      "title": "Product Specs",
+      "location": [{ "param": "post_type", "operator": "==", "value": "product" }],
+      "fields": [
+        { "key": "model_code",       "type": "text",        "label": "Model Code",       "required": true },
+        { "key": "battery_capacity", "type": "number",      "label": "Capacity (Ah)",    "append": "Ah" },
+        { "key": "nominal_voltage",  "type": "number",      "label": "Voltage (V)",      "append": "V" },
+        { "key": "energy_kwh",       "type": "number",      "label": "Energy (kWh)",     "append": "kWh" },
+        { "key": "cycle_life",       "type": "number",      "label": "Cycle Life",       "append": "cycles" },
+        { "key": "chemistry",        "type": "select",      "label": "Chemistry",
+          "choices": { "lfp": "LiFePO4", "nmc": "NMC", "nca": "NCA", "lto": "LTO", "pb": "Lead-Acid" } },
+        { "key": "dimensions",       "type": "group",       "label": "Dimensions (mm)",
+          "sub_fields": [
+            { "key": "length", "type": "number" },
+            { "key": "width",  "type": "number" },
+            { "key": "height", "type": "number" }
+          ]
+        },
+        { "key": "weight_kg",        "type": "number",      "label": "Weight (kg)" },
+        { "key": "ip_rating",        "type": "text",        "label": "IP Rating" },
+        { "key": "operating_temp",   "type": "text",        "label": "Operating Temp" },
+        { "key": "certifications",   "type": "repeater",    "label": "Certifications",
+          "sub_fields": [
+            { "key": "cert_name", "type": "text" },
+            { "key": "cert_logo", "type": "image" }
+          ]
+        },
+        { "key": "datasheet_pdf",    "type": "file",        "label": "Datasheet PDF" },
+        { "key": "manual_pdf",       "type": "file",        "label": "User Manual" },
+        { "key": "gallery",          "type": "gallery",     "label": "Product Gallery" },
+        { "key": "hero_video_mp4",   "type": "file",        "label": "Hero Video (MP4)" },
+        { "key": "spec_table",       "type": "repeater",    "label": "Spec Table Rows",
+          "sub_fields": [
+            { "key": "spec_label", "type": "text" },
+            { "key": "spec_value", "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "group_case_study",
+      "title": "Case Study",
+      "location": [{ "param": "post_type", "operator": "==", "value": "case_study" }],
+      "fields": [
+        { "key": "client_name",     "type": "text" },
+        { "key": "location",        "type": "text" },
+        { "key": "installed_kwh",   "type": "number", "append": "kWh" },
+        { "key": "products_used",   "type": "relationship", "post_type": ["product"], "multiple": true },
+        { "key": "results_kpi",     "type": "repeater",
+          "sub_fields": [
+            { "key": "kpi_label", "type": "text" },
+            { "key": "kpi_value", "type": "text" }
+          ]
+        },
+        { "key": "hero_image",      "type": "image" },
+        { "key": "gallery",         "type": "gallery" }
+      ]
+    },
+    {
+      "key": "group_application",
+      "title": "Application",
+      "location": [{ "param": "post_type", "operator": "==", "value": "application" }],
+      "fields": [
+        { "key": "icon_svg",       "type": "image" },
+        { "key": "hero_bg",        "type": "image" },
+        { "key": "benefits",       "type": "repeater",
+          "sub_fields": [
+            { "key": "title",   "type": "text" },
+            { "key": "summary", "type": "textarea" }
+          ]
+        },
+        { "key": "recommended_products", "type": "relationship", "post_type": ["product"] }
+      ]
+    },
+    {
+      "key": "group_global_options",
+      "title": "Global Site Options",
+      "location": [{ "param": "options_page", "operator": "==", "value": "renobattery-options" }],
+      "fields": [
+        { "key": "company_phone",   "type": "text" },
+        { "key": "company_email",   "type": "email" },
+        { "key": "company_address", "type": "textarea" },
+        { "key": "social_links",    "type": "repeater",
+          "sub_fields": [
+            { "key": "platform", "type": "text" },
+            { "key": "url",      "type": "url" }
+          ]
+        },
+        { "key": "footer_cta_title", "type": "text" },
+        { "key": "footer_cta_text",  "type": "textarea" }
+      ]
+    }
+  ],
+
+  "url_structure": {
+    "home":                "/",
+    "products_archive":    "/products/",
+    "product_category":    "/product-category/{slug}/",
+    "product_single":      "/products/{slug}/",
+    "applications_archive":"/applications/",
+    "application_single":  "/applications/{slug}/",
+    "cases_archive":       "/cases/",
+    "case_single":         "/cases/{slug}/",
+    "blog_archive":        "/blog/",
+    "blog_category":       "/category/{slug}/",
+    "blog_single":         "/blog/{slug}/",
+    "about":               "/about/",
+    "contact":             "/contact/",
+    "careers":             "/careers/",
+    "privacy":             "/privacy-policy/",
+    "cookies":             "/cookie-policy/",
+    "i18n_zh_prefix":      "/zh/"
+  },
+
+  "menu_locations": [
+    { "slug": "primary",       "label": "Primary Nav" },
+    { "slug": "footer_col_1",  "label": "Footer - Products" },
+    { "slug": "footer_col_2",  "label": "Footer - Company" },
+    { "slug": "footer_col_3",  "label": "Footer - Resources" },
+    { "slug": "footer_legal",  "label": "Footer - Legal" }
+  ],
+
+  "elementor_integration": {
+    "theme_locations": ["header", "footer", "single-product", "archive-product", "single-case_study", "archive-case_study", "single-application", "archive-application", "single-post", "archive-post", "404"],
+    "custom_widgets_category": "renobattery",
+    "global_styles_source": "assets/css/tokens.css"
+  }
+}
