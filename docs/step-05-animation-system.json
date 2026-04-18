@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "name": "renobattery-motion",
+    "philosophy": "Restrained, cinematic, purposeful. Motion reveals content — never decorates it. All animations respect prefers-reduced-motion.",
+    "delivery": [
+      "Elementor Motion Effects (preferred, no JS cost)",
+      "Elementor Entrance Animations (built-in AOS-like)",
+      "Custom CSS keyframes (tokens-based, minimal)",
+      "Intersection Observer JS only when Elementor cannot deliver"
+    ]
+  },
+
+  "global_rules": {
+    "respect_reduced_motion": true,
+    "reduced_motion_css": "@media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation-duration:0ms!important;transition-duration:0ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important} }",
+    "gpu_acceleration": "Use only transform + opacity. Never animate top/left/width/height/box-shadow.",
+    "will_change_usage": "Only during active animation; remove after to free memory.",
+    "max_concurrent_animations_per_section": 4,
+    "default_stagger_ms": 120
+  },
+
+  "easing_presets": {
+    "tesla":    "cubic-bezier(0.25, 1, 0.35, 1)",
+    "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "enter":    "cubic-bezier(0.0, 0, 0.2, 1)",
+    "exit":     "cubic-bezier(0.4, 0, 1, 1)",
+    "spring":   "cubic-bezier(0.16, 1, 0.3, 1)"
+  },
+
+  "duration_presets_ms": {
+    "instant": 0,
+    "fast":    160,
+    "base":    240,
+    "slow":    420,
+    "slower":  720,
+    "cinema":  1200
+  },
+
+  "entrance_animations": {
+    "fadeInUp": {
+      "elementor_animation": "fadeInUp",
+      "duration_ms": 720,
+      "easing": "tesla",
+      "offset_px": 32,
+      "opacity_from": 0,
+      "use_cases": ["hero title", "headings", "body paragraphs", "card content"],
+      "elementor_settings": {
+        "_animation": "fadeInUp",
+        "_animation_delay": 0,
+        "motion_fx_motion_fx_mouse": "",
+        "animation_duration": "slow"
+      }
+    },
+    "fadeIn": {
+      "elementor_animation": "fadeIn",
+      "duration_ms": 420,
+      "easing": "tesla",
+      "use_cases": ["images", "media galleries", "background elements"]
+    },
+    "slideInRight": {
+      "elementor_animation": "slideInRight",
+      "duration_ms": 720,
+      "easing": "tesla",
+      "offset_px": 48,
+      "use_cases": ["side panels", "drawer menus", "product spec cards on right column"]
+    },
+    "scaleIn": {
+      "elementor_animation": "zoomIn",
+      "duration_ms": 720,
+      "easing": "spring",
+      "scale_from": 0.92,
+      "use_cases": ["product card thumbnails", "stat counters", "hero CTA buttons"]
+    },
+    "blurReveal": {
+      "custom_keyframe": "@keyframes rbBlurReveal{from{filter:blur(12px);opacity:0;transform:translateY(16px)}to{filter:blur(0);opacity:1;transform:translateY(0)}}",
+      "duration_ms": 1200,
+      "easing": "tesla",
+      "use_cases": ["cinematic hero headings", "section openers"],
+      "css_class": ".rb-anim-blur-reveal"
+    }
+  },
+
+  "stagger_patterns": {
+    "hero_elements": {
+      "target": [".rb-eyebrow", ".rb-hero__title", ".rb-hero__lead", ".rb-btn", ".rb-hero__scroll-indicator"],
+      "delays_ms": [0, 120, 240, 360, 900],
+      "animation": "fadeInUp"
+    },
+    "card_grid": {
+      "target": ".rb-card",
+      "delay_step_ms": 80,
+      "max_delay_ms": 480,
+      "animation": "fadeInUp",
+      "trigger": "in-view"
+    },
+    "stats_counters": {
+      "target": ".rb-section--stats .elementor-counter",
+      "delay_step_ms": 140,
+      "animation": "fadeInUp",
+      "additional_behavior": "number counts up when in view"
+    }
+  },
+
+  "scroll_effects": {
+    "hero_opacity_fade": {
+      "target": ".rb-hero--cinematic",
+      "elementor_motion_fx": {
+        "motion_fx_opacity_effect": "yes",
+        "motion_fx_opacity_direction": "out-in",
+        "motion_fx_opacity_level": 10,
+        "motion_fx_opacity_range": { "sizes": { "start": 50, "end": 100 } },
+        "motion_fx_devices": ["desktop", "tablet"]
+      },
+      "note": "Hero fades out as user scrolls past 50% viewport"
+    },
+    "parallax_background": {
+      "target": ".rb-cta--cinematic, .rb-archive-hero",
+      "elementor_motion_fx": {
+        "motion_fx_translateY_effect": "yes",
+        "motion_fx_translateY_direction": "negative",
+        "motion_fx_translateY_speed": { "unit": "px", "size": 2 },
+        "motion_fx_devices": ["desktop"]
+      }
+    },
+    "product_hero_gallery_scale": {
+      "target": ".rb-product-hero .rb-product-gallery",
+      "elementor_motion_fx": {
+        "motion_fx_scale_effect": "yes",
+        "motion_fx_scale_direction": "out-in",
+        "motion_fx_scale_speed": { "size": 1 },
+        "motion_fx_scale_range": { "sizes": { "start": 0, "end": 50 } }
+      }
+    },
+    "reveal_on_scroll": {
+      "target": "[data-rb-reveal]",
+      "implementation": "IntersectionObserver",
+      "threshold": 0.15,
+      "root_margin": "0px 0px -10% 0px",
+      "js_snippet": "const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-revealed');io.unobserve(e.target)}}),{threshold:0.15,rootMargin:'0px 0px -10% 0px'});document.querySelectorAll('[data-rb-reveal]').forEach(el=>io.observe(el));",
+      "css": ".rb-anim-reveal{opacity:0;transform:translateY(32px);transition:opacity 720ms var(--rb-ease-tesla),transform 720ms var(--rb-ease-tesla)} .rb-anim-reveal.is-revealed{opacity:1;transform:none}"
+    }
+  },
+
+  "sticky_navbar": {
+    "selector": ".rb-navbar",
+    "behavior": {
+      "initial_state": "transparent (bg:rgba(10,10,10,0))",
+      "scrolled_state": "glass-dark (bg:rgba(10,10,10,0.92), backdrop-filter:saturate(180%) blur(14px))",
+      "scroll_threshold_px": 40,
+      "class_toggle": "is-scrolled",
+      "hide_on_scroll_down": true,
+      "show_on_scroll_up": true,
+      "transition": "all 240ms var(--rb-ease-tesla)"
+    },
+    "js_implementation": {
+      "file": "assets/js/navbar.js",
+      "snippet": "let lastY=0;const nav=document.querySelector('.rb-navbar');const T=40;window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('is-scrolled',y>T);if(y>lastY&&y>120){nav.classList.add('is-hidden')}else{nav.classList.remove('is-hidden')}lastY=y;},{passive:true});",
+      "css": ".rb-navbar{transform:translateY(0);transition:transform 240ms var(--rb-ease-tesla),background-color 240ms} .rb-navbar.is-hidden{transform:translateY(-100%)}"
+    }
+  },
+
+  "hover_effects": {
+    "product_card": {
+      "target": ".rb-card--product",
+      "css": ".rb-card--product{transition:transform 420ms var(--rb-ease-tesla),box-shadow 420ms var(--rb-ease-tesla)} .rb-card--product:hover{transform:translateY(-6px);box-shadow:var(--rb-shadow-cinematic)} .rb-card--product:hover .rb-card__media img{transform:scale(1.04)} .rb-card__media img{transition:transform 720ms var(--rb-ease-tesla)}"
+    },
+    "button_pill": {
+      "target": ".rb-btn--pill",
+      "css": ".rb-btn--pill{transition:all 240ms var(--rb-ease-tesla)} .rb-btn--pill:hover{transform:translateY(-1px);letter-spacing:0.06em} .rb-btn--pill:active{transform:translateY(0)}"
+    },
+    "button_arrow": {
+      "target": ".rb-btn--arrow",
+      "css": ".rb-btn--arrow .elementor-button-icon{transition:transform 240ms var(--rb-ease-tesla)} .rb-btn--arrow:hover .elementor-button-icon{transform:translateX(4px)}"
+    },
+    "nav_menu_link": {
+      "target": ".rb-navbar__menu a",
+      "css": ".rb-navbar__menu a{position:relative} .rb-navbar__menu a::after{content:'';position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform 420ms var(--rb-ease-tesla)} .rb-navbar__menu a:hover::after{transform:scaleX(1);transform-origin:left}"
+    },
+    "application_card_overlay": {
+      "target": ".rb-grid--applications article",
+      "css": ".rb-grid--applications article{overflow:hidden;position:relative} .rb-grid--applications article img{transition:transform 1200ms var(--rb-ease-tesla)} .rb-grid--applications article:hover img{transform:scale(1.06)} .rb-grid--applications article::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);pointer-events:none}"
+    }
+  },
+
+  "page_transitions": {
+    "enabled": false,
+    "rationale": "Full page transitions break WP caching & SEO. Use subtle fade-in on body load only.",
+    "body_fade_in": {
+      "css": "body{opacity:0;transition:opacity 420ms var(--rb-ease-tesla)} body.is-loaded{opacity:1}",
+      "js": "document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(()=>document.body.classList.add('is-loaded')));"
+    }
+  },
+
+  "marquee_animation": {
+    "target": ".rb-marquee [data-rb-marquee]",
+    "css": "@keyframes rbMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}} .rb-marquee [data-rb-marquee]{display:flex;gap:48px;width:max-content;animation:rbMarquee 40s linear infinite} .rb-marquee:hover [data-rb-marquee]{animation-play-state:paused}"
+  },
+
+  "counter_animation": {
+    "elementor_widget": "counter",
+    "duration_ms": 2000,
+    "easing": "enter",
+    "trigger": "in-view",
+    "note": "Elementor counter has built-in count-up; tune via 'duration' setting"
+  },
+
+  "loader": {
+    "enabled": true,
+    "type": "logo-fade-only (no spinner)",
+    "max_display_ms": 800,
+    "css": ".rb-loader{position:fixed;inset:0;background:#0A0A0A;display:grid;place-items:center;z-index:9999;transition:opacity 420ms var(--rb-ease-tesla)} body.is-loaded .rb-loader{opacity:0;pointer-events:none}"
+  },
+
+  "elementor_mapping_cheatsheet": {
+    "entrance": {
+      "field": "_animation",
+      "values_used": ["fadeIn", "fadeInUp", "slideInRight", "zoomIn", "pulse"]
+    },
+    "entrance_delay": {
+      "field": "_animation_delay",
+      "unit": "ms"
+    },
+    "scroll_translate_y": {
+      "fields": ["motion_fx_motion_fx_scrolling", "motion_fx_translateY_effect", "motion_fx_translateY_direction", "motion_fx_translateY_speed"]
+    },
+    "scroll_opacity": {
+      "fields": ["motion_fx_opacity_effect", "motion_fx_opacity_direction", "motion_fx_opacity_range", "motion_fx_opacity_level"]
+    },
+    "scroll_scale": {
+      "fields": ["motion_fx_scale_effect", "motion_fx_scale_direction", "motion_fx_scale_speed", "motion_fx_scale_range"]
+    },
+    "sticky_element": {
+      "fields": ["_position", "_offset_y", "position_fixed", "_z_index"]
+    },
+    "hover_widget": {
+      "field": "hover_animation",
+      "values": ["grow", "float", "pulse-grow"]
+    }
+  },
+
+  "performance_budget": {
+    "max_animated_elements_per_viewport": 6,
+    "max_entrance_animation_total_ms": 1200,
+    "prohibited_properties": ["box-shadow", "filter (except blurReveal)", "width", "height", "top", "left"],
+    "allowed_properties": ["transform", "opacity", "background-color (paint-contained)"],
+    "cls_risk_controls": [
+      "All media elements require fixed aspect-ratio (ACF image sizes → CSS aspect-ratio)",
+      "Font preloading via <link rel='preload' as='font'> to avoid FOUT shift",
+      "Reserved container height for hero carousel"
+    ]
+  },
+
+  "file_outputs": {
+    "assets/js/motion.js": "Intersection Observer for [data-rb-reveal], body is-loaded toggle",
+    "assets/js/navbar.js": "Scroll threshold detection, is-scrolled/is-hidden class toggle",
+    "assets/css/motion.css": "All keyframes, hover rules, reduced-motion overrides"
+  }
+}
