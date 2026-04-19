@@ -220,6 +220,69 @@ body.is-drawer-open { overflow: hidden; }
 .rb-lang-switch--stacked a { font-size: 1rem; height: 40px; padding: 0 20px; color: rgba(255,255,255,0.6); }
 .rb-lang-switch--stacked a:hover { color: #fff; }
 
+/* ---------- feature section ---------- */
+.rb-feature__media img { aspect-ratio: 4/3; object-fit: cover; border-radius: var(--rb-radius-2xl); box-shadow: var(--rb-shadow-md); }
+.rb-feature__title { letter-spacing: var(--rb-ls-snug); }
+.rb-feature__bullets .elementor-icon-list-item { align-items: center; }
+.rb-feature__bullets .elementor-icon-list-icon { font-size: 0.875rem; }
+
+/* ---------- case card ---------- */
+.rb-case-card { border-radius: var(--rb-radius-2xl); overflow: hidden; position: relative; transition: transform var(--rb-dur-slow) var(--rb-ease-tesla); }
+.rb-case-card:hover { transform: translateY(-4px); }
+.rb-case-card__title { max-width: 28ch; }
+.rb-case-card__kpis { border-top: 1px solid rgba(255,255,255,0.15); padding-top: var(--rb-space-4) !important; }
+.rb-case-card__kpi-value { color: #fff; font-size: var(--rb-fs-body-lg); font-weight: var(--rb-fw-semibold); line-height: 1.2; display: block; }
+.rb-case-card__kpi-label { display: inline-block; font-size: var(--rb-fs-eyebrow); letter-spacing: var(--rb-ls-caps); text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 4px; font-weight: var(--rb-fw-semibold); }
+
+/* ---------- blog card ---------- */
+.rb-blog-card { transition: transform var(--rb-dur-slow) var(--rb-ease-tesla), box-shadow var(--rb-dur-slow) var(--rb-ease-tesla); border: 1px solid var(--rb-border-subtle); }
+.rb-blog-card:hover { transform: translateY(-4px); box-shadow: var(--rb-shadow-lg); border-color: transparent; }
+.rb-blog-card__media img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+.rb-blog-card__meta { color: var(--rb-text-muted); letter-spacing: var(--rb-ls-wide); }
+.rb-blog-card__title a { color: inherit; }
+.rb-blog-card__title a:hover { color: var(--rb-color-accent); }
+
+/* ---------- timeline ---------- */
+.rb-timeline { counter-reset: rb-step; }
+.rb-timeline .elementor-column { position: relative; padding-top: var(--rb-space-4); }
+.rb-timeline .elementor-column::before {
+	content: ''; position: absolute; top: 8px; left: 0; right: -12px;
+	height: 1px; background: linear-gradient(90deg, var(--rb-border-subtle) 0%, var(--rb-border-subtle) 50%, transparent 50%, transparent 100%);
+	background-size: 8px 1px;
+}
+.rb-timeline .elementor-column:last-child::before { background: var(--rb-border-subtle); right: 0; }
+.rb-timeline__num { display: inline-block; padding-top: var(--rb-space-2); }
+.rb-timeline__title { letter-spacing: var(--rb-ls-snug); }
+@media (max-width: 768px) {
+	.rb-timeline .elementor-column { padding-top: var(--rb-space-6); border-top: 1px solid var(--rb-border-subtle); }
+	.rb-timeline .elementor-column::before { display: none; }
+}
+
+/* ---------- contact form ---------- */
+.rb-form input:not([type="submit"]),
+.rb-form textarea,
+.rb-form select {
+	font-family: var(--rb-font-sans);
+	font-size: var(--rb-fs-body);
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--rb-border-subtle);
+	border-radius: 0;
+	padding: 14px 2px;
+	transition: border-color var(--rb-dur-base) var(--rb-ease-tesla);
+}
+.rb-form input:focus,
+.rb-form textarea:focus,
+.rb-form select:focus {
+	outline: none;
+	border-bottom-color: var(--rb-color-ink);
+}
+.rb-form label { font-size: var(--rb-fs-eyebrow); letter-spacing: var(--rb-ls-caps); text-transform: uppercase; font-weight: var(--rb-fw-semibold); color: var(--rb-text-muted); }
+.rb-form .elementor-field-type-acceptance { font-size: var(--rb-fs-body-sm); color: var(--rb-text-secondary); }
+.rb-form button[type="submit"] { letter-spacing: var(--rb-ls-wide); font-weight: var(--rb-fw-semibold); }
+.rb-contact__info a { color: inherit; }
+.rb-contact__info a:hover { color: var(--rb-color-accent); }
+
 /* ---------- responsive containers ---------- */
 @media (max-width: 1024px) { .rb-section { padding-inline: var(--rb-container-px-tablet); } }
 @media (max-width: 640px)  { .rb-section { padding-inline: var(--rb-container-px-mobile); } }

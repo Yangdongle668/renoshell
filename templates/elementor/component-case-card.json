@@ -1,0 +1,166 @@
+{
+  "version": "0.4",
+  "title": "RB / Case Study Card (image + KPI overlay)",
+  "type": "section",
+  "content": [
+    {
+      "id": "case-card",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "no",
+        "min_height": { "unit": "px", "size": 480 },
+        "content_position": "bottom",
+        "css_classes": "rb-case-card is-dark",
+        "background_background": "classic",
+        "background_color": "#0A0A0A",
+        "background_image": { "url": "{{acf:hero_image.url}}" },
+        "background_position": "center center",
+        "background_size": "cover",
+        "background_overlay_background": "gradient",
+        "background_overlay_color": "rgba(0,0,0,0.1)",
+        "background_overlay_color_b": "rgba(0,0,0,0.85)",
+        "background_overlay_gradient_angle": { "unit": "deg", "size": 180 },
+        "border_radius": { "unit": "px", "top": 20, "right": 20, "bottom": 20, "left": 20 },
+        "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32" }
+      },
+      "elements": [
+        {
+          "id": "case-card-col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "case-card-eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "{{tax:application_cat.name}}",
+                "header_size": "span",
+                "css_classes": "rb-eyebrow",
+                "typography_font_size": { "unit": "rem", "size": 0.75 },
+                "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+                "typography_text_transform": "uppercase",
+                "typography_font_weight": "600",
+                "title_color": "rgba(255,255,255,0.7)"
+              }
+            },
+            {
+              "id": "case-card-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "{{post:title}}",
+                "header_size": "h3",
+                "link": { "url": "{{post:permalink}}" },
+                "css_classes": "rb-case-card__title",
+                "typography_font_size": { "unit": "rem", "size": 1.75 },
+                "typography_font_weight": "600",
+                "typography_line_height": { "unit": "em", "size": 1.15 },
+                "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+                "title_color": "#FFFFFF",
+                "_margin": { "unit": "px", "top": 8, "right": 0, "bottom": 16, "left": 0 }
+              }
+            },
+            {
+              "id": "case-card-kpis",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "gap": "default",
+                "structure": "30",
+                "css_classes": "rb-case-card__kpis",
+                "_margin": { "unit": "px", "top": 12, "right": 0, "bottom": 0, "left": 0 }
+              },
+              "elements": [
+                {
+                  "id": "case-card-kpi-1",
+                  "elType": "column",
+                  "settings": { "_column_size": 33 },
+                  "elements": [
+                    {
+                      "id": "case-card-kpi-1-v",
+                      "elType": "widget",
+                      "widgetType": "shortcode",
+                      "settings": {
+                        "shortcode": "[acf field='installed_kwh'] kWh",
+                        "css_classes": "rb-case-card__kpi-value"
+                      }
+                    },
+                    {
+                      "id": "case-card-kpi-1-l",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Installed",
+                        "header_size": "span",
+                        "css_classes": "rb-case-card__kpi-label",
+                        "typography_font_size": { "unit": "rem", "size": 0.75 },
+                        "typography_letter_spacing": { "unit": "em", "size": 0.08 },
+                        "title_color": "rgba(255,255,255,0.6)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "case-card-kpi-2",
+                  "elType": "column",
+                  "settings": { "_column_size": 33 },
+                  "elements": [
+                    {
+                      "id": "case-card-kpi-2-v",
+                      "elType": "widget",
+                      "widgetType": "shortcode",
+                      "settings": {
+                        "shortcode": "[acf field='location']",
+                        "css_classes": "rb-case-card__kpi-value"
+                      }
+                    },
+                    {
+                      "id": "case-card-kpi-2-l",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Location",
+                        "header_size": "span",
+                        "css_classes": "rb-case-card__kpi-label"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "case-card-kpi-3",
+                  "elType": "column",
+                  "settings": { "_column_size": 33 },
+                  "elements": [
+                    {
+                      "id": "case-card-kpi-3-v",
+                      "elType": "widget",
+                      "widgetType": "shortcode",
+                      "settings": {
+                        "shortcode": "[acf field='client_name']",
+                        "css_classes": "rb-case-card__kpi-value"
+                      }
+                    },
+                    {
+                      "id": "case-card-kpi-3-l",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Client",
+                        "header_size": "span",
+                        "css_classes": "rb-case-card__kpi-label"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": []
+}

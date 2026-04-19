@@ -1,0 +1,309 @@
+{
+    "version": "0.4",
+    "title": "RB / Timeline / Process (4 horizontal steps)",
+    "type": "section",
+    "content": [
+        {
+            "id": "timeline",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1440
+                },
+                "gap": "default",
+                "structure": "40",
+                "css_classes": "rb-section rb-timeline",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "mobile": {
+                        "top": "80",
+                        "right": "20",
+                        "bottom": "80",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "tl-step-1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-1",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "01",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-1",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Consult",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.01
+                                },
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-1",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Share your load profile and site constraints with our engineering team.</p>",
+                                "css_classes": "rb-timeline__body",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-2",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "02",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-2",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Design",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-2",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>We size modules, BMS and balance-of-plant to match your kWh and kW targets.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-3",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-3",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "03",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-3",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Manufacture",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-3",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Tier-1 LFP cells, automated assembly, 100% capacity grading per module.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-4",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-4",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "04",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-4",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Deploy & Support",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-4",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Commissioning, remote monitoring and 10-year cell warranty worldwide.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ],
+    "page_settings": []
+}
