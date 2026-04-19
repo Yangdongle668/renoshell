@@ -84,3 +84,27 @@ add_action( 'elementor/theme/register_locations', 'renobattery_register_elemento
 function renobattery_register_elementor_locations( $elementor_theme_manager ) : void {
 	$elementor_theme_manager->register_all_core_location();
 }
+
+/**
+ * Apply body.rb-tesla when Tesla refinement layer is enabled.
+ *
+ * Activation (any of):
+ *   - define('RENOBATTERY_TESLA_MODE', true) in wp-config.php
+ *   - Filter: apply_filters('renobattery_tesla_mode', true)
+ *   - ACF option `tesla_mode` = true on the Site Options page
+ */
+add_filter( 'body_class', 'renobattery_tesla_body_class' );
+function renobattery_tesla_body_class( array $classes ) : array {
+	$enabled = defined( 'RENOBATTERY_TESLA_MODE' ) && RENOBATTERY_TESLA_MODE;
+
+	if ( ! $enabled && function_exists( 'get_field' ) ) {
+		$enabled = (bool) get_field( 'tesla_mode', 'option' );
+	}
+
+	$enabled = (bool) apply_filters( 'renobattery_tesla_mode', $enabled );
+
+	if ( $enabled ) {
+		$classes[] = 'rb-tesla';
+	}
+	return $classes;
+}
