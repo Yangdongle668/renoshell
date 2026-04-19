@@ -18,21 +18,16 @@
  */
 
 /* ============================================================
- * C1 — Inter Display @font-face (self-hosted)
- *   Drop .woff2 files into assets/fonts/ — see assets/fonts/README.md.
- *   If files are missing, font-display:swap falls back to Inter → sans.
+ * C1 — DM Sans @font-face (self-hosted variable font)
+ *   Single woff2 file (~36 KB) covers all weights 100-1000 via the
+ *   wght axis. Shipped under SIL OFL 1.1 — see assets/fonts/OFL.txt.
+ *   If the file is missing, font-display:swap falls back silently.
  * ============================================================ */
 @font-face {
-	font-family: 'Inter Display';
-	src: url('../fonts/InterDisplay-Medium.woff2') format('woff2');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Inter Display';
-	src: url('../fonts/InterDisplay-SemiBold.woff2') format('woff2');
-	font-weight: 600;
+	font-family: 'DM Sans';
+	src: url('../fonts/DMSans-Variable.woff2') format('woff2-variations'),
+	     url('../fonts/DMSans-Variable.woff2') format('woff2');
+	font-weight: 100 1000;
 	font-style: normal;
 	font-display: swap;
 }

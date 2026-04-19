@@ -52,12 +52,19 @@ function renobattery_enqueue_assets() : void {
 }
 
 function renobattery_preload_fonts() : void {
-	$font_uri = RENOBATTERY_URI . '/assets/fonts/Inter-SemiBold.woff2';
-	if ( file_exists( RENOBATTERY_DIR . '/assets/fonts/Inter-SemiBold.woff2' ) ) {
-		printf(
-			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( $font_uri )
-		);
+	$candidates = [
+		'DMSans-Variable.woff2', // preferred — covers every weight
+		'Inter-SemiBold.woff2',  // legacy fallback (kept for backwards compat)
+	];
+	foreach ( $candidates as $file ) {
+		$path = RENOBATTERY_DIR . '/assets/fonts/' . $file;
+		if ( file_exists( $path ) ) {
+			printf(
+				'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+				esc_url( RENOBATTERY_URI . '/assets/fonts/' . $file )
+			);
+			return; // Preload only one file to avoid wasteful multi-preload.
+		}
 	}
 }
 

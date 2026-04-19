@@ -1,50 +1,74 @@
 # Renobattery — Fonts
 
-Self-hosted woff2 font files go here. Binaries are **not** shipped in this
-repository — drop them in during deployment.
+## What's shipped
 
-## Required files (when Tesla mode is active)
+| File | Size | Weights | License |
+|---|---|---|---|
+| `DMSans-Variable.woff2` | ~36 KB | 100 – 1000 (via `wght` axis) | [SIL Open Font License 1.1](./OFL.txt) |
+| `OFL.txt` | 4.5 KB | — | License text |
 
-| Filename | Weight | Source |
-|---|---|---|
-| `Inter-Regular.woff2`       | 400 | [rsms.me/inter](https://rsms.me/inter/) or [Google Fonts](https://fonts.google.com/specimen/Inter) |
-| `Inter-Medium.woff2`        | 500 | same |
-| `Inter-SemiBold.woff2`      | 600 | same |
-| `InterDisplay-Medium.woff2` | 500 | [rsms.me/inter](https://rsms.me/inter/) (the `Inter Display` variant is bundled in the same download) |
-| `InterDisplay-SemiBold.woff2` | 600 | same |
+DM Sans is a variable font — one file covers Regular (400), Medium (500),
+SemiBold (600), Bold (700) and everything in between. The `@font-face`
+declaration in `assets/css/tesla-refinement.css` exposes the full
+`font-weight: 100 1000` range; CSS `font-weight` values select the right
+axis instance at render time.
 
-## Optional (Chinese, if not using system fonts)
+### Why DM Sans
 
-| Filename | Weight | Source |
-|---|---|---|
-| `NotoSansSC-Regular.woff2` | 400 | [Google Fonts](https://fonts.google.com/noto/specimen/Noto+Sans+SC) |
-| `NotoSansSC-SemiBold.woff2` | 600 | same |
+Originally we considered Inter / Inter Display. The user asked for
+Google Sans, which is **proprietary** and can't be redistributed with a
+public theme. DM Sans (by Colophon Foundry, commissioned by Google,
+released under SIL OFL 1.1) is the closest free alternative in feel —
+geometric, modern, Google-adjacent but unambiguously licensed for this
+purpose.
 
-By default the theme uses system Chinese fonts (PingFang SC on Apple,
-Microsoft YaHei on Windows), which avoids the request entirely. Only host
-Noto Sans SC if you need consistent Chinese rendering on Linux/older Android.
+## What's preloaded
 
-## Subsetting (recommended)
+`inc/enqueue.php` → `renobattery_preload_fonts()` detects the file and
+emits a single `<link rel="preload" as="font" type="font/woff2" crossorigin>`
+into `<head>`. Preloading only one file (the variable font covers every
+weight) avoids wasteful multi-preload.
 
-Subset to `latin`, `latin-ext` for Inter files to keep each woff2 under ~20 kB.
-Use [Wakamai Fondue](https://wakamaifondue.com/) or `pyftsubset`:
+## Activating DM Sans on the front-end
 
-```bash
-pyftsubset Inter-SemiBold.ttf \
-  --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" \
-  --output-file=Inter-SemiBold.woff2 \
-  --flavor=woff2
+Always active — `tokens.css` puts DM Sans first in the `--rb-font-sans`
+and `--rb-font-display` stacks. The theme does **not** require Tesla mode
+for this; Tesla mode simply refines body weight / line-height on top.
+
+```css
+--rb-font-sans:    'DM Sans', 'Inter', 'PingFang SC', …, sans-serif;
+--rb-font-display: 'DM Sans', 'Inter Display', 'Inter', 'PingFang SC', sans-serif;
 ```
 
-## Preload hint
+Chinese locale override (`html[lang^="zh"]`) still prefers PingFang SC /
+Noto Sans SC first; DM Sans handles any inline latin (model codes,
+numbers) within a Chinese paragraph.
 
-The theme preloads `Inter-SemiBold.woff2` via `inc/enqueue.php`
-(`renobattery_preload_fonts()`) when it detects the file exists. No extra
-configuration needed — just drop the file in.
+## If you want to replace the font
 
-## What happens if files are missing
+1. Drop a new `*.woff2` variable font into this directory.
+2. Update the `@font-face` rule in `assets/css/tesla-refinement.css`.
+3. Update the `$candidates` list in `inc/enqueue.php`
+   (`renobattery_preload_fonts()`).
+4. Update the `--rb-font-sans` / `--rb-font-display` stacks in
+   `assets/css/tokens.css`.
+
+All four steps are needed to swap cleanly.
+
+## Optional supplementary fonts (not shipped)
+
+Drop these in if you need them:
+
+| Filename | Reason |
+|---|---|
+| `NotoSansSC-Regular.woff2` / `NotoSansSC-SemiBold.woff2` | Consistent Chinese rendering on Linux / older Android (Apple + Windows devices have PingFang / YaHei in the system stack) |
+
+These are optional; the default stack already covers Chinese via system
+fonts.
+
+## What happens if DMSans-Variable.woff2 is missing
 
 Every `@font-face` rule uses `font-display: swap`. The browser falls back
-through the CSS stack (`Inter → PingFang SC → system sans`) while the font
-downloads, or indefinitely if the file 404s. **Missing files never break
-the layout.**
+through the stack (`DM Sans → Inter → PingFang SC → system sans`) while
+the font would have downloaded — or indefinitely if the file 404s.
+**Missing fonts never break the layout.**
