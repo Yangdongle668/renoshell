@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'after_setup_theme', 'renobattery_setup' );
 function renobattery_setup() : void {
 
-	load_child_theme_textdomain( RENOBATTERY_TEXTDOMAIN, RENOBATTERY_DIR . '/languages' );
+	// NOTE: Textdomain is loaded via `init` (renobattery_load_textdomain below),
+	// not here. WP 6.7+ warns about translation loads that fire before `init`.
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -43,6 +44,13 @@ function renobattery_setup() : void {
 	add_image_size( 'rb-hero-xl', 2560, 1440, true );
 	add_image_size( 'rb-gallery', 1440, 1440, false );
 	add_image_size( 'rb-thumb',   160,  160,  true );
+}
+
+// WP 6.7+ recommends loading textdomain on `init` (priority 10), not earlier.
+// This avoids "Translation loading triggered too early" notices.
+add_action( 'init', 'renobattery_load_textdomain' );
+function renobattery_load_textdomain() : void {
+	load_child_theme_textdomain( RENOBATTERY_TEXTDOMAIN, RENOBATTERY_DIR . '/languages' );
 }
 
 // Disable default WP image sizes we don't use.
