@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'RENOBATTERY_VERSION',   '1.0.0' );
+define( 'RENOBATTERY_VERSION',   '1.0.1' );
 define( 'RENOBATTERY_DIR',       get_stylesheet_directory() );
 define( 'RENOBATTERY_URI',       get_stylesheet_directory_uri() );
 define( 'RENOBATTERY_TEXTDOMAIN','renobattery' );

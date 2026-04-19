@@ -22,14 +22,17 @@ final class Renobattery_Elementor {
 	];
 
 	public static function init() : void {
-		add_action( 'elementor/init',                    [ __CLASS__, 'register_category' ] );
-		add_action( 'elementor/widgets/register',        [ __CLASS__, 'register_widgets' ] );
-		add_action( 'elementor/editor/after_enqueue_scripts', [ __CLASS__, 'enqueue_editor_assets' ] );
+		// NOTE: use 'elementor/elements/categories_registered' — it is the
+		// canonical hook that passes the Elements_Manager. The older
+		// 'elementor/init' hook has NO arguments; hooking a typed callback
+		// to it causes a PHP 8 TypeError ("string given").
+		add_action( 'elementor/elements/categories_registered', [ __CLASS__, 'register_category' ] );
+		add_action( 'elementor/widgets/register',               [ __CLASS__, 'register_widgets' ] );
+		add_action( 'elementor/editor/after_enqueue_scripts',   [ __CLASS__, 'enqueue_editor_assets' ] );
 	}
 
-	public static function register_category( \Elementor\Elements_Manager $elements_manager = null ) : void {
-		$manager = $elements_manager ?: \Elementor\Plugin::instance()->elements_manager;
-		$manager->add_category(
+	public static function register_category( \Elementor\Elements_Manager $elements_manager ) : void {
+		$elements_manager->add_category(
 			self::WIDGET_CATEGORY_SLUG,
 			[
 				'title' => __( 'Renobattery', 'renobattery' ),
