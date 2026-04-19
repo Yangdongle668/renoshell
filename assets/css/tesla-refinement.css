@@ -12,34 +12,186 @@
  *      (not available by default — use filter above).
  *   3. OR set a constant in wp-config.php:
  *        define('RENOBATTERY_TESLA_MODE', true);
- *      (honored by inc/enqueue.php if implemented later).
- *
- * Phases populated here:
- *   A2 — .rb-btn--glass (translucent pill)
- *   A3 — .rb-flat (remove shadows/borders)
- *   A4 — body weight 500
- *   A5 — body line-height tightened to 1.5
- *   A6 — .rb-hero__scroll-line (thin vertical indicator)
+ *      (honored by inc/theme-setup.php body_class filter).
  *
  * Do NOT add rules outside .rb-tesla. Do NOT override tokens.
  */
 
 /* ============================================================
- * A2 — glass button variant (populated in next step)
+ * A4 — body weight 500 (Tesla default) + headings stay 600
  * ============================================================ */
+.rb-tesla {
+	font-weight: 500;
+}
+.rb-tesla h1, .rb-tesla h2, .rb-tesla h3,
+.rb-tesla h4, .rb-tesla h5, .rb-tesla h6,
+.rb-tesla .rb-hero__title,
+.rb-tesla .rb-card__title,
+.rb-tesla .rb-feature__title,
+.rb-tesla .rb-case-card__title,
+.rb-tesla .rb-blog-card__title {
+	font-weight: 600;
+}
+.rb-tesla .rb-eyebrow {
+	font-weight: 600;
+}
 
 /* ============================================================
- * A3 — flat modifier (populated in next step)
+ * A5 — body line-height tightened from 1.6 → 1.5
  * ============================================================ */
+.rb-tesla {
+	line-height: 1.5;
+}
+.rb-tesla p,
+.rb-tesla li,
+.rb-tesla .rb-hero__lead,
+.rb-tesla .rb-feature__lead,
+.rb-tesla .rb-contact__lead {
+	line-height: 1.5;
+}
 
 /* ============================================================
- * A4 — body weight (populated in next step)
+ * A2 — glass button variant + override existing on-dark solids
  * ============================================================ */
 
-/* ============================================================
- * A5 — tight line-height (populated in next step)
- * ============================================================ */
+/* Explicit new variant (use on any button by adding .rb-btn--glass) */
+.rb-tesla .rb-btn--glass {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+	border: 0;
+	transition: background-color var(--rb-dur-base) var(--rb-ease-tesla);
+}
+.rb-tesla .rb-btn--glass:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: #FFFFFF;
+	transform: none;        /* override base .rb-btn--solid translateY */
+	letter-spacing: var(--rb-ls-wide);
+}
+
+/* Dark-on-light glass variant (for light sections) */
+.rb-tesla .rb-btn--glass-dark {
+	background: rgba(10, 10, 10, 0.08);
+	color: var(--rb-color-ink);
+	border: 0;
+}
+.rb-tesla .rb-btn--glass-dark:hover {
+	background: rgba(10, 10, 10, 0.16);
+	color: var(--rb-color-ink);
+	transform: none;
+}
+
+/* Automatic upgrade: existing solid white-on-dark buttons become glass */
+.rb-tesla .rb-btn--on-dark.rb-btn--solid {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+}
+.rb-tesla .rb-btn--on-dark.rb-btn--solid:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: #FFFFFF;
+	transform: none;
+	letter-spacing: var(--rb-ls-wide);
+}
+
+/* Outline on-dark: subtler border (Tesla style) */
+.rb-tesla .rb-btn--on-dark.rb-btn--outline {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+.rb-tesla .rb-btn--on-dark.rb-btn--outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+	border-color: rgba(255, 255, 255, 0.4);
+	transform: none;
+	letter-spacing: var(--rb-ls-wide);
+}
 
 /* ============================================================
- * A6 — hero scroll indicator line (populated in next step)
+ * A3 — flat modifier (remove shadows/borders on cards)
  * ============================================================ */
+
+/* Explicit new class — apply to any wrapper to strip chrome */
+.rb-tesla .rb-flat,
+.rb-tesla .rb-flat:hover {
+	background: transparent !important;
+	box-shadow: none !important;
+	border: 0 !important;
+}
+
+/* Automatic flatten of existing product/blog cards under Tesla mode */
+.rb-tesla .rb-card--product,
+.rb-tesla .rb-blog-card {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+.rb-tesla .rb-card--product:hover,
+.rb-tesla .rb-blog-card:hover {
+	box-shadow: none;
+	transform: none;          /* no lift — Tesla cards don't translateY */
+}
+
+/* Keep media corners flat too */
+.rb-tesla .rb-card__media,
+.rb-tesla .rb-blog-card__media,
+.rb-tesla .rb-card__media img,
+.rb-tesla .rb-blog-card__media img {
+	border-radius: 0;
+}
+
+/* Image hover: keep the subtle scale (Tesla does zoom on hover) */
+.rb-tesla .rb-card--product:hover .rb-card__media img {
+	transform: scale(1.03);
+}
+
+/* Card body: strip padding chrome, keep left-align minimal */
+.rb-tesla .rb-card__body {
+	padding: var(--rb-space-4) 0 var(--rb-space-6);
+}
+.rb-tesla .rb-blog-card__body {
+	padding: var(--rb-space-4) 0 var(--rb-space-6);
+}
+
+/* ============================================================
+ * A6 — hero scroll indicator (thin vertical line)
+ * Replaces the default chevron icon with a subtle animated line.
+ * ============================================================ */
+
+.rb-tesla .rb-hero__scroll-indicator {
+	display: none;
+}
+
+.rb-tesla .rb-hero--cinematic {
+	position: relative;
+}
+.rb-tesla .rb-hero--cinematic::after {
+	content: '';
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	width: 1px;
+	height: 48px;
+	background: linear-gradient(
+		180deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.85) 100%
+	);
+	transform-origin: top center;
+	animation: rb-tesla-scroll-line 2.2s var(--rb-ease-tesla) infinite;
+	pointer-events: none;
+	z-index: 2;
+}
+
+@keyframes rb-tesla-scroll-line {
+	0%   { transform: translateX(-50%) scaleY(0); transform-origin: top center;    opacity: 0; }
+	40%  { transform: translateX(-50%) scaleY(1); transform-origin: top center;    opacity: 1; }
+	60%  { transform: translateX(-50%) scaleY(1); transform-origin: bottom center; opacity: 1; }
+	100% { transform: translateX(-50%) scaleY(0); transform-origin: bottom center; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-hero--cinematic::after {
+		animation: none;
+		opacity: 0.6;
+		transform: translateX(-50%);
+	}
+}
