@@ -1,0 +1,48 @@
+/*
+ * Renobattery — Motion extensions
+ * Keyframes + reveal + reduced-motion already live in components.css.
+ * This file adds page-transition, loader, and scroll-smoothing concerns.
+ */
+
+/* ---------- body fade-in on load ---------- */
+body {
+	opacity: 0;
+	transition: opacity var(--rb-dur-slow) var(--rb-ease-tesla);
+}
+body.is-loaded {
+	opacity: 1;
+}
+
+/* ---------- loader (logo-only, no spinner) ---------- */
+.rb-loader {
+	position: fixed;
+	inset: 0;
+	background: var(--rb-bg-dark);
+	display: grid;
+	place-items: center;
+	z-index: var(--rb-z-modal);
+	transition: opacity var(--rb-dur-slow) var(--rb-ease-tesla);
+}
+body.is-loaded .rb-loader {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* ---------- parallax fallback for narrow viewports ---------- */
+@media (max-width: 1024px) {
+	.rb-cta--cinematic,
+	.rb-archive-hero {
+		transform: none !important;
+	}
+}
+
+/* ---------- iOS Safari rubber-band safety on fixed hero ---------- */
+@supports (-webkit-overflow-scrolling: touch) {
+	.rb-hero--cinematic { overscroll-behavior: none; }
+}
+
+/* ---------- reduced motion (redundant guard — components.css also enforces) ---------- */
+@media (prefers-reduced-motion: reduce) {
+	body { opacity: 1 !important; transition: none !important; }
+	.rb-loader { display: none !important; }
+}
