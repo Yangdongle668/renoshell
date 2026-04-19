@@ -1,0 +1,304 @@
+{
+    "version": "0.4",
+    "title": "RB / CTA Section (Dark Cinematic)",
+    "type": "section",
+    "content": [
+        {
+            "id": "cta001",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "gap": "extended",
+                "min_height": {
+                    "unit": "vh",
+                    "size": 70
+                },
+                "content_position": "middle",
+                "background_background": "classic",
+                "background_color": "#0A0A0A",
+                "background_image": {
+                    "url": "{{option:cta_bg_image}}"
+                },
+                "background_position": "center center",
+                "background_size": "cover",
+                "background_overlay_background": "gradient",
+                "background_overlay_color": "rgba(10,10,10,0.85)",
+                "background_overlay_color_b": "rgba(10,10,10,0.35)",
+                "background_overlay_gradient_angle": {
+                    "unit": "deg",
+                    "size": 180
+                },
+                "css_classes": "rb-cta rb-cta--cinematic is-dark",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "tablet": {
+                        "top": "80",
+                        "right": "24",
+                        "bottom": "80",
+                        "left": "24"
+                    },
+                    "mobile": {
+                        "top": "64",
+                        "right": "20",
+                        "bottom": "64",
+                        "left": "20"
+                    }
+                },
+                "motion_fx_motion_fx_scrolling": "yes",
+                "motion_fx_translateY_effect": "yes",
+                "motion_fx_translateY_direction": "negative",
+                "motion_fx_translateY_speed": {
+                    "unit": "px",
+                    "size": 2
+                }
+            },
+            "elements": [
+                {
+                    "id": "ctacol01",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100,
+                        "align": "center"
+                    },
+                    "elements": [
+                        {
+                            "id": "ctaeye01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Ready to electrify?",
+                                "header_size": "span",
+                                "align": "center",
+                                "css_classes": "rb-eyebrow",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_font_weight": "600",
+                                "typography_text_transform": "uppercase",
+                                "title_color": "rgba(255,255,255,0.7)",
+                                "_animation": "fadeInUp"
+                            }
+                        },
+                        {
+                            "id": "ctah01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Partner with us to build the energy future.",
+                                "header_size": "h2",
+                                "align": "center",
+                                "css_classes": "rb-cta__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_size_tablet": {
+                                    "unit": "rem",
+                                    "size": 2.5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 1.875
+                                },
+                                "typography_font_weight": "600",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.08
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.02
+                                },
+                                "title_color": "#FFFFFF",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 24,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 120
+                            }
+                        },
+                        {
+                            "id": "ctatext01",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Talk to our engineers about custom battery solutions tailored to your project scale.</p>",
+                                "align": "center",
+                                "css_classes": "rb-cta__lead",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.125
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "rgba(255,255,255,0.8)",
+                                "_element_custom_width": "yes",
+                                "_element_width_custom": {
+                                    "unit": "px",
+                                    "size": 680
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 240
+                            }
+                        },
+                        {
+                            "id": "ctabtns01",
+                            "elType": "section",
+                            "isInner": true,
+                            "settings": {
+                                "gap": "default",
+                                "structure": "20",
+                                "css_classes": "rb-cta__actions",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 40,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 360
+                            },
+                            "elements": [
+                                {
+                                    "id": "ctabtna01",
+                                    "elType": "column",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "align": "flex-end"
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "ctabtn01",
+                                            "elType": "widget",
+                                            "widgetType": "button",
+                                            "settings": {
+                                                "text": "Contact Sales",
+                                                "link": {
+                                                    "url": "/contact/"
+                                                },
+                                                "align": "right",
+                                                "size": "md",
+                                                "css_classes": "rb-btn rb-btn--solid rb-btn--pill rb-btn--on-dark",
+                                                "button_text_color": "#0A0A0A",
+                                                "background_color": "#FFFFFF",
+                                                "hover_background_color": "#E31937",
+                                                "hover_color": "#FFFFFF",
+                                                "border_radius": {
+                                                    "unit": "px",
+                                                    "top": 999,
+                                                    "right": 999,
+                                                    "bottom": 999,
+                                                    "left": 999
+                                                },
+                                                "text_padding": {
+                                                    "unit": "px",
+                                                    "top": 16,
+                                                    "right": 28,
+                                                    "bottom": 16,
+                                                    "left": 28
+                                                },
+                                                "typography_font_size": {
+                                                    "unit": "rem",
+                                                    "size": 0.9375
+                                                },
+                                                "typography_font_weight": "600",
+                                                "typography_letter_spacing": {
+                                                    "unit": "em",
+                                                    "size": 0.04
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "ctabtnb01",
+                                    "elType": "column",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "align": "flex-start"
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "ctabtn02",
+                                            "elType": "widget",
+                                            "widgetType": "button",
+                                            "settings": {
+                                                "text": "Download Catalog",
+                                                "link": {
+                                                    "url": "/catalog.pdf",
+                                                    "is_external": true
+                                                },
+                                                "align": "left",
+                                                "size": "md",
+                                                "css_classes": "rb-btn rb-btn--outline rb-btn--pill rb-btn--on-dark",
+                                                "button_text_color": "#FFFFFF",
+                                                "background_color": "transparent",
+                                                "border_border": "solid",
+                                                "border_width": {
+                                                    "unit": "px",
+                                                    "top": 1,
+                                                    "right": 1,
+                                                    "bottom": 1,
+                                                    "left": 1
+                                                },
+                                                "border_color": "rgba(255,255,255,0.35)",
+                                                "hover_background_color": "#FFFFFF",
+                                                "hover_color": "#0A0A0A",
+                                                "hover_border_color": "#FFFFFF",
+                                                "border_radius": {
+                                                    "unit": "px",
+                                                    "top": 999,
+                                                    "right": 999,
+                                                    "bottom": 999,
+                                                    "left": 999
+                                                },
+                                                "text_padding": {
+                                                    "unit": "px",
+                                                    "top": 16,
+                                                    "right": 28,
+                                                    "bottom": 16,
+                                                    "left": 28
+                                                },
+                                                "typography_font_size": {
+                                                    "unit": "rem",
+                                                    "size": 0.9375
+                                                },
+                                                "typography_font_weight": "600",
+                                                "typography_letter_spacing": {
+                                                    "unit": "em",
+                                                    "size": 0.04
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ],
+    "page_settings": []
+}
