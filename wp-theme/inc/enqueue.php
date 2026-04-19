@@ -25,6 +25,12 @@ function renobattery_enqueue_assets() : void {
 		wp_enqueue_style( 'rb-motion', RENOBATTERY_URI . '/assets/css/motion.css', [ 'rb-components' ], $ver );
 	}
 
+	// Tesla refinement layer — all rules scoped under .rb-tesla, no-op otherwise.
+	$tesla_css = RENOBATTERY_DIR . '/assets/css/tesla-refinement.css';
+	if ( file_exists( $tesla_css ) ) {
+		wp_enqueue_style( 'rb-tesla', RENOBATTERY_URI . '/assets/css/tesla-refinement.css', [ 'rb-components' ], $ver );
+	}
+
 	// JS — deferred, only register if file exists.
 	foreach ( [ 'navbar', 'motion', 'megamenu', 'filter' ] as $handle ) {
 		$path = RENOBATTERY_DIR . "/assets/js/{$handle}.js";

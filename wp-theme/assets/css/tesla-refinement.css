@@ -1,0 +1,45 @@
+/*
+ * Renobattery — Tesla refinement layer
+ *
+ * ALL rules in this file are scoped under `.rb-tesla` (applied to <body>).
+ * When the body does NOT have that class, this file is a no-op — safe to
+ * ship always.
+ *
+ * Activation:
+ *   1. Add to functions.php (or a mu-plugin):
+ *        add_filter('body_class', fn($c) => array_merge($c, ['rb-tesla']));
+ *   2. OR add via Elementor page settings → Advanced → CSS Classes on <body>
+ *      (not available by default — use filter above).
+ *   3. OR set a constant in wp-config.php:
+ *        define('RENOBATTERY_TESLA_MODE', true);
+ *      (honored by inc/enqueue.php if implemented later).
+ *
+ * Phases populated here:
+ *   A2 — .rb-btn--glass (translucent pill)
+ *   A3 — .rb-flat (remove shadows/borders)
+ *   A4 — body weight 500
+ *   A5 — body line-height tightened to 1.5
+ *   A6 — .rb-hero__scroll-line (thin vertical indicator)
+ *
+ * Do NOT add rules outside .rb-tesla. Do NOT override tokens.
+ */
+
+/* ============================================================
+ * A2 — glass button variant (populated in next step)
+ * ============================================================ */
+
+/* ============================================================
+ * A3 — flat modifier (populated in next step)
+ * ============================================================ */
+
+/* ============================================================
+ * A4 — body weight (populated in next step)
+ * ============================================================ */
+
+/* ============================================================
+ * A5 — tight line-height (populated in next step)
+ * ============================================================ */
+
+/* ============================================================
+ * A6 — hero scroll indicator line (populated in next step)
+ * ============================================================ */
