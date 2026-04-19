@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "name": "renobattery-bilingual",
+    "plugin": "Polylang (free) or Polylang Pro for ACF/Elementor",
+    "rationale": "Polylang keeps a row per language and uses URL prefix strategy — simpler than WPML, zero runtime overhead, plays well with Elementor templates."
+  },
+
+  "languages": [
+    { "slug": "en", "locale": "en_US", "name": "English",  "flag": "us", "is_default": true,  "url_mode": "directory", "url": "/" },
+    { "slug": "zh", "locale": "zh_CN", "name": "中文",     "flag": "cn", "is_default": false, "url_mode": "directory", "url": "/zh/" }
+  ],
+
+  "url_strategy": {
+    "mode": "directory",
+    "default_hidden": false,
+    "notes": [
+      "Polylang → Settings → URL modifications → 'The language is set from content' + 'Hide URL language information for default language' DISABLED (we want /en/ explicitness optional but SEO-clean)."
+    ]
+  },
+
+  "translatable_objects": {
+    "post_types": [ "post", "page", "product", "case_study", "application" ],
+    "taxonomies": [ "category", "post_tag", "product_cat", "application_cat" ]
+  },
+
+  "acf_policy": {
+    "rule": "Use Polylang Pro or the 'ACF Polylang' bridge plugin to mark each field group as translatable/copyable at the field-group level.",
+    "per_field_defaults": {
+      "group_rb_product_specs": {
+        "translate":  [ "model_code" ],
+        "copy":       [ "battery_capacity", "nominal_voltage", "energy_kwh", "cycle_life", "chemistry", "dimensions", "weight_kg", "ip_rating", "operating_temp", "datasheet_pdf", "manual_pdf", "gallery", "hero_video_mp4" ],
+        "translate_repeater_rows": [ "certifications.cert_name", "spec_table.spec_label", "spec_table.spec_value" ]
+      },
+      "group_rb_case_study": {
+        "translate": [ "client_name", "location", "results_kpi.kpi_label", "results_kpi.kpi_value" ],
+        "copy":      [ "installed_kwh", "products_used", "hero_image", "gallery" ]
+      },
+      "group_rb_application": {
+        "translate": [ "benefits.title", "benefits.summary" ],
+        "copy":      [ "icon_svg", "hero_bg", "recommended_products" ]
+      },
+      "group_rb_global_options": {
+        "translate": [ "company_address", "footer_cta_title", "footer_cta_text" ],
+        "copy":      [ "company_phone", "company_email", "social_links" ]
+      }
+    }
+  },
+
+  "elementor_templates": {
+    "strategy": "One saved template per language, linked via Polylang's built-in 'translation' relationship for posts. Theme-builder templates (header/footer/archive/single) must be duplicated per language with matching conditions.",
+    "duplication_matrix": [
+      { "template": "header",             "en": "header-en",    "zh": "header-zh",    "condition_en": "Entire Site (lang=EN)", "condition_zh": "Entire Site (lang=ZH)" },
+      { "template": "footer",             "en": "footer-en",    "zh": "footer-zh",    "condition_en": "Entire Site (lang=EN)", "condition_zh": "Entire Site (lang=ZH)" },
+      { "template": "single-product",     "en": "prod-en",      "zh": "prod-zh",      "condition_en": "All products (lang=EN)","condition_zh": "All products (lang=ZH)" },
+      { "template": "archive-product",    "en": "prodarch-en",  "zh": "prodarch-zh",  "condition_en": "Product archive (lang=EN)","condition_zh":"Product archive (lang=ZH)" },
+      { "template": "single-case_study",  "en": "case-en",      "zh": "case-zh",      "condition_en": "All case_studies (lang=EN)","condition_zh":"All case_studies (lang=ZH)" }
+    ],
+    "shortcut": "For prototypes, enable Elementor's built-in string-translation compatibility: each template renders once; Polylang substitutes translated strings from the registered pot/po bundle. Full duplication only needed when the LAYOUT differs per language (rare).",
+    "recommended_workflow": [
+      "1. Build EN template first.",
+      "2. Save as Elementor template.",
+      "3. Polylang → Languages → Translate posts: duplicate to ZH.",
+      "4. Open ZH copy in Elementor, translate text-only widgets. Structure and settings remain identical.",
+      "5. Assign matching Theme Builder condition scoped to ZH language."
+    ]
+  },
+
+  "hreflang": {
+    "output": "Theme prints <link rel=\"alternate\" hreflang=\"en\"/ ...> and <link rel=\"alternate\" hreflang=\"x-default\" ...> tags in <head> for every page that has a translation.",
+    "implementation": "inc/polylang.php → renobattery_emit_hreflang()",
+    "xml_sitemap": "Polylang auto-appends <xhtml:link rel=\"alternate\" hreflang=\"..\"> entries when used with Yoast/Rank Math XML sitemap."
+  },
+
+  "string_translation": {
+    "scope": "All strings wrapped in __() / _e() / _n() in theme PHP + template JSONs' user-facing text.",
+    "tooling": [
+      "Run WP-CLI i18n: `wp i18n make-pot wp-content/themes/renobattery wp-content/themes/renobattery/languages/renobattery.pot --domain=renobattery`",
+      "Translators edit zh_CN.po via Poedit or Polylang's in-admin String Translation UI.",
+      "Build .mo via `msgfmt languages/zh_CN.po -o languages/zh_CN.mo` or Polylang auto-compiles.",
+      "Theme's style.css declares Text Domain: renobattery."
+    ],
+    "ui_strings_registered_via_polylang_api": [
+      "Nav labels (duplicated in Menus per language instead)",
+      "CTA button text, eyebrow labels, form placeholders — registered via pll_register_string() in inc/polylang.php"
+    ]
+  },
+
+  "language_switcher_ui": {
+    "contract": "Navbar + mobile drawer + footer all render [polylang-switcher] shortcode with these attributes:",
+    "shortcode_attrs": {
+      "type": "links",
+      "display_names": "yes",
+      "hide_current": "no",
+      "show_flags": "no",
+      "dropdown": "no"
+    },
+    "css_hook": ".rb-lang-switch (defined in assets/css/components.css)",
+    "current_marker": ".current-lang / .lang-item-current (both styled for Polylang version drift)"
+  },
+
+  "cpt_taxonomy_slugs": {
+    "strategy": "Polylang → Settings → Custom post types and Taxonomies → check all rb types; check 'Translate URL slugs' if using Polylang Pro.",
+    "translated_slugs": {
+      "en": { "products": "products", "cases": "cases", "applications": "applications", "product-category": "product-category", "application-category": "application-category" },
+      "zh": { "products": "chan-pin",  "cases": "an-li", "applications": "ying-yong", "product-category": "chan-pin-fen-lei", "application-category": "ying-yong-fen-lei" }
+    },
+    "note": "If Polylang Free, leave slugs shared and only localize titles/content. That's fine for SEO as long as hreflang is correct."
+  },
+
+  "font_stack_per_language": {
+    "en": "Inter + Inter Display",
+    "zh": "PingFang SC → Noto Sans SC → Inter",
+    "implementation": "html[lang^='zh'] override in assets/css/tokens.css (already in place)"
+  },
+
+  "qa_parity": [
+    "Every EN page has a ZH counterpart reachable by the language switcher.",
+    "404 pages display localized copy.",
+    "Form labels, placeholders, error messages localized.",
+    "Dates/numbers follow locale (zh_CN: 2024年4月19日).",
+    "hreflang emitted on every canonical URL + x-default."
+  ]
+}
