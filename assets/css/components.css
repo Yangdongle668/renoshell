@@ -283,6 +283,19 @@ body.is-drawer-open { overflow: hidden; }
 .rb-contact__info a { color: inherit; }
 .rb-contact__info a:hover { color: var(--rb-color-accent); }
 
+/* ---------- case study KPIs (single page) ---------- */
+.rb-case-kpis__value { font-size: var(--rb-fs-h3); font-weight: var(--rb-fw-semibold); color: var(--rb-color-ink); line-height: 1.1; margin-top: var(--rb-space-2); display: block; }
+.rb-case-kpis__value .elementor-widget-container p { margin: 0; }
+
+/* ---------- legal content typography ---------- */
+.rb-legal-content h2 { font-size: var(--rb-fs-h3); font-weight: var(--rb-fw-semibold); letter-spacing: var(--rb-ls-snug); margin: var(--rb-space-10) 0 var(--rb-space-4); }
+.rb-legal-content h3 { font-size: var(--rb-fs-h4); font-weight: var(--rb-fw-semibold); margin: var(--rb-space-8) 0 var(--rb-space-3); }
+.rb-legal-content p { margin: 0 0 var(--rb-space-4); }
+.rb-legal-content ul, .rb-legal-content ol { padding-left: 1.5rem; margin: 0 0 var(--rb-space-4); }
+.rb-legal-content li { margin-bottom: var(--rb-space-2); }
+.rb-legal-content a { color: var(--rb-link); text-decoration: underline; text-underline-offset: 3px; }
+.rb-legal-content a:hover { color: var(--rb-color-accent); }
+
 /* ---------- responsive containers ---------- */
 @media (max-width: 1024px) { .rb-section { padding-inline: var(--rb-container-px-tablet); } }
 @media (max-width: 640px)  { .rb-section { padding-inline: var(--rb-container-px-mobile); } }

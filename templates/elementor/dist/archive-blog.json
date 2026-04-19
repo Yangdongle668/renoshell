@@ -1,0 +1,220 @@
+{
+    "version": "0.4",
+    "title": "RB / Archive — Blog",
+    "type": "archive",
+    "condition": {
+        "type": "archive",
+        "post_type": "post",
+        "include_taxonomies": [
+            "category"
+        ]
+    },
+    "page_settings": {
+        "template": "elementor_header_footer",
+        "css_classes": "rb-page rb-page--archive rb-page--blog"
+    },
+    "content": [
+        {
+            "id": "bl-hero",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "css_classes": "rb-archive-hero is-dark",
+                "background_color": "#0A0A0A",
+                "padding": {
+                    "unit": "px",
+                    "top": "160",
+                    "right": "40",
+                    "bottom": "72",
+                    "left": "40",
+                    "mobile": {
+                        "top": "120",
+                        "right": "20",
+                        "bottom": "56",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "bl-hero-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "bl-hero-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Journal",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "rgba(255,255,255,0.6)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase"
+                            }
+                        },
+                        {
+                            "id": "bl-hero-title",
+                            "elType": "widget",
+                            "widgetType": "archive-title",
+                            "settings": {
+                                "header_size": "h1",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 4
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 2.25
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.03
+                                },
+                                "title_color": "#FFFFFF",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 12,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bl-filter",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1440
+                },
+                "css_classes": "rb-filterbar",
+                "background_color": "#FFFFFF",
+                "position": "sticky",
+                "_position_top": {
+                    "unit": "px",
+                    "size": 72
+                },
+                "z_index": 50,
+                "border_border": "solid",
+                "border_width": {
+                    "unit": "px",
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 1,
+                    "left": 0
+                },
+                "border_color": "#E5E5E7",
+                "padding": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "40",
+                    "bottom": "16",
+                    "left": "40"
+                }
+            },
+            "elements": [
+                {
+                    "id": "bl-filter-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "bl-filter-w",
+                            "elType": "widget",
+                            "widgetType": "renobattery-taxonomy-filter",
+                            "settings": {
+                                "taxonomies": [
+                                    "category"
+                                ],
+                                "show_count": "yes",
+                                "mode": "link",
+                                "show_sort": "no"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bl-grid",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1440
+                },
+                "css_classes": "rb-section rb-section--archive-grid",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "64",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "mobile": {
+                        "top": "40",
+                        "right": "20",
+                        "bottom": "80",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "bl-grid-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "bl-grid-w",
+                            "elType": "widget",
+                            "widgetType": "archive-posts",
+                            "settings": {
+                                "skin": "cards",
+                                "template": "blog-card",
+                                "columns": 3,
+                                "columns_tablet": 2,
+                                "columns_mobile": 1,
+                                "row_gap": {
+                                    "unit": "px",
+                                    "size": 32
+                                },
+                                "column_gap": {
+                                    "unit": "px",
+                                    "size": 32
+                                },
+                                "posts_per_page": 9,
+                                "pagination": "numbers",
+                                "css_classes": "rb-grid rb-grid--blog"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

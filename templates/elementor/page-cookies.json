@@ -1,0 +1,106 @@
+{
+  "version": "0.4",
+  "title": "RB / Page — Cookie Policy",
+  "type": "page",
+  "page_settings": { "template": "elementor_header_footer", "hide_title": "yes", "css_classes": "rb-page rb-page--legal rb-page--cookies" },
+  "content": [
+    {
+      "id": "ck-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 900 },
+        "css_classes": "rb-section rb-legal-hero",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "160", "right": "40", "bottom": "32", "left": "40",
+          "mobile": { "top": "112", "right": "20", "bottom": "24", "left": "20" } }
+      },
+      "elements": [{
+        "id": "ck-hero-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "ck-bc", "elType": "widget", "widgetType": "breadcrumbs",
+            "settings": { "text_color": "#71717A", "typography_font_size": { "unit": "rem", "size": 0.8125 } } },
+          { "id": "ck-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Legal", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "typography_text_transform": "uppercase",
+              "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 8, "left": 0 } } },
+          { "id": "ck-title", "elType": "widget", "widgetType": "post-title",
+            "settings": { "header_size": "h1",
+              "typography_font_size": { "unit": "rem", "size": 3 }, "typography_font_size_mobile": { "unit": "rem", "size": 2 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+              "title_color": "#0A0A0A" } },
+          { "id": "ck-updated", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Last updated: [current_date format=F j, Y]", "header_size": "p",
+              "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.875 },
+              "_margin": { "unit": "px", "top": 8, "right": 0, "bottom": 0, "left": 0 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "ck-content",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 760 },
+        "css_classes": "rb-section rb-legal-content",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "32", "right": "40", "bottom": "80", "left": "40" }
+      },
+      "elements": [{
+        "id": "ck-content-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "ck-content-w", "elType": "widget", "widgetType": "theme-post-content",
+          "settings": { "typography_font_size": { "unit": "rem", "size": 1.0625 }, "typography_line_height": { "unit": "em", "size": 1.8 }, "text_color": "#27272A" }
+        }]
+      }]
+    },
+
+    {
+      "id": "ck-manage",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 760 },
+        "css_classes": "rb-section rb-cookie-manage",
+        "background_color": "#FAFAFA",
+        "padding": { "unit": "px", "top": "48", "right": "40", "bottom": "64", "left": "40" }
+      },
+      "elements": [{
+        "id": "ck-manage-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "ck-manage-h", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Manage your preferences", "header_size": "h3",
+              "typography_font_size": { "unit": "rem", "size": 1.375 }, "typography_font_weight": "600" } },
+          { "id": "ck-manage-t", "elType": "widget", "widgetType": "text-editor",
+            "settings": { "editor": "<p>You can update your cookie choices at any time.</p>",
+              "typography_font_size": { "unit": "rem", "size": 1 }, "text_color": "#52525B",
+              "_margin": { "unit": "px", "top": 8, "right": 0, "bottom": 20, "left": 0 } } },
+          { "id": "ck-manage-btn", "elType": "widget", "widgetType": "button",
+            "settings": { "text": "Cookie preferences",
+              "link": { "url": "#rb-cookie-preferences", "custom_attributes": "onclick|window.CookieConsent && window.CookieConsent.openPreferences()" },
+              "size": "md", "css_classes": "rb-btn rb-btn--outline rb-btn--pill",
+              "border_border": "solid", "border_color": "#0A0A0A",
+              "border_radius": { "unit": "px", "top": 999, "right": 999, "bottom": 999, "left": 999 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "ck-content-2",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 760 },
+        "css_classes": "rb-section rb-legal-content",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "64", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [{
+        "id": "ck-content-2-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "ck-content-2-w", "elType": "widget", "widgetType": "shortcode",
+          "settings": { "shortcode": "[rb_cookie_table]", "css_classes": "rb-cookie-table" }
+        }]
+      }]
+    }
+  ]
+}
