@@ -54,9 +54,13 @@
 	--rb-border-strong: #111111;
 	--rb-border-dark:   #27272A;
 
-	/* typography — families */
-	--rb-font-sans:    'Inter', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
-	--rb-font-display: 'Inter Display', 'Inter', 'PingFang SC', sans-serif;
+	/* typography — families
+	 * DM Sans is the primary face (self-hosted, SIL OFL, shipped in assets/fonts/).
+	 * Inter is kept in the stack as fallback for any legacy browser that can't
+	 * parse variable fonts.
+	 */
+	--rb-font-sans:    'DM Sans', 'Inter', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+	--rb-font-display: 'DM Sans', 'Inter Display', 'Inter', 'PingFang SC', sans-serif;
 	--rb-font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
 	/* typography — weights */
@@ -182,8 +186,10 @@
 
 /* Chinese-locale font override */
 html[lang^="zh"] {
-	--rb-font-sans:    'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Inter', sans-serif;
-	--rb-font-display: 'PingFang SC', 'Noto Sans SC', 'Inter Display', sans-serif;
+	/* Chinese locale: prefer CJK system fonts; DM Sans still covers
+	 * latin text inline (numbers, product model codes, brand names). */
+	--rb-font-sans:    'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'DM Sans', 'Inter', sans-serif;
+	--rb-font-display: 'PingFang SC', 'Noto Sans SC', 'DM Sans', 'Inter Display', sans-serif;
 	--rb-ls-tight: -0.02em; /* CJK needs less negative tracking */
 }
 
