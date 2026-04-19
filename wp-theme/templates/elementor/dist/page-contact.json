@@ -1,0 +1,655 @@
+{
+    "version": "0.4",
+    "title": "RB / Page — Contact",
+    "type": "page",
+    "page_settings": {
+        "template": "elementor_header_footer",
+        "hide_title": "yes",
+        "css_classes": "rb-page rb-page--contact"
+    },
+    "content": [
+        {
+            "id": "ct-hero",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "min_height": {
+                    "unit": "vh",
+                    "size": 45
+                },
+                "content_position": "middle",
+                "css_classes": "rb-archive-hero is-dark",
+                "background_color": "#0A0A0A",
+                "padding": {
+                    "unit": "px",
+                    "top": "160",
+                    "right": "40",
+                    "bottom": "80",
+                    "left": "40",
+                    "mobile": {
+                        "top": "120",
+                        "right": "20",
+                        "bottom": "56",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "ct-hero-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ct-bc",
+                            "elType": "widget",
+                            "widgetType": "breadcrumbs",
+                            "settings": {
+                                "text_color": "rgba(255,255,255,0.6)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                }
+                            }
+                        },
+                        {
+                            "id": "ct-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Contact",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "rgba(255,255,255,0.6)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ct-title",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Let's build what you need.",
+                                "header_size": "h1",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 4
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 2.25
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.03
+                                },
+                                "title_color": "#FFFFFF"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ct-form",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "gap": "extended",
+                "structure": "33",
+                "css_classes": "rb-section rb-contact",
+                "background_color": "#FAFAFA",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "mobile": {
+                        "top": "72",
+                        "right": "20",
+                        "bottom": "72",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "cf-col-copy",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 40,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "cf-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Contact",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "600",
+                                "title_color": "#71717A"
+                            }
+                        },
+                        {
+                            "id": "cf-title",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Talk to an engineer.",
+                                "header_size": "h2",
+                                "css_classes": "rb-contact__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 2.5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 1.875
+                                },
+                                "typography_font_weight": "600",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.1
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.02
+                                },
+                                "title_color": "#0A0A0A",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 20,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "cf-lead",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Tell us about your project. We typically respond within one business day.</p>",
+                                "css_classes": "rb-contact__lead",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.125
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "#3F3F46"
+                            }
+                        },
+                        {
+                            "id": "cf-info",
+                            "elType": "widget",
+                            "widgetType": "icon-list",
+                            "settings": {
+                                "css_classes": "rb-contact__info",
+                                "icon_list": [
+                                    {
+                                        "text": "{{option:company_phone}}",
+                                        "selected_icon": {
+                                            "value": "fas fa-phone",
+                                            "library": "fa-solid"
+                                        },
+                                        "link": {
+                                            "url": "tel:{{option:company_phone}}"
+                                        }
+                                    },
+                                    {
+                                        "text": "{{option:company_email}}",
+                                        "selected_icon": {
+                                            "value": "fas fa-envelope",
+                                            "library": "fa-solid"
+                                        },
+                                        "link": {
+                                            "url": "mailto:{{option:company_email}}"
+                                        }
+                                    },
+                                    {
+                                        "text": "{{option:company_address}}",
+                                        "selected_icon": {
+                                            "value": "fas fa-map-marker-alt",
+                                            "library": "fa-solid"
+                                        }
+                                    }
+                                ],
+                                "icon_color": "#1B6CFF",
+                                "text_color": "#0A0A0A",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1
+                                },
+                                "space_between": {
+                                    "unit": "px",
+                                    "size": 12
+                                },
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 32,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cf-col-form",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 60,
+                        "_column_size_mobile": 100,
+                        "padding": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "48",
+                            "mobile": {
+                                "top": "40",
+                                "right": "0",
+                                "bottom": "0",
+                                "left": "0"
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "id": "cf-form",
+                            "elType": "widget",
+                            "widgetType": "form",
+                            "settings": {
+                                "form_name": "Contact — Engineering",
+                                "form_fields": [
+                                    {
+                                        "field_type": "text",
+                                        "field_label": "Name",
+                                        "placeholder": "Your name",
+                                        "required": "true",
+                                        "width": "50",
+                                        "_id": "f_name"
+                                    },
+                                    {
+                                        "field_type": "email",
+                                        "field_label": "Email",
+                                        "placeholder": "name@company.com",
+                                        "required": "true",
+                                        "width": "50",
+                                        "_id": "f_email"
+                                    },
+                                    {
+                                        "field_type": "text",
+                                        "field_label": "Company",
+                                        "placeholder": "Company",
+                                        "width": "50",
+                                        "_id": "f_company"
+                                    },
+                                    {
+                                        "field_type": "tel",
+                                        "field_label": "Phone",
+                                        "placeholder": "+1 555 000 0000",
+                                        "width": "50",
+                                        "_id": "f_phone"
+                                    },
+                                    {
+                                        "field_type": "select",
+                                        "field_label": "Application",
+                                        "field_options": "Residential ESS\nCommercial ESS\nUtility Scale\nEV\nMarine\nTelecom\nOther",
+                                        "width": "100",
+                                        "_id": "f_app"
+                                    },
+                                    {
+                                        "field_type": "textarea",
+                                        "field_label": "Project details",
+                                        "placeholder": "kWh target, site constraints, timeline…",
+                                        "rows": 5,
+                                        "width": "100",
+                                        "_id": "f_msg"
+                                    },
+                                    {
+                                        "field_type": "acceptance",
+                                        "field_label": "I agree to the privacy policy.",
+                                        "required": "true",
+                                        "width": "100",
+                                        "_id": "f_accept"
+                                    }
+                                ],
+                                "button_text": "Send inquiry",
+                                "button_size": "md",
+                                "button_align": "left",
+                                "button_background_color": "#0A0A0A",
+                                "button_text_color": "#FFFFFF",
+                                "button_hover_background_color": "#E31937",
+                                "button_border_radius": {
+                                    "unit": "px",
+                                    "top": 999,
+                                    "right": 999,
+                                    "bottom": 999,
+                                    "left": 999
+                                },
+                                "input_border_color": "#E5E5E7",
+                                "input_border_width": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 1,
+                                    "left": 0
+                                },
+                                "input_background_color": "transparent",
+                                "input_focus_border_color": "#0A0A0A",
+                                "input_padding": {
+                                    "unit": "px",
+                                    "top": 14,
+                                    "right": 2,
+                                    "bottom": 14,
+                                    "left": 2
+                                },
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1
+                                },
+                                "label_spacing": {
+                                    "unit": "px",
+                                    "size": 4
+                                },
+                                "row_gap": {
+                                    "unit": "px",
+                                    "size": 20
+                                },
+                                "column_gap": {
+                                    "unit": "px",
+                                    "size": 24
+                                },
+                                "css_classes": "rb-form"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        },
+        {
+            "id": "ct-offices",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "structure": "30",
+                "css_classes": "rb-section rb-contact-offices",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40"
+                }
+            },
+            "elements": [
+                {
+                    "id": "ct-o1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 33,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ct-o1-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "APAC HQ",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "#71717A",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase"
+                            }
+                        },
+                        {
+                            "id": "ct-o1-city",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Shenzhen",
+                                "header_size": "h3",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.75
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 8,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ct-o1-addr",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Renobattery Industrial Park<br>Longgang District, Shenzhen 518000<br>China</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ct-o2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 33,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ct-o2-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "EMEA",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "#71717A"
+                            }
+                        },
+                        {
+                            "id": "ct-o2-city",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Frankfurt",
+                                "header_size": "h3",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.75
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 8,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ct-o2-addr",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Taunusanlage 11<br>60329 Frankfurt am Main<br>Germany</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ct-o3",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 33,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ct-o3-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Americas",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "#71717A"
+                            }
+                        },
+                        {
+                            "id": "ct-o3-city",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Austin",
+                                "header_size": "h3",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.75
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 8,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ct-o3-addr",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>100 Congress Ave, Suite 2000<br>Austin, TX 78701<br>USA</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ct-map",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "css_classes": "rb-section rb-contact-map",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0"
+                }
+            },
+            "elements": [
+                {
+                    "id": "ct-map-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ct-map-w",
+                            "elType": "widget",
+                            "widgetType": "google_maps",
+                            "settings": {
+                                "address": "Shenzhen, China",
+                                "zoom": {
+                                    "unit": "px",
+                                    "size": 11
+                                },
+                                "height": {
+                                    "unit": "px",
+                                    "size": 480
+                                },
+                                "prevent_scroll": "yes"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

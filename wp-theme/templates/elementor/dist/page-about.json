@@ -1,0 +1,1208 @@
+{
+    "version": "0.4",
+    "title": "RB / Page — About",
+    "type": "page",
+    "page_settings": {
+        "template": "elementor_header_footer",
+        "hide_title": "yes",
+        "css_classes": "rb-page rb-page--about"
+    },
+    "content": [
+        {
+            "id": "ab-hero",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "min_height": {
+                    "unit": "vh",
+                    "size": 80
+                },
+                "content_position": "middle",
+                "css_classes": "rb-hero rb-hero--cinematic is-dark",
+                "background_background": "classic",
+                "background_color": "#0A0A0A",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "80",
+                    "left": "40"
+                }
+            },
+            "elements": [
+                {
+                    "id": "ab-hero-col",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100,
+                        "align": "center"
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-hero-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "About Renobattery",
+                                "header_size": "span",
+                                "align": "center",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "rgba(255,255,255,0.7)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase"
+                            }
+                        },
+                        {
+                            "id": "ab-hero-title",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Engineering the energy future, cell by cell.",
+                                "header_size": "h1",
+                                "align": "center",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 2.75
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.03
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.05
+                                },
+                                "title_color": "#FFFFFF",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 20,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ab-hero-lead",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Since 2014, we've shipped 2.4 GWh of LiFePO₄ energy storage to customers in 120 countries.</p>",
+                                "align": "center",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.25
+                                },
+                                "text_color": "rgba(255,255,255,0.85)",
+                                "_element_custom_width": "yes",
+                                "_element_width_custom": {
+                                    "unit": "px",
+                                    "size": 680
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ab-mission",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "structure": "20",
+                "css_classes": "rb-section rb-about-mission",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40"
+                }
+            },
+            "elements": [
+                {
+                    "id": "ab-mis-col-l",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 40,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-mis-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Our mission",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "title_color": "#71717A",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ab-mis-col-r",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 60,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-mis-h",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Accelerate the world's shift to clean, reliable energy — at every scale.",
+                                "header_size": "h2",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 2.25
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 1.75
+                                },
+                                "typography_font_weight": "500",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.3
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.015
+                                },
+                                "title_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ab-feature",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1440
+                },
+                "gap": "extended",
+                "structure": "20",
+                "css_classes": "rb-section rb-feature",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "mobile": {
+                        "top": "72",
+                        "right": "20",
+                        "bottom": "72",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "feat-col-media",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 50,
+                        "_column_size_mobile": 100,
+                        "content_position": "center"
+                    },
+                    "elements": [
+                        {
+                            "id": "feat-media",
+                            "elType": "widget",
+                            "widgetType": "image",
+                            "settings": {
+                                "image": {
+                                    "url": "",
+                                    "alt": ""
+                                },
+                                "image_size": "rb-card-lg",
+                                "css_classes": "rb-feature__media",
+                                "image_border_radius": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 16,
+                                    "bottom": 16,
+                                    "left": 16
+                                },
+                                "_animation": "fadeIn",
+                                "_animation_delay": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "feat-col-body",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 50,
+                        "_column_size_mobile": 100,
+                        "content_position": "center",
+                        "padding": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "48",
+                            "mobile": {
+                                "top": "32",
+                                "right": "0",
+                                "bottom": "0",
+                                "left": "0"
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "id": "feat-eye",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Feature",
+                                "header_size": "span",
+                                "css_classes": "rb-eyebrow",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "600",
+                                "title_color": "#71717A",
+                                "_animation": "fadeInUp"
+                            }
+                        },
+                        {
+                            "id": "feat-title",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "We build every cell we sell.",
+                                "header_size": "h2",
+                                "css_classes": "rb-feature__title",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 2.5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 1.875
+                                },
+                                "typography_font_weight": "600",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.1
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.02
+                                },
+                                "title_color": "#0A0A0A",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 20,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 120
+                            }
+                        },
+                        {
+                            "id": "feat-lead",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>In-house cell chemistry, module assembly, BMS firmware and quality-control. One team, one roof, one warranty.</p>",
+                                "css_classes": "rb-feature__lead",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.125
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "#3F3F46",
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 240
+                            }
+                        },
+                        {
+                            "id": "feat-bullets",
+                            "elType": "widget",
+                            "widgetType": "icon-list",
+                            "settings": {
+                                "css_classes": "rb-feature__bullets",
+                                "icon_list": [
+                                    {
+                                        "text": "6,000+ cycle life at 80% DoD",
+                                        "selected_icon": {
+                                            "value": "fas fa-check",
+                                            "library": "fa-solid"
+                                        }
+                                    },
+                                    {
+                                        "text": "Active balancing BMS with CAN/RS485",
+                                        "selected_icon": {
+                                            "value": "fas fa-check",
+                                            "library": "fa-solid"
+                                        }
+                                    },
+                                    {
+                                        "text": "IP65 enclosure, -20℃ to +60℃",
+                                        "selected_icon": {
+                                            "value": "fas fa-check",
+                                            "library": "fa-solid"
+                                        }
+                                    },
+                                    {
+                                        "text": "UL1973 / IEC62619 / UN38.3",
+                                        "selected_icon": {
+                                            "value": "fas fa-check",
+                                            "library": "fa-solid"
+                                        }
+                                    }
+                                ],
+                                "icon_color": "#1B6CFF",
+                                "text_color": "#0A0A0A",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1
+                                },
+                                "space_between": {
+                                    "unit": "px",
+                                    "size": 10
+                                },
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 24,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 360
+                            }
+                        },
+                        {
+                            "id": "feat-cta",
+                            "elType": "widget",
+                            "widgetType": "button",
+                            "settings": {
+                                "text": "Learn more",
+                                "link": {
+                                    "url": "#"
+                                },
+                                "align": "left",
+                                "size": "md",
+                                "css_classes": "rb-btn rb-btn--ghost rb-btn--arrow",
+                                "button_text_color": "#0A0A0A",
+                                "background_color": "transparent",
+                                "hover_color": "#E31937",
+                                "text_padding": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "selected_icon": {
+                                    "value": "fas fa-arrow-right",
+                                    "library": "fa-solid"
+                                },
+                                "icon_align": "right",
+                                "icon_indent": {
+                                    "unit": "px",
+                                    "size": 8
+                                },
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 32,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 480
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        },
+        {
+            "id": "ab-stats",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "structure": "40",
+                "css_classes": "rb-section rb-section--stats",
+                "background_color": "#FAFAFA",
+                "padding": {
+                    "unit": "px",
+                    "top": "96",
+                    "right": "40",
+                    "bottom": "96",
+                    "left": "40"
+                }
+            },
+            "elements": [
+                {
+                    "id": "ab-s1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-s1w",
+                            "elType": "widget",
+                            "widgetType": "counter",
+                            "settings": {
+                                "starting_number": 0,
+                                "ending_number": 2014,
+                                "title": "Founded",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_weight": "600",
+                                "digit_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ab-s2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-s2w",
+                            "elType": "widget",
+                            "widgetType": "counter",
+                            "settings": {
+                                "starting_number": 0,
+                                "ending_number": 1200,
+                                "title": "Employees",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_weight": "600",
+                                "digit_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ab-s3",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-s3w",
+                            "elType": "widget",
+                            "widgetType": "counter",
+                            "settings": {
+                                "starting_number": 0,
+                                "ending_number": 120,
+                                "suffix": "+",
+                                "title": "Countries",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_weight": "600",
+                                "digit_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ab-s4",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ab-s4w",
+                            "elType": "widget",
+                            "widgetType": "counter",
+                            "settings": {
+                                "starting_number": 0,
+                                "ending_number": 2.4,
+                                "suffix": " GWh",
+                                "title": "Shipped",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_weight": "600",
+                                "digit_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ab-timeline",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1440
+                },
+                "gap": "default",
+                "structure": "40",
+                "css_classes": "rb-section rb-timeline",
+                "background_color": "#FFFFFF",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "mobile": {
+                        "top": "80",
+                        "right": "20",
+                        "bottom": "80",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "tl-step-1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-1",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "01",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-1",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Founded",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.01
+                                },
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-1",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Two battery engineers start a small LiFePO₄ cell pilot line in Shenzhen.</p>",
+                                "css_classes": "rb-timeline__body",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-2",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "02",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-2",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "First Grid Project",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-2",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>10 MWh commercial ESS deployed in Inner Mongolia.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-3",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-3",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "03",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-3",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Global Expansion",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-3",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Offices opened in Frankfurt and Austin; 500 MWh annual capacity.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tl-step-4",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "tl-num-4",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "04",
+                                "header_size": "span",
+                                "css_classes": "rb-timeline__num",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.08
+                                },
+                                "typography_font_weight": "600",
+                                "title_color": "#E31937"
+                            }
+                        },
+                        {
+                            "id": "tl-title-4",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Today",
+                                "header_size": "h4",
+                                "css_classes": "rb-timeline__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.5
+                                },
+                                "typography_font_weight": "600",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 12,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "tl-body-4",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>2.4 GWh shipped, UL1973 + IEC62619 + CE + UN38.3 certified.</p>",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "text_color": "#52525B"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        },
+        {
+            "id": "ab-cta",
+            "elType": "section",
+            "settings": {
+                "layout": "boxed",
+                "content_width": {
+                    "unit": "px",
+                    "size": 1200
+                },
+                "gap": "extended",
+                "min_height": {
+                    "unit": "vh",
+                    "size": 70
+                },
+                "content_position": "middle",
+                "background_background": "classic",
+                "background_color": "#0A0A0A",
+                "background_image": {
+                    "url": "{{option:cta_bg_image}}"
+                },
+                "background_position": "center center",
+                "background_size": "cover",
+                "background_overlay_background": "gradient",
+                "background_overlay_color": "rgba(10,10,10,0.85)",
+                "background_overlay_color_b": "rgba(10,10,10,0.35)",
+                "background_overlay_gradient_angle": {
+                    "unit": "deg",
+                    "size": 180
+                },
+                "css_classes": "rb-cta rb-cta--cinematic is-dark",
+                "padding": {
+                    "unit": "px",
+                    "top": "120",
+                    "right": "40",
+                    "bottom": "120",
+                    "left": "40",
+                    "tablet": {
+                        "top": "80",
+                        "right": "24",
+                        "bottom": "80",
+                        "left": "24"
+                    },
+                    "mobile": {
+                        "top": "64",
+                        "right": "20",
+                        "bottom": "64",
+                        "left": "20"
+                    }
+                },
+                "motion_fx_motion_fx_scrolling": "yes",
+                "motion_fx_translateY_effect": "yes",
+                "motion_fx_translateY_direction": "negative",
+                "motion_fx_translateY_speed": {
+                    "unit": "px",
+                    "size": 2
+                }
+            },
+            "elements": [
+                {
+                    "id": "ctacol01",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100,
+                        "align": "center"
+                    },
+                    "elements": [
+                        {
+                            "id": "ctaeye01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Ready to electrify?",
+                                "header_size": "span",
+                                "align": "center",
+                                "css_classes": "rb-eyebrow",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_font_weight": "600",
+                                "typography_text_transform": "uppercase",
+                                "title_color": "rgba(255,255,255,0.7)",
+                                "_animation": "fadeInUp"
+                            }
+                        },
+                        {
+                            "id": "ctah01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Partner with us to build the energy future.",
+                                "header_size": "h2",
+                                "align": "center",
+                                "css_classes": "rb-cta__title",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_size_tablet": {
+                                    "unit": "rem",
+                                    "size": 2.5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 1.875
+                                },
+                                "typography_font_weight": "600",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.08
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.02
+                                },
+                                "title_color": "#FFFFFF",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 0,
+                                    "bottom": 24,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 120
+                            }
+                        },
+                        {
+                            "id": "ctatext01",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>Talk to our engineers about custom battery solutions tailored to your project scale.</p>",
+                                "align": "center",
+                                "css_classes": "rb-cta__lead",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.125
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.6
+                                },
+                                "text_color": "rgba(255,255,255,0.8)",
+                                "_element_custom_width": "yes",
+                                "_element_width_custom": {
+                                    "unit": "px",
+                                    "size": 680
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 240
+                            }
+                        },
+                        {
+                            "id": "ctabtns01",
+                            "elType": "section",
+                            "isInner": true,
+                            "settings": {
+                                "gap": "default",
+                                "structure": "20",
+                                "css_classes": "rb-cta__actions",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 40,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 360
+                            },
+                            "elements": [
+                                {
+                                    "id": "ctabtna01",
+                                    "elType": "column",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "align": "flex-end"
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "ctabtn01",
+                                            "elType": "widget",
+                                            "widgetType": "button",
+                                            "settings": {
+                                                "text": "Contact Sales",
+                                                "link": {
+                                                    "url": "/contact/"
+                                                },
+                                                "align": "right",
+                                                "size": "md",
+                                                "css_classes": "rb-btn rb-btn--solid rb-btn--pill rb-btn--on-dark",
+                                                "button_text_color": "#0A0A0A",
+                                                "background_color": "#FFFFFF",
+                                                "hover_background_color": "#E31937",
+                                                "hover_color": "#FFFFFF",
+                                                "border_radius": {
+                                                    "unit": "px",
+                                                    "top": 999,
+                                                    "right": 999,
+                                                    "bottom": 999,
+                                                    "left": 999
+                                                },
+                                                "text_padding": {
+                                                    "unit": "px",
+                                                    "top": 16,
+                                                    "right": 28,
+                                                    "bottom": 16,
+                                                    "left": 28
+                                                },
+                                                "typography_font_size": {
+                                                    "unit": "rem",
+                                                    "size": 0.9375
+                                                },
+                                                "typography_font_weight": "600",
+                                                "typography_letter_spacing": {
+                                                    "unit": "em",
+                                                    "size": 0.04
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "ctabtnb01",
+                                    "elType": "column",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "align": "flex-start"
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "ctabtn02",
+                                            "elType": "widget",
+                                            "widgetType": "button",
+                                            "settings": {
+                                                "text": "Download Catalog",
+                                                "link": {
+                                                    "url": "/catalog.pdf",
+                                                    "is_external": true
+                                                },
+                                                "align": "left",
+                                                "size": "md",
+                                                "css_classes": "rb-btn rb-btn--outline rb-btn--pill rb-btn--on-dark",
+                                                "button_text_color": "#FFFFFF",
+                                                "background_color": "transparent",
+                                                "border_border": "solid",
+                                                "border_width": {
+                                                    "unit": "px",
+                                                    "top": 1,
+                                                    "right": 1,
+                                                    "bottom": 1,
+                                                    "left": 1
+                                                },
+                                                "border_color": "rgba(255,255,255,0.35)",
+                                                "hover_background_color": "#FFFFFF",
+                                                "hover_color": "#0A0A0A",
+                                                "hover_border_color": "#FFFFFF",
+                                                "border_radius": {
+                                                    "unit": "px",
+                                                    "top": 999,
+                                                    "right": 999,
+                                                    "bottom": 999,
+                                                    "left": 999
+                                                },
+                                                "text_padding": {
+                                                    "unit": "px",
+                                                    "top": 16,
+                                                    "right": 28,
+                                                    "bottom": 16,
+                                                    "left": 28
+                                                },
+                                                "typography_font_size": {
+                                                    "unit": "rem",
+                                                    "size": 0.9375
+                                                },
+                                                "typography_font_weight": "600",
+                                                "typography_letter_spacing": {
+                                                    "unit": "em",
+                                                    "size": 0.04
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ]
+}

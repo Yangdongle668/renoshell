@@ -1,0 +1,215 @@
+{
+    "version": "0.4",
+    "title": "RB / Hero Fullscreen (Tesla-style)",
+    "type": "section",
+    "content": [
+        {
+            "id": "hero001",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "height": "full",
+                "min_height": {
+                    "unit": "vh",
+                    "size": 100
+                },
+                "content_position": "middle",
+                "background_background": "video",
+                "background_video_link": "{{acf:hero_video_mp4}}",
+                "background_video_fallback": {
+                    "url": "{{acf:hero_image}}"
+                },
+                "background_play_on_mobile": "no",
+                "background_overlay_background": "classic",
+                "background_overlay_color": "rgba(0,0,0,0.35)",
+                "css_classes": "rb-hero rb-hero--cinematic is-dark",
+                "motion_fx_motion_fx_scrolling": "yes",
+                "motion_fx_opacity_effect": "yes",
+                "motion_fx_opacity_direction": "out-in",
+                "motion_fx_opacity_range": {
+                    "sizes": {
+                        "start": 50,
+                        "end": 100
+                    }
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0"
+                }
+            },
+            "elements": [
+                {
+                    "id": "herocol01",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100,
+                        "align": "center",
+                        "content_position_tablet": "middle"
+                    },
+                    "elements": [
+                        {
+                            "id": "heroeye01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Power beyond limits.",
+                                "header_size": "span",
+                                "align": "center",
+                                "css_classes": "rb-eyebrow",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_font_weight": "600",
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.12
+                                },
+                                "typography_text_transform": "uppercase",
+                                "title_color": "rgba(255,255,255,0.8)",
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 0
+                            }
+                        },
+                        {
+                            "id": "heroh01",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "The next generation of energy storage.",
+                                "header_size": "h1",
+                                "align": "center",
+                                "css_classes": "rb-hero__title",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 6.25
+                                },
+                                "typography_font_size_tablet": {
+                                    "unit": "rem",
+                                    "size": 3.5
+                                },
+                                "typography_font_size_mobile": {
+                                    "unit": "rem",
+                                    "size": 2.5
+                                },
+                                "typography_font_weight": "600",
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.02
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": -0.03
+                                },
+                                "title_color": "#FFFFFF",
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 120
+                            }
+                        },
+                        {
+                            "id": "herosub01",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>LiFePO4 modular systems engineered for residential, commercial and utility-scale applications.</p>",
+                                "align": "center",
+                                "css_classes": "rb-hero__lead",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 1.25
+                                },
+                                "typography_line_height": {
+                                    "unit": "em",
+                                    "size": 1.55
+                                },
+                                "text_color": "rgba(255,255,255,0.85)",
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 240
+                            }
+                        },
+                        {
+                            "id": "herobtns01",
+                            "elType": "widget",
+                            "widgetType": "button",
+                            "settings": {
+                                "text": "Explore Products",
+                                "link": {
+                                    "url": "/products/"
+                                },
+                                "align": "center",
+                                "size": "md",
+                                "css_classes": "rb-btn rb-btn--solid rb-btn--pill",
+                                "button_text_color": "#0A0A0A",
+                                "background_color": "#FFFFFF",
+                                "hover_background_color": "#E31937",
+                                "hover_color": "#FFFFFF",
+                                "border_radius": {
+                                    "unit": "px",
+                                    "top": 999,
+                                    "right": 999,
+                                    "bottom": 999,
+                                    "left": 999
+                                },
+                                "text_padding": {
+                                    "unit": "px",
+                                    "top": 16,
+                                    "right": 28,
+                                    "bottom": 16,
+                                    "left": 28
+                                },
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.9375
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.04
+                                },
+                                "typography_font_weight": "600",
+                                "_animation": "fadeInUp",
+                                "_animation_delay": 360
+                            }
+                        },
+                        {
+                            "id": "heroscroll01",
+                            "elType": "widget",
+                            "widgetType": "icon",
+                            "settings": {
+                                "selected_icon": {
+                                    "value": "fas fa-chevron-down",
+                                    "library": "fa-solid"
+                                },
+                                "align": "center",
+                                "primary_color": "rgba(255,255,255,0.7)",
+                                "size": {
+                                    "unit": "px",
+                                    "size": 20
+                                },
+                                "css_classes": "rb-hero__scroll-indicator",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 64,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "left": 0
+                                },
+                                "_animation": "pulse",
+                                "_animation_delay": 900
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ],
+    "page_settings": []
+}

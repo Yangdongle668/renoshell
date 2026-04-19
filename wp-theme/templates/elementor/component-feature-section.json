@@ -1,0 +1,161 @@
+{
+  "version": "0.4",
+  "title": "RB / Feature Section (50/50)",
+  "type": "section",
+  "content": [
+    {
+      "id": "feat",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "content_width": { "unit": "px", "size": 1440 },
+        "gap": "extended",
+        "structure": "20",
+        "css_classes": "rb-section rb-feature",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40",
+          "mobile": { "top": "72", "right": "20", "bottom": "72", "left": "20" } }
+      },
+      "elements": [
+        {
+          "id": "feat-col-media",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "_column_size_mobile": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "feat-media",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": { "url": "", "alt": "" },
+                "image_size": "rb-card-lg",
+                "css_classes": "rb-feature__media",
+                "image_border_radius": { "unit": "px", "top": 16, "right": 16, "bottom": 16, "left": 16 },
+                "_animation": "fadeIn",
+                "_animation_delay": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "feat-col-body",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "_column_size_mobile": 100,
+            "content_position": "center",
+            "padding": {
+              "unit": "px",
+              "top": "0", "right": "0", "bottom": "0", "left": "48",
+              "mobile": { "top": "32", "right": "0", "bottom": "0", "left": "0" }
+            }
+          },
+          "elements": [
+            {
+              "id": "feat-eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Feature",
+                "header_size": "span",
+                "css_classes": "rb-eyebrow",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "rem", "size": 0.75 },
+                "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+                "typography_text_transform": "uppercase",
+                "typography_font_weight": "600",
+                "title_color": "#71717A",
+                "_animation": "fadeInUp"
+              }
+            },
+            {
+              "id": "feat-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Proven chemistry. Modular by design.",
+                "header_size": "h2",
+                "css_classes": "rb-feature__title",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "rem", "size": 2.5 },
+                "typography_font_size_mobile": { "unit": "rem", "size": 1.875 },
+                "typography_font_weight": "600",
+                "typography_line_height": { "unit": "em", "size": 1.1 },
+                "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+                "title_color": "#0A0A0A",
+                "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 20, "left": 0 },
+                "_animation": "fadeInUp",
+                "_animation_delay": 120
+              }
+            },
+            {
+              "id": "feat-lead",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>LiFePO₄ cells delivering 6,000+ cycles at 80% DoD, stacked into 19-inch rack modules for seamless scaling from 5 kWh to 1 MWh.</p>",
+                "css_classes": "rb-feature__lead",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "rem", "size": 1.125 },
+                "typography_line_height": { "unit": "em", "size": 1.6 },
+                "text_color": "#3F3F46",
+                "_animation": "fadeInUp",
+                "_animation_delay": 240
+              }
+            },
+            {
+              "id": "feat-bullets",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "css_classes": "rb-feature__bullets",
+                "icon_list": [
+                  { "text": "6,000+ cycle life at 80% DoD", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+                  { "text": "Active balancing BMS with CAN/RS485", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+                  { "text": "IP65 enclosure, -20℃ to +60℃",       "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+                  { "text": "UL1973 / IEC62619 / UN38.3",           "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } }
+                ],
+                "icon_color": "#1B6CFF",
+                "text_color": "#0A0A0A",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "rem", "size": 1 },
+                "space_between": { "unit": "px", "size": 10 },
+                "_margin": { "unit": "px", "top": 24, "right": 0, "bottom": 0, "left": 0 },
+                "_animation": "fadeInUp",
+                "_animation_delay": 360
+              }
+            },
+            {
+              "id": "feat-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Learn more",
+                "link": { "url": "#" },
+                "align": "left",
+                "size": "md",
+                "css_classes": "rb-btn rb-btn--ghost rb-btn--arrow",
+                "button_text_color": "#0A0A0A",
+                "background_color": "transparent",
+                "hover_color": "#E31937",
+                "text_padding": { "unit": "px", "top": 0, "right": 0, "bottom": 0, "left": 0 },
+                "selected_icon": { "value": "fas fa-arrow-right", "library": "fa-solid" },
+                "icon_align": "right",
+                "icon_indent": { "unit": "px", "size": 8 },
+                "_margin": { "unit": "px", "top": 32, "right": 0, "bottom": 0, "left": 0 },
+                "_animation": "fadeInUp",
+                "_animation_delay": 480
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": []
+}

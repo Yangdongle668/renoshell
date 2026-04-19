@@ -1,0 +1,301 @@
+{
+  "version": "0.4",
+  "title": "RB / Page — Home",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_header_footer",
+    "hide_title": "yes",
+    "css_classes": "rb-page rb-page--home"
+  },
+  "content": [
+    {
+      "id": "home-hero",
+      "elType": "section",
+      "_ref": "component-hero-fullscreen.json",
+      "overrides": {
+        "elements.0.elements.1.settings.title": "The next generation of energy storage.",
+        "elements.0.elements.2.settings.editor": "<p>LiFePO4 modular systems engineered for residential, commercial and utility-scale applications.</p>"
+      }
+    },
+
+    {
+      "id": "home-marquee",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "css_classes": "rb-marquee is-dark",
+        "background_color": "#0A0A0A",
+        "padding": { "unit": "px", "top": "24", "right": "0", "bottom": "24", "left": "0" }
+      },
+      "elements": [
+        {
+          "id": "home-marquee-col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "home-marquee-widget",
+              "elType": "widget",
+              "widgetType": "renobattery-logo-marquee",
+              "settings": {
+                "logos": [
+                  { "image": { "url": "{{option:partner.0.logo}}" }, "alt": "Partner 1" },
+                  { "image": { "url": "{{option:partner.1.logo}}" }, "alt": "Partner 2" },
+                  { "image": { "url": "{{option:partner.2.logo}}" }, "alt": "Partner 3" },
+                  { "image": { "url": "{{option:partner.3.logo}}" }, "alt": "Partner 4" },
+                  { "image": { "url": "{{option:partner.4.logo}}" }, "alt": "Partner 5" }
+                ],
+                "speed_s": 40,
+                "direction": "left",
+                "logo_height_px": 28,
+                "grayscale": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "home-featured-products",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "content_width": { "unit": "px", "size": 1440 },
+        "css_classes": "rb-section rb-section--products",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40",
+          "mobile": { "top": "80", "right": "20", "bottom": "80", "left": "20" } }
+      },
+      "elements": [
+        {
+          "id": "home-fp-header",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "home-fp-eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Products",
+                "header_size": "span",
+                "align": "left",
+                "css_classes": "rb-eyebrow",
+                "typography_font_size": { "unit": "rem", "size": 0.75 },
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+                "title_color": "#71717A",
+                "_animation": "fadeInUp"
+              }
+            },
+            {
+              "id": "home-fp-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Engineered for every scale.",
+                "header_size": "h2",
+                "align": "left",
+                "typography_font_size": { "unit": "rem", "size": 3 },
+                "typography_font_size_mobile": { "unit": "rem", "size": 1.875 },
+                "typography_font_weight": "600",
+                "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+                "typography_line_height": { "unit": "em", "size": 1.1 },
+                "title_color": "#0A0A0A",
+                "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 56, "left": 0 },
+                "_animation": "fadeInUp",
+                "_animation_delay": 120
+              }
+            }
+          ]
+        },
+        {
+          "id": "home-fp-grid",
+          "elType": "widget",
+          "widgetType": "posts",
+          "settings": {
+            "query_post_type": "product",
+            "query_posts_per_page": 6,
+            "query_orderby": "menu_order",
+            "query_order": "asc",
+            "skin": "cards",
+            "template": "product-card",
+            "columns": 3,
+            "columns_tablet": 2,
+            "columns_mobile": 1,
+            "row_gap": { "unit": "px", "size": 32 },
+            "column_gap": { "unit": "px", "size": 32 },
+            "css_classes": "rb-grid rb-grid--products",
+            "pagination": "none",
+            "_animation": "fadeInUp"
+          }
+        },
+        {
+          "id": "home-fp-viewall",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "View all products",
+            "link": { "url": "/products/" },
+            "align": "center",
+            "size": "md",
+            "css_classes": "rb-btn rb-btn--ghost rb-btn--arrow",
+            "selected_icon": { "value": "fas fa-arrow-right", "library": "fa-solid" },
+            "icon_align": "right",
+            "_margin": { "unit": "px", "top": 56, "right": 0, "bottom": 0, "left": 0 }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "home-applications",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "css_classes": "rb-section rb-section--applications is-dark",
+        "background_color": "#0A0A0A",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [
+        {
+          "id": "home-app-col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "home-app-eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Applications",
+                "header_size": "span",
+                "align": "center",
+                "css_classes": "rb-eyebrow",
+                "title_color": "rgba(255,255,255,0.6)",
+                "typography_font_size": { "unit": "rem", "size": 0.75 },
+                "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+                "typography_text_transform": "uppercase"
+              }
+            },
+            {
+              "id": "home-app-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Powering every industry.",
+                "header_size": "h2",
+                "align": "center",
+                "typography_font_size": { "unit": "rem", "size": 3.5 },
+                "typography_font_size_mobile": { "unit": "rem", "size": 2 },
+                "typography_font_weight": "600",
+                "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+                "typography_line_height": { "unit": "em", "size": 1.08 },
+                "title_color": "#FFFFFF",
+                "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 64, "left": 0 }
+              }
+            },
+            {
+              "id": "home-app-grid",
+              "elType": "widget",
+              "widgetType": "posts",
+              "settings": {
+                "query_post_type": "application",
+                "query_posts_per_page": 6,
+                "skin": "grid",
+                "columns": 3,
+                "columns_tablet": 2,
+                "columns_mobile": 1,
+                "row_gap": { "unit": "px", "size": 24 },
+                "column_gap": { "unit": "px", "size": 24 },
+                "image_size": "large",
+                "show_excerpt": "no",
+                "show_date": "no",
+                "css_classes": "rb-grid rb-grid--applications rb-grid--overlay"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "home-stats",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "content_width": { "unit": "px", "size": 1200 },
+        "structure": "40",
+        "css_classes": "rb-section rb-section--stats",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [
+        { "id": "stat1", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "stat1w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 2014, "suffix": "", "title": "Founded",
+              "typography_font_size": { "unit": "rem", "size": 4 }, "typography_font_weight": "600",
+              "digit_color": "#0A0A0A", "title_color": "#71717A",
+              "title_typography_text_transform": "uppercase", "title_typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "title_typography_font_size": { "unit": "rem", "size": 0.75 } } }] },
+        { "id": "stat2", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "stat2w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 120, "suffix": "+", "title": "Countries Served",
+              "typography_font_size": { "unit": "rem", "size": 4 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] },
+        { "id": "stat3", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "stat3w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 2.4, "suffix": " GWh", "title": "Deployed Capacity",
+              "typography_font_size": { "unit": "rem", "size": 4 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] },
+        { "id": "stat4", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "stat4w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 6000, "suffix": "+", "title": "Cycle Life",
+              "typography_font_size": { "unit": "rem", "size": 4 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] }
+      ]
+    },
+
+    {
+      "id": "home-cases",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "content_width": { "unit": "px", "size": 1440 },
+        "css_classes": "rb-section rb-section--cases",
+        "background_color": "#FAFAFA",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [
+        {
+          "id": "home-cases-col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "home-cases-eye", "elType": "widget", "widgetType": "heading",
+              "settings": { "title": "Case Studies", "header_size": "span", "css_classes": "rb-eyebrow",
+                "typography_font_size": { "unit": "rem", "size": 0.75 },
+                "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } },
+            { "id": "home-cases-title", "elType": "widget", "widgetType": "heading",
+              "settings": { "title": "Real projects. Real results.", "header_size": "h2",
+                "typography_font_size": { "unit": "rem", "size": 3 }, "typography_font_weight": "600",
+                "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+                "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 56, "left": 0 } } },
+            { "id": "home-cases-carousel", "elType": "widget", "widgetType": "post-carousel",
+              "settings": { "query_post_type": "case_study", "query_posts_per_page": 8,
+                "slides_to_show": 3, "slides_to_show_tablet": 2, "slides_to_show_mobile": 1,
+                "slides_to_scroll": 1, "navigation": "arrows", "infinite": "yes", "autoplay": "yes",
+                "autoplay_speed": 5000, "image_size": "large",
+                "css_classes": "rb-carousel rb-carousel--cases" } }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "home-cta",
+      "elType": "section",
+      "_ref": "component-cta-section.json"
+    }
+  ]
+}

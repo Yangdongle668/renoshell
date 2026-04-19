@@ -1,0 +1,346 @@
+/*
+ * Renobattery — Tesla refinement layer
+ *
+ * ALL rules in this file are scoped under `.rb-tesla` (applied to <body>).
+ * When the body does NOT have that class, this file is a no-op — safe to
+ * ship always.
+ *
+ * Activation:
+ *   1. Add to functions.php (or a mu-plugin):
+ *        add_filter('body_class', fn($c) => array_merge($c, ['rb-tesla']));
+ *   2. OR add via Elementor page settings → Advanced → CSS Classes on <body>
+ *      (not available by default — use filter above).
+ *   3. OR set a constant in wp-config.php:
+ *        define('RENOBATTERY_TESLA_MODE', true);
+ *      (honored by inc/theme-setup.php body_class filter).
+ *
+ * Do NOT add rules outside .rb-tesla. Do NOT override tokens.
+ */
+
+/* ============================================================
+ * C1 — DM Sans @font-face (self-hosted variable font)
+ *   Single woff2 file (~36 KB) covers all weights 100-1000 via the
+ *   wght axis. Shipped under SIL OFL 1.1 — see assets/fonts/OFL.txt.
+ *   If the file is missing, font-display:swap falls back silently.
+ * ============================================================ */
+@font-face {
+	font-family: 'DM Sans';
+	src: url('../fonts/DMSans-Variable.woff2') format('woff2-variations'),
+	     url('../fonts/DMSans-Variable.woff2') format('woff2');
+	font-weight: 100 1000;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ============================================================
+ * C3 — Override electric blue under Tesla mode
+ *   Tesla palette is strictly black/white/red. We keep the base
+ *   --rb-color-electric token intact; just shadow it here.
+ *   Hardcoded #1B6CFF from existing imported templates (icon-lists)
+ *   is handled by specific !important overrides below.
+ * ============================================================ */
+.rb-tesla {
+	--rb-color-electric: var(--rb-color-ink);
+	--rb-info:          var(--rb-n-600);
+	--rb-link:          var(--rb-color-ink);
+	--rb-link-hover:    var(--rb-color-accent);
+}
+
+/* Elementor icon-list widgets in battery components use inline color:#1B6CFF
+ * Override in targeted selectors only — keep blue usable elsewhere. */
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-icon i,
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-icon svg,
+.rb-tesla .rb-card__specs           .elementor-icon-list-icon i,
+.rb-tesla .rb-card__specs           .elementor-icon-list-icon svg,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-icon i,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-icon svg,
+.rb-tesla .rb-contact__info         .elementor-icon-list-icon i,
+.rb-tesla .rb-contact__info         .elementor-icon-list-icon svg {
+	color: currentColor !important;
+	fill:  currentColor !important;
+}
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-item,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-item,
+.rb-tesla .rb-contact__info         .elementor-icon-list-item {
+	color: var(--rb-color-ink);
+}
+
+/* ============================================================
+ * A4 — body weight 500 (Tesla default) + headings stay 600
+ * ============================================================ */
+.rb-tesla {
+	font-weight: 500;
+}
+.rb-tesla h1, .rb-tesla h2, .rb-tesla h3,
+.rb-tesla h4, .rb-tesla h5, .rb-tesla h6,
+.rb-tesla .rb-hero__title,
+.rb-tesla .rb-card__title,
+.rb-tesla .rb-feature__title,
+.rb-tesla .rb-case-card__title,
+.rb-tesla .rb-blog-card__title {
+	font-weight: 600;
+}
+.rb-tesla .rb-eyebrow {
+	font-weight: 600;
+}
+
+/* ============================================================
+ * A5 — body line-height tightened from 1.6 → 1.5
+ * ============================================================ */
+.rb-tesla {
+	line-height: 1.5;
+}
+.rb-tesla p,
+.rb-tesla li,
+.rb-tesla .rb-hero__lead,
+.rb-tesla .rb-feature__lead,
+.rb-tesla .rb-contact__lead {
+	line-height: 1.5;
+}
+
+/* ============================================================
+ * A2 — glass button variant + override existing on-dark solids
+ * ============================================================ */
+
+/* Explicit new variant (use on any button by adding .rb-btn--glass) */
+.rb-tesla .rb-btn--glass {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+	border: 0;
+	transition: background-color var(--rb-dur-base) var(--rb-ease-tesla);
+}
+.rb-tesla .rb-btn--glass:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: #FFFFFF;
+	transform: none;        /* override base .rb-btn--solid translateY */
+	letter-spacing: var(--rb-ls-wide);
+}
+
+/* Dark-on-light glass variant (for light sections) */
+.rb-tesla .rb-btn--glass-dark {
+	background: rgba(10, 10, 10, 0.08);
+	color: var(--rb-color-ink);
+	border: 0;
+}
+.rb-tesla .rb-btn--glass-dark:hover {
+	background: rgba(10, 10, 10, 0.16);
+	color: var(--rb-color-ink);
+	transform: none;
+}
+
+/* Automatic upgrade: existing solid white-on-dark buttons become glass */
+.rb-tesla .rb-btn--on-dark.rb-btn--solid {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+}
+.rb-tesla .rb-btn--on-dark.rb-btn--solid:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: #FFFFFF;
+	transform: none;
+	letter-spacing: var(--rb-ls-wide);
+}
+
+/* Outline on-dark: subtler border (Tesla style) */
+.rb-tesla .rb-btn--on-dark.rb-btn--outline {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+.rb-tesla .rb-btn--on-dark.rb-btn--outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #FFFFFF;
+	border-color: rgba(255, 255, 255, 0.4);
+	transform: none;
+	letter-spacing: var(--rb-ls-wide);
+}
+
+/* ============================================================
+ * A3 — flat modifier (remove shadows/borders on cards)
+ * ============================================================ */
+
+/* Explicit new class — apply to any wrapper to strip chrome */
+.rb-tesla .rb-flat,
+.rb-tesla .rb-flat:hover {
+	background: transparent !important;
+	box-shadow: none !important;
+	border: 0 !important;
+}
+
+/* Automatic flatten of existing product/blog cards under Tesla mode */
+.rb-tesla .rb-card--product,
+.rb-tesla .rb-blog-card {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+.rb-tesla .rb-card--product:hover,
+.rb-tesla .rb-blog-card:hover {
+	box-shadow: none;
+	transform: none;          /* no lift — Tesla cards don't translateY */
+}
+
+/* Keep media corners flat too */
+.rb-tesla .rb-card__media,
+.rb-tesla .rb-blog-card__media,
+.rb-tesla .rb-card__media img,
+.rb-tesla .rb-blog-card__media img {
+	border-radius: 0;
+}
+
+/* Image hover: keep the subtle scale (Tesla does zoom on hover) */
+.rb-tesla .rb-card--product:hover .rb-card__media img {
+	transform: scale(1.03);
+}
+
+/* Card body: strip padding chrome, keep left-align minimal */
+.rb-tesla .rb-card__body {
+	padding: var(--rb-space-4) 0 var(--rb-space-6);
+}
+.rb-tesla .rb-blog-card__body {
+	padding: var(--rb-space-4) 0 var(--rb-space-6);
+}
+
+/* ============================================================
+ * A6 — hero scroll indicator (thin vertical line)
+ * Replaces the default chevron icon with a subtle animated line.
+ * ============================================================ */
+
+.rb-tesla .rb-hero__scroll-indicator {
+	display: none;
+}
+
+.rb-tesla .rb-hero--cinematic {
+	position: relative;
+}
+.rb-tesla .rb-hero--cinematic::after {
+	content: '';
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	width: 1px;
+	height: 48px;
+	background: linear-gradient(
+		180deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.85) 100%
+	);
+	transform-origin: top center;
+	animation: rb-tesla-scroll-line 2.2s var(--rb-ease-tesla) infinite;
+	pointer-events: none;
+	z-index: 2;
+}
+
+@keyframes rb-tesla-scroll-line {
+	0%   { transform: translateX(-50%) scaleY(0); transform-origin: top center;    opacity: 0; }
+	40%  { transform: translateX(-50%) scaleY(1); transform-origin: top center;    opacity: 1; }
+	60%  { transform: translateX(-50%) scaleY(1); transform-origin: bottom center; opacity: 1; }
+	100% { transform: translateX(-50%) scaleY(0); transform-origin: bottom center; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-hero--cinematic::after {
+		animation: none;
+		opacity: 0.6;
+		transform: translateX(-50%);
+	}
+}
+
+/* ============================================================
+ * B1 — scroll-driven parallax on archive heroes with bg-image
+ *    --rb-scroll-y is set by assets/js/scroll-fx.js (respects reduced-motion)
+ *    Moves background at 0.15× scroll speed. No layout shift.
+ * ============================================================ */
+.rb-tesla .rb-archive-hero,
+.rb-tesla .rb-case-hero,
+.rb-tesla .rb-app-hero {
+	background-position: center calc(50% + (var(--rb-scroll-y, 0px) * 0.15));
+	will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-archive-hero,
+	.rb-tesla .rb-case-hero,
+	.rb-tesla .rb-app-hero {
+		background-position: center center;
+	}
+}
+
+/* ============================================================
+ * B2 — staggered grid reveal (opt-in: add class `rb-stagger-grid`)
+ *    JS sets --i on each child; CSS delays each child's transition.
+ * ============================================================ */
+.rb-tesla .rb-stagger-grid > * {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity   var(--rb-dur-slow)   var(--rb-ease-tesla),
+		transform var(--rb-dur-slower) var(--rb-ease-tesla);
+	transition-delay: calc(var(--i, 0) * 80ms);
+	will-change: opacity, transform;
+}
+.rb-tesla .rb-stagger-grid.is-revealed > * {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-stagger-grid > *,
+	.rb-tesla .rb-stagger-grid.is-revealed > * {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* ============================================================
+ * B3 — headline clip reveal (opt-in: add class `rb-headline-reveal`)
+ *    JS wraps contents in <span>; span translates from 110% to 0%
+ *    while the wrapper clips overflow.
+ * ============================================================ */
+.rb-tesla .rb-headline-reveal {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	line-height: var(--rb-lh-display);
+	padding-bottom: 0.08em; /* avoid descender clipping */
+}
+.rb-tesla .rb-headline-reveal > span {
+	display: inline-block;
+	transform: translateY(110%);
+	transition: transform var(--rb-dur-cinema) var(--rb-ease-tesla);
+	will-change: transform;
+}
+.rb-tesla .rb-headline-reveal.is-revealed > span {
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-headline-reveal > span,
+	.rb-tesla .rb-headline-reveal.is-revealed > span {
+		transform: none;
+		transition: none;
+	}
+}
+
+/* ============================================================
+ * B4 — panel snap scroll (opt-in: add class `rb-panel-snap` to <body>)
+ *    JS mirrors the class onto <html> so scroll-snap applies on the root
+ *    scroller. Uses 'proximity' (not 'mandatory') so forms, sticky navs
+ *    and deep-linked anchors still behave.
+ *    Disabled on mobile and under reduced-motion.
+ * ============================================================ */
+html.rb-panel-snap {
+	scroll-snap-type: y proximity;
+	scroll-behavior: smooth;
+}
+html.rb-panel-snap body > .elementor-section:not(.elementor-inner-section),
+html.rb-panel-snap body > section {
+	scroll-snap-align: start;
+	scroll-margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+	html.rb-panel-snap { scroll-snap-type: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html.rb-panel-snap { scroll-snap-type: none; scroll-behavior: auto; }
+}

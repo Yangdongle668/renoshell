@@ -1,0 +1,69 @@
+{
+  "version": "0.4",
+  "title": "RB / Archive — Application",
+  "type": "archive",
+  "condition": { "type": "archive", "post_type": "application", "include_taxonomies": ["application_cat"] },
+  "page_settings": { "template": "elementor_header_footer", "css_classes": "rb-page rb-page--archive rb-page--applications" },
+  "content": [
+    {
+      "id": "apparch-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width", "stretch_section": "section-stretched",
+        "min_height": { "unit": "vh", "size": 55 }, "content_position": "middle",
+        "css_classes": "rb-archive-hero is-dark",
+        "background_color": "#0A0A0A",
+        "padding": { "unit": "px", "top": "160", "right": "40", "bottom": "80", "left": "40",
+          "mobile": { "top": "120", "right": "20", "bottom": "64", "left": "20" } }
+      },
+      "elements": [{
+        "id": "apparch-hero-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "apparch-bc", "elType": "widget", "widgetType": "breadcrumbs",
+            "settings": { "text_color": "rgba(255,255,255,0.6)", "typography_font_size": { "unit": "rem", "size": 0.8125 } } },
+          { "id": "apparch-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Applications", "header_size": "span", "css_classes": "rb-eyebrow",
+              "title_color": "rgba(255,255,255,0.6)",
+              "typography_font_size": { "unit": "rem", "size": 0.75 },
+              "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "typography_text_transform": "uppercase",
+              "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 12, "left": 0 } } },
+          { "id": "apparch-title", "elType": "widget", "widgetType": "archive-title",
+            "settings": { "header_size": "h1",
+              "typography_font_size": { "unit": "rem", "size": 4 }, "typography_font_size_mobile": { "unit": "rem", "size": 2.25 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.03 },
+              "title_color": "#FFFFFF" } },
+          { "id": "apparch-desc", "elType": "widget", "widgetType": "archive-description",
+            "settings": { "typography_font_size": { "unit": "rem", "size": 1.25 }, "text_color": "rgba(255,255,255,0.8)",
+              "_element_custom_width": "yes", "_element_width_custom": { "unit": "px", "size": 720 },
+              "_margin": { "unit": "px", "top": 20, "right": 0, "bottom": 0, "left": 0 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "apparch-grid",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1440 },
+        "css_classes": "rb-section rb-section--archive-grid",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "96", "right": "40", "bottom": "120", "left": "40",
+          "mobile": { "top": "64", "right": "20", "bottom": "80", "left": "20" } }
+      },
+      "elements": [{
+        "id": "apparch-grid-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "apparch-grid-w", "elType": "widget", "widgetType": "archive-posts",
+          "settings": { "skin": "grid", "columns": 3, "columns_tablet": 2, "columns_mobile": 1,
+            "row_gap": { "unit": "px", "size": 24 }, "column_gap": { "unit": "px", "size": 24 },
+            "posts_per_page": 9, "pagination": "numbers",
+            "image_size": "rb-card-lg", "show_excerpt": "no", "show_date": "no",
+            "css_classes": "rb-grid rb-grid--applications rb-grid--overlay" }
+        }]
+      }]
+    },
+
+    { "id": "apparch-cta", "elType": "section", "_ref": "component-cta-section.json" }
+  ]
+}

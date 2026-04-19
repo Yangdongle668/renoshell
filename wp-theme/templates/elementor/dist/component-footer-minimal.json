@@ -1,0 +1,360 @@
+{
+    "version": "0.4",
+    "title": "RB / Footer (Minimal — Tesla-style)",
+    "type": "footer",
+    "notes": [
+        "Alternative to component-footer.json.",
+        "Single-row link columns + legal bar. No newsletter form, no logo block.",
+        "Use as footer template in Elementor Theme Builder when Tesla mode is active."
+    ],
+    "content": [
+        {
+            "id": "ftrm-links",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "gap": "default",
+                "css_classes": "rb-footer rb-footer--minimal is-dark",
+                "background_background": "classic",
+                "background_color": "#0A0A0A",
+                "padding": {
+                    "unit": "px",
+                    "top": "56",
+                    "right": "40",
+                    "bottom": "32",
+                    "left": "40",
+                    "mobile": {
+                        "top": "40",
+                        "right": "20",
+                        "bottom": "20",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "ftrm-col-1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-h-1",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Products",
+                                "header_size": "h6",
+                                "css_classes": "rb-footer__colhead",
+                                "title_color": "rgba(255,255,255,0.45)",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.06
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "500",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 14,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ftrm-menu-1",
+                            "elType": "widget",
+                            "widgetType": "nav-menu",
+                            "settings": {
+                                "menu": "footer_col_1",
+                                "layout": "vertical",
+                                "color_menu_item": "rgba(255,255,255,0.75)",
+                                "color_menu_item_hover": "#FFFFFF",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_font_weight": "400",
+                                "menu_space_between": {
+                                    "unit": "px",
+                                    "size": 8
+                                },
+                                "css_classes": "rb-footer__menu rb-footer__menu--minimal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ftrm-col-2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-h-2",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Company",
+                                "header_size": "h6",
+                                "css_classes": "rb-footer__colhead",
+                                "title_color": "rgba(255,255,255,0.45)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.06
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "500",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 14,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ftrm-menu-2",
+                            "elType": "widget",
+                            "widgetType": "nav-menu",
+                            "settings": {
+                                "menu": "footer_col_2",
+                                "layout": "vertical",
+                                "color_menu_item": "rgba(255,255,255,0.75)",
+                                "color_menu_item_hover": "#FFFFFF",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_font_weight": "400",
+                                "menu_space_between": {
+                                    "unit": "px",
+                                    "size": 8
+                                },
+                                "css_classes": "rb-footer__menu rb-footer__menu--minimal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ftrm-col-3",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-h-3",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Resources",
+                                "header_size": "h6",
+                                "css_classes": "rb-footer__colhead",
+                                "title_color": "rgba(255,255,255,0.45)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.06
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "500",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 14,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ftrm-menu-3",
+                            "elType": "widget",
+                            "widgetType": "nav-menu",
+                            "settings": {
+                                "menu": "footer_col_3",
+                                "layout": "vertical",
+                                "color_menu_item": "rgba(255,255,255,0.75)",
+                                "color_menu_item_hover": "#FFFFFF",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.8125
+                                },
+                                "typography_font_weight": "400",
+                                "menu_space_between": {
+                                    "unit": "px",
+                                    "size": 8
+                                },
+                                "css_classes": "rb-footer__menu rb-footer__menu--minimal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ftrm-col-4",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 25,
+                        "_column_size_mobile": 50
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-h-4",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                                "title": "Region",
+                                "header_size": "h6",
+                                "css_classes": "rb-footer__colhead",
+                                "title_color": "rgba(255,255,255,0.45)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "typography_letter_spacing": {
+                                    "unit": "em",
+                                    "size": 0.06
+                                },
+                                "typography_text_transform": "uppercase",
+                                "typography_font_weight": "500",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 14,
+                                    "left": 0
+                                }
+                            }
+                        },
+                        {
+                            "id": "ftrm-lang",
+                            "elType": "widget",
+                            "widgetType": "shortcode",
+                            "settings": {
+                                "shortcode": "[polylang-switcher type='links' display_names='yes' hide_current='no']",
+                                "css_classes": "rb-lang-switch rb-lang-switch--footer"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        },
+        {
+            "id": "ftrm-legal",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "gap": "default",
+                "css_classes": "rb-footer__legal is-dark",
+                "background_background": "classic",
+                "background_color": "#0A0A0A",
+                "border_border": "solid",
+                "border_width": {
+                    "unit": "px",
+                    "top": 1,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                },
+                "border_color": "rgba(255,255,255,0.06)",
+                "padding": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "40",
+                    "bottom": "20",
+                    "left": "40",
+                    "mobile": {
+                        "top": "16",
+                        "right": "20",
+                        "bottom": "16",
+                        "left": "20"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "id": "ftrm-legal-1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 50,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-copy",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p>© [current_year] Renobattery Technology Co., Ltd.</p>",
+                                "align": "left",
+                                "align_mobile": "left",
+                                "text_color": "rgba(255,255,255,0.45)",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ftrm-legal-2",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 50,
+                        "_column_size_mobile": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "ftrm-legal-menu",
+                            "elType": "widget",
+                            "widgetType": "nav-menu",
+                            "settings": {
+                                "menu": "footer_legal",
+                                "layout": "horizontal",
+                                "align": "right",
+                                "align_mobile": "left",
+                                "color_menu_item": "rgba(255,255,255,0.45)",
+                                "color_menu_item_hover": "#FFFFFF",
+                                "typography_font_size": {
+                                    "unit": "rem",
+                                    "size": 0.75
+                                },
+                                "menu_space_between": {
+                                    "unit": "px",
+                                    "size": 20
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ],
+    "page_settings": []
+}

@@ -1,0 +1,155 @@
+{
+  "version": "0.4",
+  "title": "RB / Single — Case Study",
+  "type": "single",
+  "condition": { "type": "single", "post_type": "case_study" },
+  "page_settings": { "template": "elementor_header_footer", "hide_title": "yes", "css_classes": "rb-page rb-page--single rb-page--case" },
+  "content": [
+    {
+      "id": "cs-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width", "stretch_section": "section-stretched",
+        "min_height": { "unit": "vh", "size": 85 }, "content_position": "bottom",
+        "css_classes": "rb-case-hero is-dark",
+        "background_background": "classic",
+        "background_color": "#0A0A0A",
+        "background_image": { "url": "{{acf:hero_image.url}}" },
+        "background_size": "cover", "background_position": "center center",
+        "background_overlay_background": "gradient",
+        "background_overlay_color": "rgba(0,0,0,0.2)",
+        "background_overlay_color_b": "rgba(0,0,0,0.85)",
+        "background_overlay_gradient_angle": { "unit": "deg", "size": 180 },
+        "padding": { "unit": "px", "top": "96", "right": "40", "bottom": "72", "left": "40",
+          "mobile": { "top": "72", "right": "20", "bottom": "48", "left": "20" } }
+      },
+      "elements": [{
+        "id": "cs-hero-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "cs-hero-cat", "elType": "widget", "widgetType": "post-info",
+            "settings": { "meta_data": [{ "type": "terms", "taxonomy": "application_cat" }],
+              "css_classes": "rb-eyebrow", "color": "rgba(255,255,255,0.7)",
+              "typography_font_size": { "unit": "rem", "size": 0.75 },
+              "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } },
+          { "id": "cs-hero-title", "elType": "widget", "widgetType": "post-title",
+            "settings": { "header_size": "h1",
+              "typography_font_size": { "unit": "rem", "size": 4.5 },
+              "typography_font_size_mobile": { "unit": "rem", "size": 2.5 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.03 },
+              "typography_line_height": { "unit": "em", "size": 1.05 },
+              "title_color": "#FFFFFF", "_margin": { "unit": "px", "top": 12, "right": 0, "bottom": 0, "left": 0 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "cs-kpis",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1200 },
+        "structure": "40", "css_classes": "rb-section rb-case-kpis",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "40", "bottom": "80", "left": "40" },
+        "border_border": "solid",
+        "border_width": { "unit": "px", "top": 0, "right": 0, "bottom": 1, "left": 0 },
+        "border_color": "#E5E5E7"
+      },
+      "elements": [
+        { "id": "cs-kpi-1", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [
+            { "id": "cs-kpi-1-l", "elType": "widget", "widgetType": "heading", "settings": { "title": "Client", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } },
+            { "id": "cs-kpi-1-v", "elType": "widget", "widgetType": "shortcode", "settings": { "shortcode": "[acf field='client_name']", "css_classes": "rb-case-kpis__value" } }
+          ]
+        },
+        { "id": "cs-kpi-2", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [
+            { "id": "cs-kpi-2-l", "elType": "widget", "widgetType": "heading", "settings": { "title": "Location", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A" } },
+            { "id": "cs-kpi-2-v", "elType": "widget", "widgetType": "shortcode", "settings": { "shortcode": "[acf field='location']", "css_classes": "rb-case-kpis__value" } }
+          ]
+        },
+        { "id": "cs-kpi-3", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [
+            { "id": "cs-kpi-3-l", "elType": "widget", "widgetType": "heading", "settings": { "title": "Installed", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A" } },
+            { "id": "cs-kpi-3-v", "elType": "widget", "widgetType": "shortcode", "settings": { "shortcode": "[acf field='installed_kwh'] kWh", "css_classes": "rb-case-kpis__value" } }
+          ]
+        },
+        { "id": "cs-kpi-4", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [
+            { "id": "cs-kpi-4-l", "elType": "widget", "widgetType": "heading", "settings": { "title": "Industry", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A" } },
+            { "id": "cs-kpi-4-v", "elType": "widget", "widgetType": "post-info", "settings": { "meta_data": [{ "type": "terms", "taxonomy": "application_cat" }], "css_classes": "rb-case-kpis__value" } }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "cs-content",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 900 },
+        "css_classes": "rb-section rb-case-content",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "40", "bottom": "80", "left": "40" }
+      },
+      "elements": [{
+        "id": "cs-content-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "cs-content-w", "elType": "widget", "widgetType": "theme-post-content",
+          "settings": { "typography_font_size": { "unit": "rem", "size": 1.125 }, "typography_line_height": { "unit": "em", "size": 1.75 }, "text_color": "#3F3F46" }
+        }]
+      }]
+    },
+
+    {
+      "id": "cs-gallery",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1440 },
+        "css_classes": "rb-section rb-case-gallery",
+        "background_color": "#FAFAFA",
+        "padding": { "unit": "px", "top": "80", "right": "40", "bottom": "80", "left": "40" }
+      },
+      "elements": [{
+        "id": "cs-gallery-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "cs-gallery-w", "elType": "widget", "widgetType": "image-carousel",
+          "settings": { "carousel": "{{acf:gallery}}", "image_size": "rb-gallery",
+            "slides_to_show": 2, "slides_to_show_mobile": 1, "navigation": "both", "autoplay": "no" }
+        }]
+      }]
+    },
+
+    {
+      "id": "cs-products",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1440 },
+        "css_classes": "rb-section rb-case-products",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [{
+        "id": "cs-products-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "cs-products-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Products Used", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } },
+          { "id": "cs-products-h", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "What's inside.", "header_size": "h2",
+              "typography_font_size": { "unit": "rem", "size": 2.5 }, "typography_font_weight": "600",
+              "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+              "_margin": { "unit": "px", "top": 12, "right": 0, "bottom": 40, "left": 0 } } },
+          { "id": "cs-products-rel", "elType": "widget", "widgetType": "posts",
+            "settings": { "query_post_type": "product", "query_include": "{{acf:products_used}}",
+              "query_posts_per_page": 3, "skin": "cards", "template": "product-card",
+              "columns": 3, "columns_tablet": 2, "columns_mobile": 1,
+              "row_gap": { "unit": "px", "size": 32 }, "column_gap": { "unit": "px", "size": 32 },
+              "css_classes": "rb-grid rb-grid--products" } }
+        ]
+      }]
+    },
+
+    { "id": "cs-cta", "elType": "section", "_ref": "component-cta-section.json" }
+  ]
+}

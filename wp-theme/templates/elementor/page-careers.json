@@ -1,0 +1,85 @@
+{
+  "version": "0.4",
+  "title": "RB / Page — Careers",
+  "type": "page",
+  "page_settings": { "template": "elementor_header_footer", "hide_title": "yes", "css_classes": "rb-page rb-page--careers" },
+  "content": [
+    {
+      "id": "cr-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width", "stretch_section": "section-stretched",
+        "min_height": { "unit": "vh", "size": 70 }, "content_position": "middle",
+        "css_classes": "rb-hero is-dark",
+        "background_background": "classic", "background_color": "#0A0A0A",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "80", "left": "40" }
+      },
+      "elements": [{
+        "id": "cr-hero-col", "elType": "column", "settings": { "_column_size": 100, "align": "center" },
+        "elements": [
+          { "id": "cr-hero-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Careers", "header_size": "span", "align": "center", "css_classes": "rb-eyebrow",
+              "title_color": "rgba(255,255,255,0.6)",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "typography_text_transform": "uppercase" } },
+          { "id": "cr-hero-title", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Build the batteries powering the next century.", "header_size": "h1", "align": "center",
+              "typography_font_size": { "unit": "rem", "size": 4.5 }, "typography_font_size_mobile": { "unit": "rem", "size": 2.25 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.03 },
+              "typography_line_height": { "unit": "em", "size": 1.05 },
+              "title_color": "#FFFFFF",
+              "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 24, "left": 0 } } },
+          { "id": "cr-hero-cta", "elType": "widget", "widgetType": "button",
+            "settings": { "text": "View open roles", "link": { "url": "#roles" },
+              "align": "center", "size": "md",
+              "css_classes": "rb-btn rb-btn--solid rb-btn--pill rb-btn--on-dark",
+              "button_text_color": "#0A0A0A", "background_color": "#FFFFFF",
+              "hover_background_color": "#E31937", "hover_color": "#FFFFFF",
+              "border_radius": { "unit": "px", "top": 999, "right": 999, "bottom": 999, "left": 999 } } }
+        ]
+      }]
+    },
+
+    { "id": "cr-feature", "elType": "section", "_ref": "component-feature-section.json",
+      "overrides": {
+        "elements.1.elements.0.settings.title": "Culture",
+        "elements.1.elements.1.settings.title": "Small teams. High agency. Deep craft.",
+        "elements.1.elements.2.settings.editor": "<p>We hire engineers who own outcomes end-to-end — from cell chemistry to commissioning.</p>",
+        "elements.1.elements.3.settings.icon_list": [
+          { "text": "Equity for every full-time employee",    "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+          { "text": "20% time for personal R&D",              "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+          { "text": "Offices in Shenzhen, Frankfurt, Austin", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } },
+          { "text": "Climate impact in every line of code",   "selected_icon": { "value": "fas fa-check", "library": "fa-solid" } }
+        ]
+      }
+    },
+
+    {
+      "id": "cr-roles",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1200 },
+        "css_classes": "rb-section rb-careers-roles",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [{
+        "id": "cr-roles-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "cr-roles-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Open roles", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } },
+          { "id": "cr-roles-h", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Now hiring.", "header_size": "h2",
+              "typography_font_size": { "unit": "rem", "size": 3 }, "typography_font_weight": "600",
+              "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+              "_margin": { "unit": "px", "top": 12, "right": 0, "bottom": 40, "left": 0 } } },
+          { "id": "cr-roles-list", "elType": "widget", "widgetType": "shortcode",
+            "settings": { "shortcode": "[rb_careers_list]", "css_classes": "rb-careers-list" } }
+        ]
+      }]
+    },
+
+    { "id": "cr-cta", "elType": "section", "_ref": "component-cta-section.json" }
+  ]
+}

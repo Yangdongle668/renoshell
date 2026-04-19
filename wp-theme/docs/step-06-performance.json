@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "name": "renobattery-performance",
+    "target_metrics": {
+      "lighthouse_performance": 95,
+      "lcp_s": 2.0,
+      "cls": 0.02,
+      "inp_ms": 150,
+      "tbt_ms": 150,
+      "ttfb_s": 0.4,
+      "page_weight_kb_homepage": 900,
+      "page_weight_kb_product_single": 1200
+    }
+  },
+
+  "images": {
+    "formats": {
+      "primary": "avif",
+      "secondary": "webp",
+      "fallback": "jpg|png",
+      "delivery": "<picture> with <source type> tags"
+    },
+    "wp_image_sizes_register": [
+      { "name": "rb-card-sm",   "w": 480,  "h": 360,  "crop": true,  "usage": "product card mobile" },
+      { "name": "rb-card",      "w": 720,  "h": 540,  "crop": true,  "usage": "product card desktop" },
+      { "name": "rb-card-lg",   "w": 1080, "h": 810,  "crop": true,  "usage": "application card, case card" },
+      { "name": "rb-hero-sm",   "w": 960,  "h": 1080, "crop": true,  "usage": "hero mobile portrait" },
+      { "name": "rb-hero",      "w": 1920, "h": 1080, "crop": true,  "usage": "hero desktop" },
+      { "name": "rb-hero-xl",   "w": 2560, "h": 1440, "crop": true,  "usage": "hero 2K displays" },
+      { "name": "rb-gallery",   "w": 1440, "h": 1440, "crop": false, "usage": "product gallery" },
+      { "name": "rb-thumb",     "w": 160,  "h": 160,  "crop": true,  "usage": "logos, icons, partners" }
+    ],
+    "disable_wp_defaults": [
+      "medium_large", "1536x1536", "2048x2048"
+    ],
+    "srcset_strategy": {
+      "default_sizes_attr": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
+      "hero_sizes_attr": "100vw",
+      "gallery_sizes_attr": "(max-width: 768px) 100vw, 55vw"
+    },
+    "lazy_load": {
+      "method": "native loading=\"lazy\" + decoding=\"async\"",
+      "above_fold_exception": "hero image uses loading=\"eager\" + fetchpriority=\"high\"",
+      "js_fallback": "none (IE/legacy not supported)"
+    },
+    "optimization_tool": "ShortPixel or Imagify plugin, AVIF + WebP conversion on upload",
+    "aspect_ratio_containers": {
+      "css": ".rb-img-wrap{aspect-ratio:16/9;overflow:hidden} .rb-img-wrap img{width:100%;height:100%;object-fit:cover}",
+      "purpose": "Prevent CLS from unloaded images"
+    },
+    "placeholder_strategy": {
+      "method": "LQIP (Low-Quality Image Placeholder) blur-up",
+      "blur_px": 20,
+      "data_attr": "data-rb-lqip",
+      "size": "24x24 base64 encoded in HTML"
+    }
+  },
+
+  "video": {
+    "hero_video": {
+      "formats": ["mp4 (h264)", "webm (vp9)"],
+      "max_size_mb": 4,
+      "resolution": "1920x1080",
+      "autoplay_attributes": "autoplay muted loop playsinline preload=\"metadata\"",
+      "mobile_fallback": "replaced with rb-hero poster image (background-image)",
+      "media_query_swap": "@media (max-width: 768px){ video.rb-hero-video{display:none} .rb-hero{background-image:url(poster.jpg)} }"
+    }
+  },
+
+  "fonts": {
+    "strategy": "self-hosted subsets, preload critical weights only",
+    "families": [
+      {
+        "name": "Inter",
+        "weights_loaded": [400, 500, 600, 700],
+        "subsets": ["latin", "latin-ext"],
+        "format": "woff2",
+        "preload_weights": [600, 400],
+        "font_display": "swap"
+      },
+      {
+        "name": "PingFang SC (system)",
+        "loaded": false,
+        "note": "System font on Chinese OS — no HTTP request needed"
+      },
+      {
+        "name": "Noto Sans SC (fallback for non-Apple CN)",
+        "weights_loaded": [400, 600],
+        "subsets": ["chinese-simplified"],
+        "format": "woff2",
+        "preload_weights": [],
+        "lazy": true,
+        "load_when": "html[lang^='zh']"
+      }
+    ],
+    "preload_snippet": "<link rel=\"preload\" href=\"/wp-content/themes/renobattery/assets/fonts/Inter-SemiBold.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+    "fouc_prevention": "font-display:swap + size-adjust + fallback metric-matched"
+  },
+
+  "css": {
+    "delivery": {
+      "critical_inline_kb_max": 14,
+      "method": "critical-css generated per template via npm 'critical' or Rocket's Remove Unused CSS",
+      "non_critical": "async via preload swap: <link rel=\"preload\" href=\"style.css\" as=\"style\" onload=\"this.rel='stylesheet'\">"
+    },
+    "bundling": {
+      "files": [
+        "assets/css/tokens.css (CSS variables only, ~2kb)",
+        "assets/css/base.css (reset + typography, ~6kb)",
+        "assets/css/components.css (rb-* classes, ~18kb)",
+        "assets/css/motion.css (keyframes, hover, ~4kb)"
+      ],
+      "merged_and_minified_at_build": "assets/dist/renobattery.min.css",
+      "target_size_kb_gzipped": 12
+    },
+    "purge": {
+      "tool": "UnusedCSS (via Rocket) or PurgeCSS in build",
+      "safelist": ["rb-*", "elementor-*", "swiper-*", "is-*", "has-*"]
+    },
+    "container_queries": {
+      "enabled": true,
+      "usage": "card components, spec tables — allow reuse in narrow sidebars without JS"
+    }
+  },
+
+  "javascript": {
+    "policy": "minimal custom JS, defer everything non-critical",
+    "custom_files": [
+      { "file": "assets/js/navbar.js",  "size_kb": 1.2, "loading": "defer" },
+      { "file": "assets/js/motion.js",  "size_kb": 1.8, "loading": "defer" },
+      { "file": "assets/js/filter.js",  "size_kb": 4.5, "loading": "defer", "used_on": "product archive only" }
+    ],
+    "elementor_optimizations": {
+      "improved_asset_loading": true,
+      "improved_css_loading": true,
+      "lazy_load_background_images": true,
+      "disable_default_fonts": false,
+      "dom_output_optimization": true
+    },
+    "third_party": {
+      "policy": "Block/defer all marketing scripts until user interaction or 3s idle",
+      "gtm_loaded_via": "Partytown or delayed-load",
+      "cookie_consent": "Cookie-first policy; no trackers before consent (EU/UK)",
+      "chat_widget": "Lazy-init on first scroll or 6s idle"
+    },
+    "bundle_strategy": "No webpack/vite required — theme ships hand-written minified files. Elementor handles its own bundling."
+  },
+
+  "caching": {
+    "page_cache": {
+      "tool": "WP Rocket or LiteSpeed Cache",
+      "ttl_hours": 24,
+      "mobile_separate_cache": true,
+      "bypass_for": ["/contact/", "/cart/", "/account/", "?preview=true"]
+    },
+    "object_cache": {
+      "tool": "Redis",
+      "scope": "DB queries, transients, Elementor CSS output"
+    },
+    "cdn": {
+      "primary": "Cloudflare",
+      "edge_caching_rules": [
+        { "path": "/wp-content/uploads/*", "cache_ttl_s": 2592000 },
+        { "path": "/wp-content/themes/renobattery/assets/*", "cache_ttl_s": 2592000 },
+        { "path": "*.woff2", "cache_ttl_s": 31536000 }
+      ],
+      "apo_enabled": true,
+      "brotli_enabled": true,
+      "early_hints": true
+    },
+    "browser_cache_headers": {
+      "html": "max-age=0, must-revalidate",
+      "css_js": "max-age=31536000, immutable (hashed filenames)",
+      "images": "max-age=2592000",
+      "fonts": "max-age=31536000, immutable"
+    }
+  },
+
+  "database": {
+    "heartbeat_throttle_s": 60,
+    "autosave_interval_s": 120,
+    "post_revisions_max": 5,
+    "wp_cron_disabled_in_config": true,
+    "external_cron_schedule": "*/10 * * * * wget -q -O - https://site/wp-cron.php?doing_wp_cron"
+  },
+
+  "html": {
+    "prefetch_hints": [
+      { "rel": "dns-prefetch", "href": "//fonts.googleapis.com" },
+      { "rel": "preconnect",   "href": "https://cdn.renobattery.com", "crossorigin": "" },
+      { "rel": "preload",      "href": "/hero-1920.avif", "as": "image", "fetchpriority": "high" }
+    ],
+    "minify": true,
+    "remove_query_strings_from_static": true,
+    "emoji_script_removed": true,
+    "embed_script_removed": true
+  },
+
+  "elementor_specific": {
+    "disable_fontawesome_if_unused": true,
+    "disable_eicons_if_unused": false,
+    "experiment_flags": {
+      "e_optimized_assets_loading": true,
+      "e_optimized_css_loading": true,
+      "e_lazyload": true,
+      "e_font_icon_svg": true,
+      "e_dom_optimization": true
+    },
+    "custom_css_strategy": "Use theme's components.css for repeated patterns; Elementor page CSS only for one-offs"
+  },
+
+  "monitoring": {
+    "tools": [
+      "Cloudflare Web Analytics",
+      "Google Search Console Core Web Vitals",
+      "Real User Monitoring via web-vitals library (optional)"
+    ],
+    "alerts": {
+      "lcp_regression_threshold_s": 2.5,
+      "cls_regression_threshold": 0.1
+    }
+  },
+
+  "checklist_pre_launch": [
+    "Run Lighthouse mobile + desktop on home, product archive, product single",
+    "Run WebPageTest from 3 regions (US East, EU West, AP-Southeast)",
+    "Verify all images served as AVIF/WebP with srcset",
+    "Verify hero LCP image preloaded with fetchpriority=high",
+    "Verify no render-blocking CSS > 14kb",
+    "Verify zero layout shift on card grids (aspect-ratio set)",
+    "Verify reduced-motion honored",
+    "Verify Chinese site fonts load from CN-friendly CDN",
+    "Verify 100% Elementor editability preserved"
+  ]
+}
