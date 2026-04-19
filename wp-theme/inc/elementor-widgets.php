@@ -23,8 +23,7 @@ final class Renobattery_Elementor {
 	public static function init() : void {
 		add_action( 'elementor/init',                    [ __CLASS__, 'register_category' ] );
 		add_action( 'elementor/widgets/register',        [ __CLASS__, 'register_widgets' ] );
-		add_action( 'elementor/frontend/after_enqueue_scripts', [ __CLASS__, 'enqueue_frontend_assets' ] );
-		add_action( 'elementor/editor/after_enqueue_scripts',   [ __CLASS__, 'enqueue_editor_assets' ] );
+		add_action( 'elementor/editor/after_enqueue_scripts', [ __CLASS__, 'enqueue_editor_assets' ] );
 	}
 
 	public static function register_category( \Elementor\Elements_Manager $elements_manager = null ) : void {
@@ -52,18 +51,6 @@ final class Renobattery_Elementor {
 				}
 			}
 		}
-	}
-
-	public static function enqueue_frontend_assets() : void {
-		$theme_uri = get_stylesheet_directory_uri();
-		$ver       = wp_get_theme()->get( 'Version' );
-
-		wp_enqueue_style( 'rb-tokens',     $theme_uri . '/assets/css/tokens.css',     [],                        $ver );
-		wp_enqueue_style( 'rb-components', $theme_uri . '/assets/css/components.css', [ 'rb-tokens' ],           $ver );
-		wp_enqueue_style( 'rb-motion',     $theme_uri . '/assets/css/motion.css',     [ 'rb-components' ],       $ver );
-
-		wp_enqueue_script( 'rb-navbar', $theme_uri . '/assets/js/navbar.js', [], $ver, true );
-		wp_enqueue_script( 'rb-motion', $theme_uri . '/assets/js/motion.js', [], $ver, true );
 	}
 
 	public static function enqueue_editor_assets() : void {

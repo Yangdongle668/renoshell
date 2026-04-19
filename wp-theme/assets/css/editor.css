@@ -1,0 +1,23 @@
+/*
+ * Renobattery — Elementor editor styles
+ * Makes the editor preview match the front-end by importing the same tokens + components.
+ */
+
+@import url('./tokens.css');
+@import url('./components.css');
+
+/* Small safety: Elementor inner preview uses html/body iframe. */
+.elementor-editor-active body,
+.elementor-edit-mode body {
+	font-family: var(--rb-font-sans);
+}
+
+/* Placeholder styling for empty states in the editor. */
+.rb-placeholder {
+	padding: 1.5rem;
+	background: #fff8e1;
+	color: #7c5c00;
+	border: 1px dashed #f0c060;
+	border-radius: 8px;
+	font-size: 0.875rem;
+}
