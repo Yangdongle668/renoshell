@@ -1,0 +1,107 @@
+{
+  "version": "0.4",
+  "title": "RB / Mobile Drawer (fullscreen dark)",
+  "type": "section",
+  "notes": [
+    "A hidden fullscreen overlay shown on tablet/mobile when the navbar burger is clicked.",
+    "Place in the header template after component-megamenu.",
+    "assets/js/megamenu.js toggles body.is-drawer-open and this element's .is-open class."
+  ],
+  "content": [
+    {
+      "id": "drawer",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "css_classes": "rb-drawer is-dark",
+        "background_background": "classic",
+        "background_color": "#0A0A0A",
+        "min_height": { "unit": "vh", "size": 100 },
+        "padding": { "unit": "px", "top": "96", "right": "24", "bottom": "48", "left": "24" },
+        "position": "fixed",
+        "_position_top":   { "unit": "px", "size": 0 },
+        "_position_left":  { "unit": "px", "size": 0 },
+        "_position_right": { "unit": "px", "size": 0 },
+        "z_index": 950,
+        "hide_desktop": "yes"
+      },
+      "elements": [
+        {
+          "id": "drawer-col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "drawer-menu",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "menu": "primary",
+                "layout": "vertical",
+                "color_menu_item": "rgba(255,255,255,0.85)",
+                "color_menu_item_hover": "#FFFFFF",
+                "color_menu_item_active": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "rem", "size": 1.75 },
+                "typography_font_weight": "500",
+                "typography_line_height": { "unit": "em", "size": 1.4 },
+                "typography_letter_spacing": { "unit": "em", "size": -0.01 },
+                "menu_space_between": { "unit": "px", "size": 8 },
+                "css_classes": "rb-drawer__menu"
+              }
+            },
+            {
+              "id": "drawer-divider",
+              "elType": "widget",
+              "widgetType": "divider",
+              "settings": {
+                "color": "rgba(255,255,255,0.08)",
+                "weight": { "unit": "px", "size": 1 },
+                "_margin": { "unit": "px", "top": 32, "right": 0, "bottom": 32, "left": 0 }
+              }
+            },
+            {
+              "id": "drawer-lang",
+              "elType": "widget",
+              "widgetType": "shortcode",
+              "settings": {
+                "shortcode": "[polylang-switcher type='links' display_names='yes' hide_current='no']",
+                "css_classes": "rb-lang-switch rb-lang-switch--stacked"
+              }
+            },
+            {
+              "id": "drawer-contact",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p class='rb-eyebrow' style='color:rgba(255,255,255,0.5);margin-bottom:8px;'>Contact</p><p style='color:#fff;font-size:1.125rem;'><a href=\"tel:{{option:company_phone}}\">{{option:company_phone}}</a><br><a href=\"mailto:{{option:company_email}}\">{{option:company_email}}</a></p>",
+                "_margin": { "unit": "px", "top": 32, "right": 0, "bottom": 0, "left": 0 }
+              }
+            },
+            {
+              "id": "drawer-social",
+              "elType": "widget",
+              "widgetType": "social-icons",
+              "settings": {
+                "shape": "rounded",
+                "align": "left",
+                "icon_primary_color_value": "rgba(255,255,255,0.7)",
+                "icon_size": { "unit": "px", "size": 18 },
+                "icon_spacing": { "unit": "px", "size": 16 },
+                "social_icon_list": [
+                  { "social_icon": { "value": "fab fa-linkedin-in", "library": "fa-brands" }, "link": { "url": "{{option:social.linkedin}}" } },
+                  { "social_icon": { "value": "fab fa-youtube",     "library": "fa-brands" }, "link": { "url": "{{option:social.youtube}}" } },
+                  { "social_icon": { "value": "fab fa-weixin",      "library": "fa-brands" }, "link": { "url": "{{option:social.wechat}}" } }
+                ],
+                "_margin": { "unit": "px", "top": 32, "right": 0, "bottom": 0, "left": 0 }
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": []
+}

@@ -175,6 +175,51 @@ a { color: inherit; text-decoration: none; }
 	}
 }
 
+/* ---------- mega menu ---------- */
+.rb-megamenu-wrap { pointer-events: none; opacity: 0; transition: opacity var(--rb-dur-base) var(--rb-ease-tesla); }
+.rb-megamenu-wrap.is-open { pointer-events: auto; opacity: 1; }
+.rb-megamenu { color: var(--rb-text-on-dark); box-shadow: var(--rb-shadow-cinematic); border-top: 1px solid rgba(255,255,255,0.08); transform: translateY(-8px); transition: transform var(--rb-dur-slow) var(--rb-ease-tesla); }
+.rb-megamenu.is-open { transform: translateY(0); }
+.rb-megamenu__inner { max-width: var(--rb-container-2xl); margin-inline: auto; padding: var(--rb-space-10) var(--rb-space-16); }
+.rb-megamenu__heading { color: rgba(255,255,255,0.5); margin: 0 0 var(--rb-space-6); }
+.rb-megamenu__grid { display: grid; grid-template-columns: repeat(var(--rb-mm-cols, 3), 1fr); gap: var(--rb-space-6); }
+.rb-megamenu__tile { display: flex; gap: var(--rb-space-4); padding: var(--rb-space-4); border-radius: var(--rb-radius-xl); transition: background var(--rb-dur-base) var(--rb-ease-tesla); color: inherit; }
+.rb-megamenu__tile:hover { background: var(--rb-glass); }
+.rb-megamenu__thumb { flex: 0 0 56px; width: 56px; height: 56px; border-radius: var(--rb-radius-lg); overflow: hidden; background: var(--rb-bg-dark-raised); }
+.rb-megamenu__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.rb-megamenu__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rb-megamenu__title { font-weight: var(--rb-fw-semibold); font-size: var(--rb-fs-body); color: #fff; }
+.rb-megamenu__subtitle { font-size: var(--rb-fs-body-sm); color: rgba(255,255,255,0.55); }
+.rb-megamenu__cta { display: inline-flex; align-items: center; gap: var(--rb-space-2); margin-top: var(--rb-space-8); color: #fff; font-weight: var(--rb-fw-semibold); letter-spacing: var(--rb-ls-wide); }
+.rb-megamenu__cta:hover { color: var(--rb-color-accent); }
+.rb-navbar .has-rb-megamenu.is-open > a { color: var(--rb-color-accent); }
+@media (max-width: 1024px) { .rb-megamenu-wrap { display: none; } }
+
+/* ---------- mobile drawer ---------- */
+.rb-drawer { opacity: 0; transform: translateY(-8px); transition: opacity var(--rb-dur-base) var(--rb-ease-tesla), transform var(--rb-dur-slow) var(--rb-ease-tesla); pointer-events: none; }
+.rb-drawer.is-open { opacity: 1; transform: none; pointer-events: auto; }
+body.is-drawer-open { overflow: hidden; }
+.rb-drawer__menu li { opacity: 0; transform: translateY(12px); transition: opacity var(--rb-dur-base) var(--rb-ease-tesla), transform var(--rb-dur-base) var(--rb-ease-tesla); }
+.rb-drawer.is-open .rb-drawer__menu li { opacity: 1; transform: none; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(1) { transition-delay: 60ms; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(2) { transition-delay: 120ms; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(3) { transition-delay: 180ms; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(4) { transition-delay: 240ms; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(5) { transition-delay: 300ms; }
+.rb-drawer.is-open .rb-drawer__menu li:nth-child(6) { transition-delay: 360ms; }
+
+/* ---------- language switcher ---------- */
+.rb-lang-switch ul { list-style: none; display: inline-flex; gap: 4px; padding: 4px; margin: 0; border-radius: var(--rb-radius-pill); background: rgba(255,255,255,0.08); }
+.rb-lang-switch li { margin: 0; }
+.rb-lang-switch a { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; font-size: 0.75rem; font-weight: var(--rb-fw-semibold); letter-spacing: var(--rb-ls-wide); text-transform: uppercase; color: rgba(255,255,255,0.75); border-radius: var(--rb-radius-pill); transition: all var(--rb-dur-base) var(--rb-ease-tesla); }
+.rb-lang-switch a:hover { color: #fff; }
+.rb-lang-switch .current-lang a,
+.rb-lang-switch .lang-item-current a,
+.rb-lang-switch .current_page_item a { background: #fff; color: var(--rb-color-ink); }
+.rb-lang-switch--stacked ul { flex-direction: row; background: transparent; padding: 0; }
+.rb-lang-switch--stacked a { font-size: 1rem; height: 40px; padding: 0 20px; color: rgba(255,255,255,0.6); }
+.rb-lang-switch--stacked a:hover { color: #fff; }
+
 /* ---------- responsive containers ---------- */
 @media (max-width: 1024px) { .rb-section { padding-inline: var(--rb-container-px-tablet); } }
 @media (max-width: 640px)  { .rb-section { padding-inline: var(--rb-container-px-mobile); } }

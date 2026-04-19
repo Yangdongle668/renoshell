@@ -26,7 +26,7 @@ function renobattery_enqueue_assets() : void {
 	}
 
 	// JS — deferred, only register if file exists.
-	foreach ( [ 'navbar', 'motion', 'filter' ] as $handle ) {
+	foreach ( [ 'navbar', 'motion', 'megamenu', 'filter' ] as $handle ) {
 		$path = RENOBATTERY_DIR . "/assets/js/{$handle}.js";
 		if ( file_exists( $path ) ) {
 			wp_register_script( "rb-{$handle}", RENOBATTERY_URI . "/assets/js/{$handle}.js", [], $ver, true );
@@ -58,7 +58,7 @@ function renobattery_preload_fonts() : void {
 // Load script with defer attribute.
 add_filter( 'script_loader_tag', 'renobattery_defer_scripts', 10, 2 );
 function renobattery_defer_scripts( string $tag, string $handle ) : string {
-	if ( in_array( $handle, [ 'rb-navbar', 'rb-motion', 'rb-filter' ], true ) ) {
+	if ( in_array( $handle, [ 'rb-navbar', 'rb-motion', 'rb-megamenu', 'rb-filter' ], true ) ) {
 		return str_replace( ' src=', ' defer src=', $tag );
 	}
 	return $tag;
