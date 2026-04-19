@@ -1,0 +1,59 @@
+{
+  "version": "0.4",
+  "title": "RB / Page — Privacy Policy",
+  "type": "page",
+  "page_settings": { "template": "elementor_header_footer", "hide_title": "yes", "css_classes": "rb-page rb-page--legal rb-page--privacy" },
+  "content": [
+    {
+      "id": "pr-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 900 },
+        "css_classes": "rb-section rb-legal-hero",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "160", "right": "40", "bottom": "32", "left": "40",
+          "mobile": { "top": "112", "right": "20", "bottom": "24", "left": "20" } }
+      },
+      "elements": [{
+        "id": "pr-hero-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [
+          { "id": "pr-bc", "elType": "widget", "widgetType": "breadcrumbs",
+            "settings": { "text_color": "#71717A", "typography_font_size": { "unit": "rem", "size": 0.8125 } } },
+          { "id": "pr-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Legal", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "typography_text_transform": "uppercase",
+              "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 8, "left": 0 } } },
+          { "id": "pr-title", "elType": "widget", "widgetType": "post-title",
+            "settings": { "header_size": "h1",
+              "typography_font_size": { "unit": "rem", "size": 3 }, "typography_font_size_mobile": { "unit": "rem", "size": 2 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.02 },
+              "title_color": "#0A0A0A" } },
+          { "id": "pr-updated", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Last updated: [current_date format=F j, Y]", "header_size": "p",
+              "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.875 },
+              "_margin": { "unit": "px", "top": 8, "right": 0, "bottom": 0, "left": 0 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "pr-content",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 760 },
+        "css_classes": "rb-section rb-legal-content",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "32", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [{
+        "id": "pr-content-col", "elType": "column", "settings": { "_column_size": 100 },
+        "elements": [{
+          "id": "pr-content-w", "elType": "widget", "widgetType": "theme-post-content",
+          "settings": { "typography_font_size": { "unit": "rem", "size": 1.0625 }, "typography_line_height": { "unit": "em", "size": 1.8 }, "text_color": "#27272A" }
+        }]
+      }]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "version": "0.4",
+  "title": "RB / Page — About",
+  "type": "page",
+  "page_settings": { "template": "elementor_header_footer", "hide_title": "yes", "css_classes": "rb-page rb-page--about" },
+  "content": [
+    {
+      "id": "ab-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width", "stretch_section": "section-stretched",
+        "min_height": { "unit": "vh", "size": 80 }, "content_position": "middle",
+        "css_classes": "rb-hero rb-hero--cinematic is-dark",
+        "background_background": "classic", "background_color": "#0A0A0A",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "80", "left": "40" }
+      },
+      "elements": [{
+        "id": "ab-hero-col", "elType": "column", "settings": { "_column_size": 100, "align": "center" },
+        "elements": [
+          { "id": "ab-hero-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "About Renobattery", "header_size": "span", "align": "center", "css_classes": "rb-eyebrow",
+              "title_color": "rgba(255,255,255,0.7)",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 },
+              "typography_text_transform": "uppercase" } },
+          { "id": "ab-hero-title", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Engineering the energy future, cell by cell.", "header_size": "h1", "align": "center",
+              "typography_font_size": { "unit": "rem", "size": 5 }, "typography_font_size_mobile": { "unit": "rem", "size": 2.75 },
+              "typography_font_weight": "600", "typography_letter_spacing": { "unit": "em", "size": -0.03 },
+              "typography_line_height": { "unit": "em", "size": 1.05 },
+              "title_color": "#FFFFFF",
+              "_margin": { "unit": "px", "top": 16, "right": 0, "bottom": 20, "left": 0 } } },
+          { "id": "ab-hero-lead", "elType": "widget", "widgetType": "text-editor",
+            "settings": { "editor": "<p>Since 2014, we've shipped 2.4 GWh of LiFePO₄ energy storage to customers in 120 countries.</p>",
+              "align": "center",
+              "typography_font_size": { "unit": "rem", "size": 1.25 }, "text_color": "rgba(255,255,255,0.85)",
+              "_element_custom_width": "yes", "_element_width_custom": { "unit": "px", "size": 680 } } }
+        ]
+      }]
+    },
+
+    {
+      "id": "ab-mission",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1200 },
+        "structure": "20",
+        "css_classes": "rb-section rb-about-mission",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "40", "bottom": "120", "left": "40" }
+      },
+      "elements": [
+        { "id": "ab-mis-col-l", "elType": "column", "settings": { "_column_size": 40, "_column_size_mobile": 100 }, "elements": [
+          { "id": "ab-mis-eye", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Our mission", "header_size": "span", "css_classes": "rb-eyebrow", "title_color": "#71717A",
+              "typography_font_size": { "unit": "rem", "size": 0.75 }, "typography_letter_spacing": { "unit": "em", "size": 0.12 }, "typography_text_transform": "uppercase" } }
+        ] },
+        { "id": "ab-mis-col-r", "elType": "column", "settings": { "_column_size": 60, "_column_size_mobile": 100 }, "elements": [
+          { "id": "ab-mis-h", "elType": "widget", "widgetType": "heading",
+            "settings": { "title": "Accelerate the world's shift to clean, reliable energy — at every scale.", "header_size": "h2",
+              "typography_font_size": { "unit": "rem", "size": 2.25 }, "typography_font_size_mobile": { "unit": "rem", "size": 1.75 },
+              "typography_font_weight": "500",
+              "typography_line_height": { "unit": "em", "size": 1.3 },
+              "typography_letter_spacing": { "unit": "em", "size": -0.015 }, "title_color": "#0A0A0A" } }
+        ] }
+      ]
+    },
+
+    { "id": "ab-feature", "elType": "section", "_ref": "component-feature-section.json",
+      "overrides": {
+        "elements.1.elements.1.settings.title": "We build every cell we sell.",
+        "elements.1.elements.2.settings.editor": "<p>In-house cell chemistry, module assembly, BMS firmware and quality-control. One team, one roof, one warranty.</p>"
+      }
+    },
+
+    {
+      "id": "ab-stats",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed", "content_width": { "unit": "px", "size": 1200 },
+        "structure": "40",
+        "css_classes": "rb-section rb-section--stats",
+        "background_color": "#FAFAFA",
+        "padding": { "unit": "px", "top": "96", "right": "40", "bottom": "96", "left": "40" }
+      },
+      "elements": [
+        { "id": "ab-s1", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "ab-s1w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 2014, "title": "Founded",
+              "typography_font_size": { "unit": "rem", "size": 3.5 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] },
+        { "id": "ab-s2", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "ab-s2w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 1200, "title": "Employees",
+              "typography_font_size": { "unit": "rem", "size": 3.5 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] },
+        { "id": "ab-s3", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "ab-s3w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 120, "suffix": "+", "title": "Countries",
+              "typography_font_size": { "unit": "rem", "size": 3.5 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] },
+        { "id": "ab-s4", "elType": "column", "settings": { "_column_size": 25, "_column_size_mobile": 50 },
+          "elements": [{ "id": "ab-s4w", "elType": "widget", "widgetType": "counter",
+            "settings": { "starting_number": 0, "ending_number": 2.4, "suffix": " GWh", "title": "Shipped",
+              "typography_font_size": { "unit": "rem", "size": 3.5 }, "typography_font_weight": "600", "digit_color": "#0A0A0A" } }] }
+      ]
+    },
+
+    { "id": "ab-timeline", "elType": "section", "_ref": "component-timeline.json",
+      "overrides": {
+        "settings.background_color": "#FFFFFF",
+        "elements.0.elements.1.settings.title": "Founded",
+        "elements.0.elements.2.settings.editor": "<p>Two battery engineers start a small LiFePO₄ cell pilot line in Shenzhen.</p>",
+        "elements.1.elements.1.settings.title": "First Grid Project",
+        "elements.1.elements.2.settings.editor": "<p>10 MWh commercial ESS deployed in Inner Mongolia.</p>",
+        "elements.2.elements.1.settings.title": "Global Expansion",
+        "elements.2.elements.2.settings.editor": "<p>Offices opened in Frankfurt and Austin; 500 MWh annual capacity.</p>",
+        "elements.3.elements.1.settings.title": "Today",
+        "elements.3.elements.2.settings.editor": "<p>2.4 GWh shipped, UL1973 + IEC62619 + CE + UN38.3 certified.</p>"
+      }
+    },
+
+    { "id": "ab-cta", "elType": "section", "_ref": "component-cta-section.json" }
+  ]
+}
