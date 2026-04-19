@@ -73,32 +73,103 @@
 		});
 	}
 
-	/* ---------------- mobile drawer ---------------- */
+	/* ---------------- mobile drawer (with focus-trap) ---------------- */
 	var drawer = document.querySelector('.rb-drawer');
 	var burger = document.querySelector('.rb-navbar .elementor-menu-toggle, .rb-navbar [data-rb-burger]');
 	if (drawer && burger) {
 		drawer.hidden = true;
-		var toggle = function () {
-			var open = !drawer.classList.contains('is-open');
-			drawer.classList.toggle('is-open', open);
-			drawer.hidden = !open;
-			document.body.classList.toggle('is-drawer-open', open);
-			burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-		};
+		drawer.setAttribute('role', 'dialog');
+		drawer.setAttribute('aria-modal', 'true');
+		drawer.setAttribute('aria-hidden', 'true');
+		burger.setAttribute('aria-expanded', 'false');
+
+		var FOCUSABLE = [
+			'a[href]',
+			'button:not([disabled])',
+			'input:not([disabled]):not([type="hidden"])',
+			'select:not([disabled])',
+			'textarea:not([disabled])',
+			'[tabindex]:not([tabindex="-1"])'
+		].join(',');
+		var restoreFocusTo = null;
+
+		function getFocusable() {
+			return Array.prototype.filter.call(
+				drawer.querySelectorAll(FOCUSABLE),
+				function (el) {
+					// Skip hidden / display:none elements.
+					return el.offsetParent !== null || el === document.activeElement;
+				}
+			);
+		}
+
+		function openDrawer() {
+			restoreFocusTo = document.activeElement;
+			drawer.classList.add('is-open');
+			drawer.hidden = false;
+			drawer.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('is-drawer-open');
+			burger.setAttribute('aria-expanded', 'true');
+			// Defer focus so transition can start (and :focus ring doesn't flash).
+			requestAnimationFrame(function () {
+				var f = getFocusable();
+				if (f.length) { f[0].focus(); }
+			});
+		}
+
+		function closeDrawer() {
+			drawer.classList.remove('is-open');
+			drawer.hidden = true;
+			drawer.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('is-drawer-open');
+			burger.setAttribute('aria-expanded', 'false');
+			if (restoreFocusTo && typeof restoreFocusTo.focus === 'function') {
+				try { restoreFocusTo.focus(); } catch (_e) {}
+				restoreFocusTo = null;
+			}
+		}
+
+		function toggle() {
+			drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+		}
+
 		burger.addEventListener('click', function (e) {
 			e.preventDefault();
 			toggle();
 		});
-		// Close drawer when a link inside it is clicked.
+
+		// Close on link click inside drawer.
 		drawer.addEventListener('click', function (e) {
-			if (e.target.closest('a')) {
-				drawer.classList.remove('is-open');
-				drawer.hidden = true;
-				document.body.classList.remove('is-drawer-open');
+			if (e.target.closest('a')) { closeDrawer(); }
+		});
+
+		// Tab trap — cycles focus inside the drawer while open.
+		drawer.addEventListener('keydown', function (e) {
+			if (e.key !== 'Tab') { return; }
+			var f = getFocusable();
+			if (!f.length) { e.preventDefault(); return; }
+			var first  = f[0];
+			var last   = f[f.length - 1];
+			var active = document.activeElement;
+			if (e.shiftKey) {
+				if (active === first || !drawer.contains(active)) {
+					e.preventDefault();
+					last.focus();
+				}
+			} else {
+				if (active === last || !drawer.contains(active)) {
+					e.preventDefault();
+					first.focus();
+				}
 			}
 		});
+
+		// ESC (document-level so it works even if focus escapes somehow).
 		document.addEventListener('keydown', function (e) {
-			if (e.key === 'Escape' && drawer.classList.contains('is-open')) toggle();
+			if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+				e.preventDefault();
+				closeDrawer();
+			}
 		});
 	}
 })();
