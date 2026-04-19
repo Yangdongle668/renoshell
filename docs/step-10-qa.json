@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "name": "renobattery-qa-checklist",
+    "target": "Theme must pass every automated check and at least 95% of manual checks before release.",
+    "automation_entrypoint": "php tools/qa-check.php"
+  },
+
+  "automated_checks": [
+    { "id": "a1",  "what": "PHP lint",                        "cmd": "for f in wp-theme/**/*.php; do php -l \"$f\"; done",                "pass_if": "No syntax errors detected" },
+    { "id": "a2",  "what": "JSON parse all source templates", "cmd": "python3 -c \"import json,glob;[json.load(open(f)) for f in glob.glob('templates/elementor/*.json')]\"", "pass_if": "exit 0" },
+    { "id": "a3",  "what": "Flatten tool produces dist",      "cmd": "php tools/flatten-elementor-templates.php",                          "pass_if": "N ok, 0 errors" },
+    { "id": "a4",  "what": "dist has no invalid keys",        "cmd": "grep -l '_ref\\|backdrop_filter\\|css_rules' templates/elementor/dist/*.json",           "pass_if": "no matches" },
+    { "id": "a5",  "what": "msgid count parity .pot ↔ .po",   "cmd": "count unique msgids in renobattery.pot == zh_CN.po",                 "pass_if": "equal counts" },
+    { "id": "a6",  "what": "No duplicate msgids",             "cmd": "python3 dup-check on .pot / .po",                                    "pass_if": "0 duplicates" },
+    { "id": "a7",  "what": "No console.log/debugger in JS",   "cmd": "grep -rn 'console\\.log\\|debugger' assets/js",                       "pass_if": "no matches" },
+    { "id": "a8",  "what": "style.css header present",        "cmd": "head -1 style.css",                                                  "pass_if": "contains 'Theme Name'" },
+    { "id": "a9",  "what": "functions.php loads all modules", "cmd": "grep -c 'require_once' functions.php",                               "pass_if": ">= 7" },
+    { "id": "a10", "what": "All Elementor templates flatten", "cmd": "see a3",                                                             "pass_if": "26 ok" }
+  ],
+
+  "elementor_compatibility": [
+    { "id": "e1",  "check": "Every section/column/widget has an `id`, `elType`, and `settings` key" },
+    { "id": "e2",  "check": "No section references an undefined `_ref` (flatten resolves all)" },
+    { "id": "e3",  "check": "All widgets use widgetTypes that exist in Elementor core/Pro or Renobattery custom widgets" },
+    { "id": "e4",  "check": "Dynamic tags use supported token syntax: {{post:*}}, {{acf:*}}, {{option:*}}, {{tax:*}}" },
+    { "id": "e5",  "check": "Import each dist/*.json into a fresh WP install; zero import errors" },
+    { "id": "e6",  "check": "Every page section editable in Elementor (no hardcoded markup)" },
+    { "id": "e7",  "check": "Custom widgets appear under 'Renobattery' category in the widget panel" },
+    { "id": "e8",  "check": "Theme Builder conditions set correctly for archive/single/header/footer" },
+    { "id": "e9",  "check": "Responsive tablet/mobile overrides render correctly in Elementor preview" }
+  ],
+
+  "responsive_matrix": {
+    "viewports_px": [ 360, 414, 768, 1024, 1280, 1440, 1920 ],
+    "checks_per_viewport": [
+      "Navbar: logo + burger fit, no overflow",
+      "Hero: title readable, CTA tappable (≥44×44px)",
+      "Grids: product/blog cards reflow cleanly",
+      "Filter pills: wrap, don't horizontally scroll",
+      "Footer: columns stack sensibly",
+      "Mobile drawer opens full-screen and scroll-locks body",
+      "Mega-menu: hidden below 1024px",
+      "Timeline: vertical stack below 768px"
+    ]
+  },
+
+  "performance_targets": {
+    "lighthouse_mobile":  { "performance": 90,  "accessibility": 100, "best_practices": 100, "seo": 100 },
+    "lighthouse_desktop": { "performance": 95,  "accessibility": 100, "best_practices": 100, "seo": 100 },
+    "web_vitals": {
+      "LCP_s":    { "home": 2.0,  "product_single": 2.5 },
+      "CLS":      0.02,
+      "INP_ms":   150,
+      "TBT_ms":   150
+    },
+    "bundle_budget_kb_gzipped": { "css": 15, "js": 8 },
+    "image_checks": [
+      "Hero image served as AVIF or WebP",
+      "Above-fold hero has loading='eager' + fetchpriority='high'",
+      "All below-fold images have loading='lazy' decoding='async'",
+      "All <img> have width + height or aspect-ratio container (no CLS)"
+    ]
+  },
+
+  "accessibility": {
+    "standard": "WCAG 2.1 AA",
+    "automated": [ "axe-core 0 critical on home/product/archive/contact" ],
+    "manual": [
+      "Tab-only navigation reaches every interactive element in DOM order",
+      "Focus rings visible on all focusable elements (:focus-visible)",
+      "Mega-menu opens on Enter/Space, closes on Escape",
+      "Mobile drawer traps focus while open (known scope — recommend adding focus trap later)",
+      "All images have meaningful or empty alt",
+      "Color contrast ≥ 4.5:1 for body text, ≥ 3:1 for large text",
+      "Forms: every input has a <label>, errors announced via aria-live",
+      "Reduced motion: enabling OS setting disables all non-essential animation"
+    ]
+  },
+
+  "browser_matrix": {
+    "desktop": [
+      { "browser": "Chrome",   "min_version": 120, "priority": "blocker" },
+      { "browser": "Safari",   "min_version": 17,  "priority": "blocker" },
+      { "browser": "Edge",     "min_version": 120, "priority": "blocker" },
+      { "browser": "Firefox",  "min_version": 120, "priority": "major" }
+    ],
+    "mobile": [
+      { "os": "iOS",     "browser": "Safari",  "min_version": 17, "priority": "blocker" },
+      { "os": "Android", "browser": "Chrome",  "min_version": 120,"priority": "blocker" },
+      { "os": "iOS",     "browser": "Chrome",  "min_version": 120,"priority": "major" }
+    ]
+  },
+
+  "seo": {
+    "head_meta": [
+      "Single <title> per page",
+      "Single <link rel=canonical>",
+      "<meta name=description> present and ≤ 160 chars",
+      "<meta name=theme-color content='#0A0A0A'>",
+      "Open Graph: og:title, og:description, og:image, og:url, og:type, og:locale",
+      "Twitter: twitter:card=summary_large_image, twitter:title, twitter:description, twitter:image",
+      "hreflang emitted for EN + ZH + x-default on every translated URL"
+    ],
+    "schema_org": [
+      "Organization on home (Google Rich Results test passes)",
+      "Product on every single product with at least 3 additionalProperty entries",
+      "Article on blog posts",
+      "BreadcrumbList on every non-home page",
+      "No duplicate or conflicting schema"
+    ],
+    "sitemap": [
+      "XML sitemap accessible at /sitemap_index.xml (via Rank Math/Yoast)",
+      "Sitemap includes all 3 CPTs, all taxonomies, pages, posts",
+      "bilingual URLs include xhtml:link alternate entries"
+    ]
+  },
+
+  "content_coverage": {
+    "pages": [
+      { "url": "/",                        "template": "page-home.json" },
+      { "url": "/products/",               "template": "archive-product.json" },
+      { "url": "/products/{slug}/",        "template": "single-product.json" },
+      { "url": "/cases/",                  "template": "archive-case_study.json" },
+      { "url": "/cases/{slug}/",           "template": "single-case_study.json" },
+      { "url": "/applications/",           "template": "archive-application.json" },
+      { "url": "/applications/{slug}/",    "template": "single-application.json" },
+      { "url": "/blog/",                   "template": "archive-blog.json" },
+      { "url": "/blog/{slug}/",            "template": "single-blog.json" },
+      { "url": "/about/",                  "template": "page-about.json" },
+      { "url": "/contact/",                "template": "page-contact.json" },
+      { "url": "/careers/",                "template": "page-careers.json" },
+      { "url": "/privacy-policy/",         "template": "page-privacy.json" },
+      { "url": "/cookie-policy/",          "template": "page-cookies.json" }
+    ],
+    "check": "Every URL returns 200 and renders the expected template. No dead internal links (crawl with linkcheck)."
+  },
+
+  "bilingual_parity": [
+    "Every EN URL has a ZH counterpart reachable via the language switcher",
+    "Polylang → Languages → Strings: every registered string has a zh_CN translation",
+    "All ACF fields marked translate have distinct ZH values; marked copy share values across languages",
+    "hreflang present on every translated URL",
+    "404 page, forms, breadcrumbs localize correctly",
+    "<html lang> reflects current language; font stack switches to PingFang SC"
+  ],
+
+  "security": [
+    "All user input sanitized: sanitize_text_field, esc_attr, esc_url",
+    "All form output escaped: esc_html, wp_kses_post, esc_url, wp_json_encode",
+    "Forms use WP nonces (Elementor Forms handles this)",
+    "No direct DB queries in theme code (only WP API)",
+    "File uploads limited to expected media types",
+    "Admin AJAX endpoints use check_ajax_referer",
+    "No hardcoded API keys in repo"
+  ],
+
+  "elementor_import_export": [
+    "Activate theme on fresh WP install with Elementor Pro + ACF Pro",
+    "Run php tools/flatten-elementor-templates.php",
+    "Import each dist/*.json via Templates → Saved Templates → Import",
+    "Assign Theme Builder conditions per docs/step-01-architecture.json matrix",
+    "Visit /products/ and confirm Loop Grid uses product-card template",
+    "Create 3 sample products with ACF fields populated",
+    "Confirm hero video bg, gallery carousel, spec table all render"
+  ],
+
+  "launch_runbook": [
+    { "step": 1,  "action": "Upload theme zip to /wp-content/themes/renobattery/ and activate" },
+    { "step": 2,  "action": "Install + activate: Elementor Pro, ACF Pro, Polylang, Rank Math, WP Rocket" },
+    { "step": 3,  "action": "Polylang: register en + zh, URL mode = directory, scan translate strings" },
+    { "step": 4,  "action": "Permalinks: Settings → Permalinks → Post name" },
+    { "step": 5,  "action": "Run php tools/flatten-elementor-templates.php" },
+    { "step": 6,  "action": "Import all dist/*.json templates" },
+    { "step": 7,  "action": "Assign 5 menu locations (primary + 4 footer)" },
+    { "step": 8,  "action": "ACF Options → Site Options: fill phone/email/address/social/CTA" },
+    { "step": 9,  "action": "Upload sample content: 6 products, 4 cases, 5 applications, 6 blog posts" },
+    { "step": 10, "action": "Flush permalinks; test every URL in content_coverage table" },
+    { "step": 11, "action": "Translate ZH copies via Polylang" },
+    { "step": 12, "action": "Run Lighthouse on home + product single (mobile + desktop)" },
+    { "step": 13, "action": "Configure Cloudflare CDN + APO" },
+    { "step": 14, "action": "Submit sitemap to Search Console" }
+  ],
+
+  "known_limitations": [
+    "filter.js relies on a pre_get_posts hook on the product archive accepting ?product_cat=slug — not yet shipped; add before launch if ajax filter needed on post-type archive",
+    "Mobile drawer lacks keyboard focus trap — add inert polyfill or focus-trap library",
+    "Loop Grid 'product-card' template id must be manually set in dist templates after first import (documented in templates/elementor/README.md)"
+  ]
+}
