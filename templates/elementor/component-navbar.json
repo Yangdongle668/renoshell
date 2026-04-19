@@ -14,8 +14,6 @@
         "css_classes": "rb-navbar rb-navbar--transparent",
         "background_background": "classic",
         "background_color": "rgba(10,10,10,0)",
-        "background_hover_color": "rgba(10,10,10,0.92)",
-        "backdrop_filter": "saturate(180%) blur(14px)",
         "padding": {
           "unit": "px",
           "top": "18", "right": "40", "bottom": "18", "left": "40",
@@ -23,8 +21,7 @@
         },
         "position": "fixed",
         "_position_top": { "unit": "px", "size": 0 },
-        "z_index": 900,
-        "css_rules": ".rb-navbar{transition:all 240ms cubic-bezier(0.25,1,0.35,1)} .rb-navbar.is-scrolled{background:rgba(10,10,10,0.92);backdrop-filter:saturate(180%) blur(14px)}"
+        "z_index": 900
       },
       "elements": [
         {

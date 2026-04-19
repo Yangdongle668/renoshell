@@ -214,8 +214,7 @@
                 "image_size": "large",
                 "show_excerpt": "no",
                 "show_date": "no",
-                "css_classes": "rb-grid rb-grid--applications rb-grid--overlay",
-                "card_overlay_gradient": "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%)"
+                "css_classes": "rb-grid rb-grid--applications rb-grid--overlay"
               }
             }
           ]

@@ -15,8 +15,7 @@
         "border_radius": { "unit": "px", "top": 16, "right": 16, "bottom": 16, "left": 16 },
         "padding": { "unit": "px", "top": 0, "right": 0, "bottom": 0, "left": 0 },
         "_element_custom_width": "yes",
-        "motion_fx_motion_fx_scrolling": "yes",
-        "hover_transition": { "unit": "ms", "size": 420 }
+        "motion_fx_motion_fx_scrolling": "yes"
       },
       "elements": [
         {
@@ -35,7 +34,6 @@
                 "link": { "url": "{{post:permalink}}" },
                 "css_classes": "rb-card__media",
                 "image_border_radius": { "unit": "px", "top": 16, "right": 16, "bottom": 0, "left": 0 },
-                "_css_filters_css_filter": "yes",
                 "hover_animation": "grow"
               }
             },
