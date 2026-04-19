@@ -9,7 +9,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'RENOBATTERY_VERSION',   '1.0.2' );
+/**
+ * Hard-disable PHP error display for any request that is expected to return
+ * JSON (admin-ajax, REST API, Elementor preview JSON). Notices from other
+ * plugins would otherwise leak into the response body and break the JSON
+ * parser on the front-end (Elementor Theme Builder, Finder, library, etc.).
+ *
+ * Regular front-end page loads still show errors if WP_DEBUG_DISPLAY is true.
+ */
+$renobattery_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) $_SERVER['REQUEST_URI'] : '';
+if (
+	( defined( 'DOING_AJAX' )  && DOING_AJAX )  ||
+	( defined( 'REST_REQUEST' ) && REST_REQUEST ) ||
+	( $renobattery_uri !== '' && (
+		strpos( $renobattery_uri, '/wp-json/' )       !== false ||
+		strpos( $renobattery_uri, 'admin-ajax.php' )  !== false ||
+		strpos( $renobattery_uri, 'elementor-preview' ) !== false
+	) )
+) {
+	@ini_set( 'display_errors', '0' );
+}
+unset( $renobattery_uri );
+
+define( 'RENOBATTERY_VERSION',   '1.0.3' );
 define( 'RENOBATTERY_DIR',       get_stylesheet_directory() );
 define( 'RENOBATTERY_URI',       get_stylesheet_directory_uri() );
 define( 'RENOBATTERY_TEXTDOMAIN','renobattery' );
