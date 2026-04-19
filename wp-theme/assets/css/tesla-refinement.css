@@ -195,3 +195,104 @@
 		transform: translateX(-50%);
 	}
 }
+
+/* ============================================================
+ * B1 — scroll-driven parallax on archive heroes with bg-image
+ *    --rb-scroll-y is set by assets/js/scroll-fx.js (respects reduced-motion)
+ *    Moves background at 0.15× scroll speed. No layout shift.
+ * ============================================================ */
+.rb-tesla .rb-archive-hero,
+.rb-tesla .rb-case-hero,
+.rb-tesla .rb-app-hero {
+	background-position: center calc(50% + (var(--rb-scroll-y, 0px) * 0.15));
+	will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-archive-hero,
+	.rb-tesla .rb-case-hero,
+	.rb-tesla .rb-app-hero {
+		background-position: center center;
+	}
+}
+
+/* ============================================================
+ * B2 — staggered grid reveal (opt-in: add class `rb-stagger-grid`)
+ *    JS sets --i on each child; CSS delays each child's transition.
+ * ============================================================ */
+.rb-tesla .rb-stagger-grid > * {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity   var(--rb-dur-slow)   var(--rb-ease-tesla),
+		transform var(--rb-dur-slower) var(--rb-ease-tesla);
+	transition-delay: calc(var(--i, 0) * 80ms);
+	will-change: opacity, transform;
+}
+.rb-tesla .rb-stagger-grid.is-revealed > * {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-stagger-grid > *,
+	.rb-tesla .rb-stagger-grid.is-revealed > * {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* ============================================================
+ * B3 — headline clip reveal (opt-in: add class `rb-headline-reveal`)
+ *    JS wraps contents in <span>; span translates from 110% to 0%
+ *    while the wrapper clips overflow.
+ * ============================================================ */
+.rb-tesla .rb-headline-reveal {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	line-height: var(--rb-lh-display);
+	padding-bottom: 0.08em; /* avoid descender clipping */
+}
+.rb-tesla .rb-headline-reveal > span {
+	display: inline-block;
+	transform: translateY(110%);
+	transition: transform var(--rb-dur-cinema) var(--rb-ease-tesla);
+	will-change: transform;
+}
+.rb-tesla .rb-headline-reveal.is-revealed > span {
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rb-tesla .rb-headline-reveal > span,
+	.rb-tesla .rb-headline-reveal.is-revealed > span {
+		transform: none;
+		transition: none;
+	}
+}
+
+/* ============================================================
+ * B4 — panel snap scroll (opt-in: add class `rb-panel-snap` to <body>)
+ *    JS mirrors the class onto <html> so scroll-snap applies on the root
+ *    scroller. Uses 'proximity' (not 'mandatory') so forms, sticky navs
+ *    and deep-linked anchors still behave.
+ *    Disabled on mobile and under reduced-motion.
+ * ============================================================ */
+html.rb-panel-snap {
+	scroll-snap-type: y proximity;
+	scroll-behavior: smooth;
+}
+html.rb-panel-snap body > .elementor-section:not(.elementor-inner-section),
+html.rb-panel-snap body > section {
+	scroll-snap-align: start;
+	scroll-margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+	html.rb-panel-snap { scroll-snap-type: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html.rb-panel-snap { scroll-snap-type: none; scroll-behavior: auto; }
+}
