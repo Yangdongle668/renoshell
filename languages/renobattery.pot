@@ -1,0 +1,332 @@
+# Renobattery Theme — Translation Template
+# Copyright (C) 2026 Renobattery
+# This file is distributed under the same license as the Renobattery theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Renobattery 1.0.0\n"
+"Report-Msgid-Bugs-To: https://renobattery.com\n"
+"POT-Creation-Date: 2026-04-19 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Renobattery <i18n@renobattery.com>\n"
+"X-Generator: Renobattery seed\n"
+"X-Domain: renobattery\n"
+
+# ---------- Theme meta ----------
+msgid "Renobattery"
+msgstr ""
+
+msgid "Tesla-grade Elementor child theme for battery manufacturers. Ships custom widgets, design tokens, bilingual (EN/CN) support and cinematic motion."
+msgstr ""
+
+# ---------- Nav / menus ----------
+msgid "Primary Navigation"
+msgstr ""
+
+msgid "Footer — Products"
+msgstr ""
+
+msgid "Footer — Company"
+msgstr ""
+
+msgid "Footer — Resources"
+msgstr ""
+
+msgid "Footer — Legal"
+msgstr ""
+
+# ---------- Eyebrow labels ----------
+msgid "Products"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Case Studies"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Careers"
+msgstr ""
+
+msgid "Journal"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+msgid "Specifications"
+msgstr ""
+
+msgid "Benefits"
+msgstr ""
+
+msgid "Recommended Products"
+msgstr ""
+
+msgid "Open roles"
+msgstr ""
+
+msgid "About Renobattery"
+msgstr ""
+
+msgid "Our mission"
+msgstr ""
+
+msgid "Culture"
+msgstr ""
+
+msgid "Legal"
+msgstr ""
+
+# ---------- Section headlines ----------
+msgid "Engineered for every scale."
+msgstr ""
+
+msgid "Powering every industry."
+msgstr ""
+
+msgid "Real projects. Real results."
+msgstr ""
+
+msgid "Full technical specifications."
+msgstr ""
+
+msgid "You may also consider."
+msgstr ""
+
+msgid "Keep reading"
+msgstr ""
+
+msgid "What's inside."
+msgstr ""
+
+msgid "Why Renobattery for this application."
+msgstr ""
+
+msgid "Proven in this use case."
+msgstr ""
+
+msgid "Now hiring."
+msgstr ""
+
+msgid "Talk to an engineer."
+msgstr ""
+
+msgid "Let's build what you need."
+msgstr ""
+
+msgid "Build the batteries powering the next century."
+msgstr ""
+
+msgid "Engineering the energy future, cell by cell."
+msgstr ""
+
+msgid "The next generation of energy storage."
+msgstr ""
+
+msgid "Partner with us to build the energy future."
+msgstr ""
+
+msgid "Ready to electrify?"
+msgstr ""
+
+msgid "Power beyond limits."
+msgstr ""
+
+# ---------- CTA buttons ----------
+msgid "Get Quote"
+msgstr ""
+
+msgid "Contact Sales"
+msgstr ""
+
+msgid "Download Catalog"
+msgstr ""
+
+msgid "View all"
+msgstr ""
+
+msgid "View all products"
+msgstr ""
+
+msgid "Explore applications"
+msgstr ""
+
+msgid "Explore Products"
+msgstr ""
+
+msgid "Load more"
+msgstr ""
+
+msgid "Read article"
+msgstr ""
+
+msgid "View Details"
+msgstr ""
+
+msgid "Request Quote"
+msgstr ""
+
+msgid "Download Datasheet"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Send inquiry"
+msgstr ""
+
+msgid "Learn more"
+msgstr ""
+
+msgid "View open roles"
+msgstr ""
+
+msgid "Cookie preferences"
+msgstr ""
+
+msgid "Manage your preferences"
+msgstr ""
+
+# ---------- Form fields ----------
+msgid "Name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Application"
+msgstr ""
+
+msgid "Project details"
+msgstr ""
+
+msgid "Your name"
+msgstr ""
+
+msgid "name@company.com"
+msgstr ""
+
+msgid "+1 555 000 0000"
+msgstr ""
+
+msgid "kWh target, site constraints, timeline…"
+msgstr ""
+
+msgid "I agree to the privacy policy."
+msgstr ""
+
+msgid "your@email.com"
+msgstr ""
+
+# ---------- Process / timeline ----------
+msgid "Consult"
+msgstr ""
+
+msgid "Design"
+msgstr ""
+
+msgid "Manufacture"
+msgstr ""
+
+msgid "Deploy & Support"
+msgstr ""
+
+# ---------- Filters ----------
+msgid "All"
+msgstr ""
+
+msgid "Newest"
+msgstr ""
+
+msgid "Highest capacity"
+msgstr ""
+
+msgid "A → Z"
+msgstr ""
+
+msgid "Sort"
+msgstr ""
+
+# ---------- Spec labels ----------
+msgid "Capacity"
+msgstr ""
+
+msgid "Voltage"
+msgstr ""
+
+msgid "Energy"
+msgstr ""
+
+msgid "Cycle Life"
+msgstr ""
+
+msgid "Chemistry"
+msgstr ""
+
+msgid "Dimensions"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "Operating Temp"
+msgstr ""
+
+msgid "IP Rating"
+msgstr ""
+
+msgid "Certifications"
+msgstr ""
+
+# ---------- Case study KPI labels ----------
+msgid "Client"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Industry"
+msgstr ""
+
+# ---------- Offices ----------
+msgid "APAC HQ"
+msgstr ""
+
+msgid "EMEA"
+msgstr ""
+
+msgid "Americas"
+msgstr ""
+
+msgid "Shenzhen"
+msgstr ""
+
+msgid "Frankfurt"
+msgstr ""
+
+msgid "Austin"
+msgstr ""
+
+# ---------- Footer ----------
+msgid "Newsletter"
+msgstr ""
+
+# ---------- Plurals ----------
+msgid "%d product"
+msgid_plural "%d products"
+msgstr[0] ""
+msgstr[1] ""
