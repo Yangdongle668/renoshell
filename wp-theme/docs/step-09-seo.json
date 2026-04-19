@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "name": "renobattery-seo",
+    "philosophy": "Let a dedicated SEO plugin (Rank Math or Yoast) handle titles/descriptions/canonicals/sitemaps. The theme ships battery-industry schema that those plugins don't know about, plus safe defensive fallbacks for head meta when no SEO plugin is active."
+  },
+
+  "plugin_compatibility": {
+    "recommended": "Rank Math (free) or Yoast SEO — theme detects presence and yields head emission to plugin where overlap exists.",
+    "detection": "Checked via `defined('RANK_MATH_VERSION')` or `defined('WPSEO_VERSION')` in inc/seo-head.php"
+  },
+
+  "head_meta": {
+    "canonical":        "emitted by SEO plugin; theme fallback only if plugin absent",
+    "meta_description": "SEO plugin; fallback = excerpt|content-first-155-chars",
+    "robots":           "SEO plugin; fallback = noindex,follow for search/tag/author archives",
+    "open_graph":       "SEO plugin; fallback outputs og:title, og:description, og:image (thumbnail size rb-hero), og:type, og:url, og:site_name, og:locale",
+    "twitter_card":     "summary_large_image; fallback in theme",
+    "favicon":          "WP Customizer (Site Icon)",
+    "theme_color":      "meta name='theme-color' content='#0A0A0A'"
+  },
+
+  "schema_types": {
+    "Organization": {
+      "emitted_on": [ "home (front page)" ],
+      "shape": {
+        "@type": "Organization",
+        "name": "Renobattery",
+        "legalName": "Renobattery Technology Co., Ltd.",
+        "url": "{home_url}",
+        "logo": "{custom_logo_url}",
+        "description": "Battery manufacturer — LiFePO₄ modular energy storage.",
+        "foundingDate": "2014",
+        "address": [ "PostalAddress for each office" ],
+        "contactPoint": [
+          { "@type": "ContactPoint", "contactType": "sales", "telephone": "{option:company_phone}", "email": "{option:company_email}" }
+        ],
+        "sameAs": "[{option:social_links[*].url}]"
+      }
+    },
+    "Product": {
+      "emitted_on": [ "single product" ],
+      "shape": {
+        "@type": "Product",
+        "name":  "{post:title}",
+        "image": "[{acf:gallery[*].sizes.rb-gallery}]",
+        "description": "{post:excerpt}",
+        "sku":   "{acf:model_code}",
+        "brand": { "@type": "Brand", "name": "Renobattery" },
+        "category": "{tax:product_cat.names[]}",
+        "additionalProperty": [
+          { "name": "Capacity",     "value": "{acf:battery_capacity}",  "unitText": "Ah"   },
+          { "name": "Voltage",      "value": "{acf:nominal_voltage}",   "unitText": "V"    },
+          { "name": "Energy",       "value": "{acf:energy_kwh}",        "unitText": "kWh"  },
+          { "name": "Cycle Life",   "value": "{acf:cycle_life}"                           },
+          { "name": "Chemistry",    "value": "{acf:chemistry}"                           },
+          { "name": "IP Rating",    "value": "{acf:ip_rating}"                           }
+        ]
+      }
+    },
+    "BreadcrumbList": {
+      "emitted_on": [ "every non-home page" ],
+      "shape": "position-indexed ItemList from WP hierarchy + taxonomy + post-type archive"
+    },
+    "Article": {
+      "emitted_on": [ "single blog post" ],
+      "shape": {
+        "@type": "Article",
+        "headline": "{post:title}",
+        "image":    "{post:featured_image rb-hero}",
+        "author":   { "@type": "Person", "name": "{post:author_name}" },
+        "publisher": { "@type": "Organization", "name": "Renobattery", "logo": "{logo_url}" },
+        "datePublished": "{post:date_c}",
+        "dateModified":  "{post:modified_c}",
+        "description":   "{post:excerpt}",
+        "mainEntityOfPage": "{post:permalink}"
+      }
+    },
+    "CaseStudy (as CreativeWork)": {
+      "emitted_on": [ "single case_study" ],
+      "shape": {
+        "@type": "CreativeWork",
+        "name":  "{post:title}",
+        "about": { "@type": "Thing", "name": "{tax:application_cat.names[]}" },
+        "creator": { "@type": "Organization", "name": "Renobattery" },
+        "locationCreated": "{acf:location}"
+      }
+    },
+    "FAQPage": {
+      "emitted_on": [ "optional: single product if FAQ ACF block exists" ],
+      "shape": "Question/Answer pairs from a repeater — not yet wired, stubbed"
+    }
+  },
+
+  "sitemap": {
+    "strategy": "Rank Math / Yoast generate XML sitemap. Theme just ensures CPTs are listed.",
+    "expected_indexes": [
+      "/sitemap_index.xml",
+      "/product-sitemap.xml",
+      "/case_study-sitemap.xml",
+      "/application-sitemap.xml",
+      "/post-sitemap.xml",
+      "/page-sitemap.xml",
+      "/product_cat-sitemap.xml",
+      "/application_cat-sitemap.xml"
+    ],
+    "bilingual": "Polylang auto-adds <xhtml:link rel='alternate' hreflang=...> lines inside each URL entry."
+  },
+
+  "robots_txt": {
+    "recommendation": "Let WordPress generate the virtual robots.txt (handled by SEO plugin). Key directives:",
+    "directives": [
+      "Sitemap: {home_url}/sitemap_index.xml",
+      "Disallow: /wp-admin/",
+      "Allow: /wp-admin/admin-ajax.php",
+      "Disallow: /?s=",
+      "Disallow: /*?*orderby=",
+      "Disallow: /*?*product_cat=all"
+    ]
+  },
+
+  "heading_structure": {
+    "rule": "Exactly one <h1> per page (post/archive title).",
+    "pages": {
+      "home":           "h1 inside hero title widget",
+      "archive":        "h1 via archive-title widget",
+      "single":         "h1 via post-title widget",
+      "legal":          "h1 via post-title widget"
+    },
+    "h2_h3_usage": "Section eyebrows are <span>, section headlines are <h2>. Widgets/cards use <h3>. Subsections use <h4>."
+  },
+
+  "image_seo": {
+    "alt_policy": "Required for all content images (ACF `image` fields store alt; WP media library alt respected). Decorative images use alt=''.",
+    "lazy_loading": "native loading='lazy', above-fold uses loading='eager' + fetchpriority='high'",
+    "srcset": "handled by WP core + add_image_size in theme-setup.php"
+  },
+
+  "performance_seo_intersection": [
+    "Core Web Vitals targets defined in step-06-performance.json",
+    "Preload hero LCP image",
+    "self-hosted fonts with font-display:swap",
+    "CSS critical inline ≤ 14kb"
+  ]
+}
