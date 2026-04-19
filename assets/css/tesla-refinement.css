@@ -18,6 +18,59 @@
  */
 
 /* ============================================================
+ * C1 — Inter Display @font-face (self-hosted)
+ *   Drop .woff2 files into assets/fonts/ — see assets/fonts/README.md.
+ *   If files are missing, font-display:swap falls back to Inter → sans.
+ * ============================================================ */
+@font-face {
+	font-family: 'Inter Display';
+	src: url('../fonts/InterDisplay-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Inter Display';
+	src: url('../fonts/InterDisplay-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ============================================================
+ * C3 — Override electric blue under Tesla mode
+ *   Tesla palette is strictly black/white/red. We keep the base
+ *   --rb-color-electric token intact; just shadow it here.
+ *   Hardcoded #1B6CFF from existing imported templates (icon-lists)
+ *   is handled by specific !important overrides below.
+ * ============================================================ */
+.rb-tesla {
+	--rb-color-electric: var(--rb-color-ink);
+	--rb-info:          var(--rb-n-600);
+	--rb-link:          var(--rb-color-ink);
+	--rb-link-hover:    var(--rb-color-accent);
+}
+
+/* Elementor icon-list widgets in battery components use inline color:#1B6CFF
+ * Override in targeted selectors only — keep blue usable elsewhere. */
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-icon i,
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-icon svg,
+.rb-tesla .rb-card__specs           .elementor-icon-list-icon i,
+.rb-tesla .rb-card__specs           .elementor-icon-list-icon svg,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-icon i,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-icon svg,
+.rb-tesla .rb-contact__info         .elementor-icon-list-icon i,
+.rb-tesla .rb-contact__info         .elementor-icon-list-icon svg {
+	color: currentColor !important;
+	fill:  currentColor !important;
+}
+.rb-tesla .rb-feature__bullets      .elementor-icon-list-item,
+.rb-tesla .rb-product-key-specs     .elementor-icon-list-item,
+.rb-tesla .rb-contact__info         .elementor-icon-list-item {
+	color: var(--rb-color-ink);
+}
+
+/* ============================================================
  * A4 — body weight 500 (Tesla default) + headings stay 600
  * ============================================================ */
 .rb-tesla {
