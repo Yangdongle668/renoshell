@@ -19,6 +19,7 @@ require_once RENOBATTERY_DIR . '/inc/enqueue.php';
 require_once RENOBATTERY_DIR . '/inc/cpt.php';
 require_once RENOBATTERY_DIR . '/inc/taxonomies.php';
 require_once RENOBATTERY_DIR . '/inc/acf-fields.php';
+require_once RENOBATTERY_DIR . '/inc/archive-query.php';
 require_once RENOBATTERY_DIR . '/inc/polylang.php';
 require_once RENOBATTERY_DIR . '/inc/seo-head.php';
 require_once RENOBATTERY_DIR . '/inc/schema.php';
