@@ -24,3 +24,6 @@ require_once RENOBATTERY_DIR . '/inc/polylang.php';
 require_once RENOBATTERY_DIR . '/inc/seo-head.php';
 require_once RENOBATTERY_DIR . '/inc/schema.php';
 require_once RENOBATTERY_DIR . '/inc/elementor-widgets.php';
+if ( is_admin() ) {
+	require_once RENOBATTERY_DIR . '/inc/loop-binder.php';
+}
