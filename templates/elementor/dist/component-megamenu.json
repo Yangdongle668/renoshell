@@ -1,0 +1,87 @@
+{
+    "version": "0.4",
+    "title": "RB / Mega Menu Panels (Products + Applications)",
+    "type": "section",
+    "notes": [
+        "Place this section inside the header template, AFTER component-navbar.",
+        "It holds two hidden panels that are revealed by hovering the matching top-level nav items.",
+        "To wire a nav item to a panel:",
+        "  1. In Appearance → Menus, edit the 'Products' (or 'Applications') menu item.",
+        "  2. Open CSS Classes (enable via Screen Options if hidden) and add: has-rb-megamenu",
+        "  3. In Link Relationship (XFN), add: #mm-products (or #mm-applications) — the anchor href attribute will be used as the trigger id.",
+        "assets/js/megamenu.js handles hover/focus → .is-open."
+    ],
+    "content": [
+        {
+            "id": "mm-wrap",
+            "elType": "section",
+            "settings": {
+                "layout": "full_width",
+                "stretch_section": "section-stretched",
+                "css_classes": "rb-megamenu-wrap",
+                "padding": {
+                    "unit": "px",
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                },
+                "position": "absolute",
+                "_position_top": {
+                    "unit": "px",
+                    "size": 72
+                },
+                "z_index": 800
+            },
+            "elements": [
+                {
+                    "id": "mm-col-1",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100
+                    },
+                    "elements": [
+                        {
+                            "id": "mm-products-widget",
+                            "elType": "widget",
+                            "widgetType": "renobattery-mega-menu",
+                            "settings": {
+                                "trigger_id": "mm-products",
+                                "heading": "Products",
+                                "source": "taxonomy",
+                                "taxonomy": "product_cat",
+                                "max_tiles": 6,
+                                "columns": "3",
+                                "cta_text": "View all products",
+                                "cta_link": {
+                                    "url": "/products/"
+                                },
+                                "bg_color": "#0A0A0A"
+                            }
+                        },
+                        {
+                            "id": "mm-applications-widget",
+                            "elType": "widget",
+                            "widgetType": "renobattery-mega-menu",
+                            "settings": {
+                                "trigger_id": "mm-applications",
+                                "heading": "Applications",
+                                "source": "taxonomy",
+                                "taxonomy": "application_cat",
+                                "max_tiles": 8,
+                                "columns": "4",
+                                "cta_text": "Explore applications",
+                                "cta_link": {
+                                    "url": "/applications/"
+                                },
+                                "bg_color": "#0A0A0A"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "isInner": false
+        }
+    ],
+    "page_settings": []
+}

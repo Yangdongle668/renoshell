@@ -18,6 +18,7 @@ final class Renobattery_Elementor {
 		'spec-table'       => 'Renobattery_Widget_Spec_Table',
 		'taxonomy-filter'  => 'Renobattery_Widget_Taxonomy_Filter',
 		'download-card'    => 'Renobattery_Widget_Download_Card',
+		'mega-menu'        => 'Renobattery_Widget_Mega_Menu',
 	];
 
 	public static function init() : void {
