@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "project":    "renobattery — Tesla-style B2B battery manufacturer theme",
+    "stack":      "WordPress 6.4+, PHP 8.1+, Elementor Pro 3.21+, ACF Pro, Polylang",
+    "parent":     "hello-elementor",
+    "i18n":       ["en (default)", "zh"],
+    "reuse_notice": "Prior artifacts from earlier run are reusable: architecture, tokens, 5 core components, 3 page templates, animation spec, performance spec, 4 custom widgets, tokens.css, components.css. Remaining gaps are addressed in this plan."
+  },
+
+  "phases": [
+    {
+      "id": "P1", "name": "Foundation",
+      "steps": ["STEP 1", "STEP 2"],
+      "deliverables": ["architecture JSON", "design tokens JSON", "tokens.css"],
+      "status_existing": "done (re-verify in STEP 1/2)",
+      "blocks": ["P2", "P3", "P4"]
+    },
+    {
+      "id": "P2", "name": "Global shell",
+      "steps": ["STEP 3"],
+      "deliverables": ["navbar.json", "footer.json", "mega-menu spec", "mobile drawer spec"],
+      "status_existing": "partial — navbar + footer exist, need mega menu + mobile drawer + language switcher detail",
+      "blocks": ["P4", "P5"]
+    },
+    {
+      "id": "P3", "name": "Core UI kit",
+      "steps": ["STEP 4"],
+      "deliverables": ["hero", "product-card", "cta", "feature-section", "product-spec-table", "case-card", "blog-card", "timeline", "contact-form"],
+      "status_existing": "partial — hero, product-card, cta done; need feature-section, case-card, blog-card, timeline, contact-form",
+      "blocks": ["P4"]
+    },
+    {
+      "id": "P4", "name": "Page templates phase 1",
+      "steps": ["STEP 5"],
+      "deliverables": ["page-home", "archive-product", "single-product"],
+      "status_existing": "done (reusable)",
+      "blocks": ["P5"]
+    },
+    {
+      "id": "P5", "name": "Page templates phase 2",
+      "steps": ["STEP 6"],
+      "deliverables": [
+        "archive-case_study", "single-case_study",
+        "archive-application", "single-application",
+        "archive-blog", "single-blog",
+        "page-about", "page-contact", "page-careers",
+        "page-privacy", "page-cookies"
+      ],
+      "status_existing": "not started — full build required",
+      "blocks": ["P6", "P7"]
+    },
+    {
+      "id": "P6", "name": "Motion & interaction",
+      "steps": ["STEP 7"],
+      "deliverables": ["motion spec JSON", "assets/js/motion.js", "assets/js/navbar.js", "assets/css/motion.css"],
+      "status_existing": "spec done; JS/CSS files pending",
+      "blocks": ["P8"]
+    },
+    {
+      "id": "P7", "name": "Bilingual",
+      "steps": ["STEP 8"],
+      "deliverables": ["polylang config JSON", "string-translation seed", "zh_CN.po seed", "language-switcher integration"],
+      "status_existing": "not started",
+      "blocks": ["P9"]
+    },
+    {
+      "id": "P8", "name": "Performance & SEO",
+      "steps": ["STEP 9"],
+      "deliverables": ["performance spec (done)", "schema.org snippets (Product, Organization, BreadcrumbList, FAQPage, Article)", "head meta strategy"],
+      "status_existing": "performance done; SEO/schema pending",
+      "blocks": ["P9"]
+    },
+    {
+      "id": "P9", "name": "QA & hand-off",
+      "steps": ["STEP 10"],
+      "deliverables": ["QA checklist JSON", "pre-launch runbook", "Elementor import guide"],
+      "status_existing": "not started",
+      "blocks": []
+    }
+  ],
+
+  "step_order_and_deps": [
+    { "step": 0,  "name": "Master plan",              "depends_on": [],       "output": "this file" },
+    { "step": 1,  "name": "WP architecture",          "depends_on": [0],      "output": "step-01-architecture.json" },
+    { "step": 2,  "name": "Design tokens",            "depends_on": [1],      "output": "step-02-design-tokens.json" },
+    { "step": 3,  "name": "Header + Footer",          "depends_on": [2],      "output": "component-navbar.json, component-footer.json, component-megamenu.json, component-mobile-drawer.json" },
+    { "step": 4,  "name": "Core UI components",       "depends_on": [2,3],    "output": "hero, product-card, product-spec-table, case-card, blog-card, cta, feature-section, timeline, contact-form" },
+    { "step": 5,  "name": "Page templates phase 1",   "depends_on": [3,4],    "output": "page-home.json, archive-product.json, single-product.json" },
+    { "step": 6,  "name": "Page templates phase 2",   "depends_on": [4,5],    "output": "11 remaining page/archive/single templates" },
+    { "step": 7,  "name": "Animation system",         "depends_on": [2,3,4],  "output": "step-05-animation-system.json + JS/CSS implementations" },
+    { "step": 8,  "name": "Bilingual",                "depends_on": [1,5,6],  "output": "polylang.json, string-seed, .po file" },
+    { "step": 9,  "name": "Performance + SEO",        "depends_on": [1..7],   "output": "step-06-performance.json (done) + schema snippets + head meta" },
+    { "step": 10, "name": "QA checklist",             "depends_on": [1..9],   "output": "step-10-qa.json" }
+  ],
+
+  "critical_path": "0 → 1 → 2 → 3 → 4 → 5 → 6 → 10",
+  "parallelizable_after_P3": ["STEP 7 (motion JS/CSS)", "STEP 8 (i18n)", "STEP 9 (SEO/schema)"],
+
+  "granular_task_tree": {
+    "STEP_1_architecture": [
+      "1.1 CPT: product, case_study, application (labels, rewrite, supports, REST)",
+      "1.2 Taxonomies: product_cat, application_cat, category",
+      "1.3 ACF groups: product-specs, case-study, application, global-options",
+      "1.4 URL rewrite rules + /zh/ prefix",
+      "1.5 Menu locations (5)",
+      "1.6 Elementor theme-builder conditions (10 slots)"
+    ],
+    "STEP_2_tokens": [
+      "2.1 Color system (brand/neutral/semantic/surface/text/border)",
+      "2.2 Type scale (display→eyebrow) + EN/CN stacks + clamp()",
+      "2.3 Spacing scale + section-padding presets",
+      "2.4 Layout (breakpoints, containers, grid, z-index)",
+      "2.5 Radius + shadow",
+      "2.6 Motion durations + easings",
+      "2.7 Button/icon tokens",
+      "2.8 Elementor Global-Styles mapping"
+    ],
+    "STEP_3_header_footer": [
+      "3.1 Navbar: transparent→solid, sticky, hide-on-scroll-down",
+      "3.2 Mega menu: 3-col Products + 3-col Applications (image tiles + descriptions)",
+      "3.3 Mobile drawer: fullscreen dark, staggered links, lang switch bottom",
+      "3.4 Footer: 4-col + legal strip + newsletter",
+      "3.5 Language switcher (Polylang), EN/CN pill"
+    ],
+    "STEP_4_components": [
+      "4.1 Hero fullscreen (done)",
+      "4.2 Product card (done)",
+      "4.3 CTA section (done)",
+      "4.4 Feature section (split 50/50 with image + bullets)",
+      "4.5 Product spec table widget (done)",
+      "4.6 Case study card (image bg, gradient, KPI overlay)",
+      "4.7 Blog card (image + date + category)",
+      "4.8 Timeline / process (horizontal steps)",
+      "4.9 Contact form section (2-col: copy + form)"
+    ],
+    "STEP_5_pages_p1": [
+      "5.1 Home (done)",
+      "5.2 Product archive (done)",
+      "5.3 Product single (done)"
+    ],
+    "STEP_6_pages_p2": [
+      "6.1 Case archive + single",
+      "6.2 Application archive + single",
+      "6.3 Blog archive + single",
+      "6.4 About (story, values, team, milestones timeline)",
+      "6.5 Contact (form + map + offices)",
+      "6.6 Careers (intro + open-roles list + culture)",
+      "6.7 Privacy + Cookie (legal long-form template)"
+    ],
+    "STEP_7_motion": [
+      "7.1 Spec JSON (done)",
+      "7.2 assets/js/navbar.js (scroll threshold, hide/show)",
+      "7.3 assets/js/motion.js (IntersectionObserver reveal, body is-loaded)",
+      "7.4 assets/js/filter.js (archive ajax + sort)",
+      "7.5 assets/css/motion.css (keyframes, hover, reduced-motion)"
+    ],
+    "STEP_8_bilingual": [
+      "8.1 Polylang plugin config (register languages, URL /zh/)",
+      "8.2 Translate CPT + taxonomy slugs",
+      "8.3 ACF field translation policy (translate: specs; copy: nums)",
+      "8.4 String-translation seed (menu labels, CTAs, placeholders)",
+      "8.5 Elementor template duplication strategy (per-language templates)",
+      "8.6 hreflang + x-default headers",
+      "8.7 Language switcher UI contract"
+    ],
+    "STEP_9_perf_seo": [
+      "9.1 Performance (done)",
+      "9.2 Schema.org Product (price optional, specs, image, brand)",
+      "9.3 Schema.org Organization + ContactPoint",
+      "9.4 Schema.org BreadcrumbList",
+      "9.5 Schema.org Article for blog",
+      "9.6 Schema.org FAQPage on product single (optional)",
+      "9.7 Open Graph + Twitter card templates",
+      "9.8 XML sitemap rules (by CPT, bilingual)",
+      "9.9 robots.txt directives"
+    ],
+    "STEP_10_qa": [
+      "10.1 Elementor editability checklist (every section editable, no locked HTML)",
+      "10.2 Responsive matrix (360/768/1024/1440/1920)",
+      "10.3 Core Web Vitals thresholds",
+      "10.4 Cross-browser matrix (Chrome, Safari, Edge, Firefox; iOS/Android)",
+      "10.5 Accessibility (WCAG 2.1 AA, keyboard, aria, contrast)",
+      "10.6 SEO head-audit (canonical, hreflang, schema validity)",
+      "10.7 Content coverage (all 14 pages reachable, no dead links)",
+      "10.8 Bilingual parity (EN vs CN render identical structures)",
+      "10.9 Import/export smoke test (Elementor JSON import works)",
+      "10.10 Security (nonces on forms, sanitize/escape, no PHP warnings)"
+    ]
+  },
+
+  "risk_register": [
+    { "risk": "Elementor JSON schema drift across versions",           "mitigation": "lock Elementor Pro >=3.21, test import before hand-off" },
+    { "risk": "ACF field key mismatch between JSON spec and WP",       "mitigation": "generate ACF JSON sync from single source" },
+    { "risk": "Polylang + Elementor template per-lang duplication",    "mitigation": "use 'Copy from' feature; document matrix in STEP 8" },
+    { "risk": "Chinese font weight on PingFang absent → fallback FOUT","mitigation": "size-adjust + Noto Sans SC fallback with metric match" },
+    { "risk": "Video hero + mobile data cost",                         "mitigation": "poster + disable autoplay <768px (already in STEP 6 perf)" },
+    { "risk": "Motion-fx causing CLS on iOS Safari",                   "mitigation": "disable parallax <1024px; prefers-reduced-motion respected" }
+  ],
+
+  "definition_of_done": [
+    "All 14 pages built as Elementor templates, importable into fresh WP",
+    "Every section editable in Elementor (no hardcoded HTML in templates)",
+    "Lighthouse mobile >= 90, desktop >= 95 on home + product single",
+    "WCAG 2.1 AA — axe scan 0 critical",
+    "EN + CN render with identical component structure; string-translation complete for shipped strings",
+    "ACF fields synced; dynamic tags resolve on all templates",
+    "Custom widgets register and appear under 'Renobattery' category",
+    "README + import guide committed"
+  ]
+}
